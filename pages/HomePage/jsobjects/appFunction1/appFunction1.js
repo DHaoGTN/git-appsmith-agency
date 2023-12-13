@@ -6,7 +6,7 @@ export default {
 		}
 		catch (error){
 			return showAlert("Session expired. Please re-login", 'warning')
-				.then(() => navigateTo('login'))
+				.then(() => navigateTo('Login'))
 		}
 	},
 
