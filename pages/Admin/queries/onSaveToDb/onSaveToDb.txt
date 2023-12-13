@@ -1,0 +1,7 @@
+UPDATE contracts
+SET application_code = {{Table1.updatedRow.application_code}},
+    system_id = {{Table1.updatedRow.system_id}},
+    gtn_id = {{Table1.updatedRow.gtn_id}},
+    contract_date = {{Table1.updatedRow.contract_date}},
+    contract_end_date = {{Table1.updatedRow.contract_end_date}}
+WHERE id = {{Table1.updatedRow.id}};

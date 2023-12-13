@@ -1,0 +1,3 @@
+SELECT language_code, COUNT(*) AS count
+FROM available_languages
+GROUP BY language_code;

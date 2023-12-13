@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT language_code) AS count FROM available_languages;

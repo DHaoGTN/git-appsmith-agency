@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT application_code) AS count FROM gtn_id_applications;

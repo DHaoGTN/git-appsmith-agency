@@ -1,0 +1,5 @@
+SELECT year, application_code, SUM(`count`) AS count
+FROM contract_counts
+WHERE year = {{Select1.value}}
+GROUP BY year, application_code
+ORDER BY year ASC;

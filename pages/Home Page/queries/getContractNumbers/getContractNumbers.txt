@@ -1,0 +1,1 @@
+SELECT COUNT(DISTINCT system_id) AS count FROM contracts;

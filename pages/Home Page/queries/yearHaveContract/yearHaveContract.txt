@@ -1,0 +1,3 @@
+SELECT DISTINCT year AS label, year AS value
+FROM contract_counts
+ORDER BY year DESC;

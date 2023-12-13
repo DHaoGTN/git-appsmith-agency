@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "onSaveData",
+    "pageId": "Admin",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Admin_onSaveData",
+  "deleted": false,
+  "gitSyncId": "656d96555d315453a764edee_656eb81f20dbf119690b85e2"
+}

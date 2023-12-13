@@ -1,0 +1,5 @@
+SELECT YEAR(billing_date) AS year, application_code, SUM(`count`) AS count
+FROM invoices
+WHERE YEAR(billing_date) = {{Select1.value}}
+GROUP BY year, application_code
+ORDER BY year ASC;

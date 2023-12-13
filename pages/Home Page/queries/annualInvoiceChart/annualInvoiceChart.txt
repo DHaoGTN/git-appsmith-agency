@@ -1,0 +1,4 @@
+SELECT YEAR(billing_date) AS billing_year, application_code, COUNT(*) AS count
+FROM invoices
+WHERE YEAR(billing_date) = {{Select2.value}}
+GROUP BY YEAR(billing_date), application_code;

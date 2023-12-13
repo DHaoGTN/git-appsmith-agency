@@ -1,0 +1,4 @@
+SELECT {{Select2Copy.value}} AS year, application_code AS application_id, SUM(price) AS total
+FROM invoices
+WHERE YEAR(billing_date) = {{Select2Copy.value}}
+GROUP BY application_code;

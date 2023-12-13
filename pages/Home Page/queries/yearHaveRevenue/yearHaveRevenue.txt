@@ -1,0 +1,3 @@
+SELECT DISTINCT YEAR(billing_date) AS year, YEAR(billing_date) AS value
+FROM invoices
+ORDER BY year DESC;
