@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1990,
+          "bottomRow": 2020,
           "containerStyle": "none",
           "snapRows": 66,
           "parentRowSpace": 1,
@@ -27,6 +27,27 @@
         },
         "layoutOnLoadActions": [
           [
+            {
+              "id": "HomePage_Loop.startCountingAndLogging",
+              "name": "Loop.startCountingAndLogging",
+              "collectionId": "HomePage_Loop",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "function () {\n  if (!Loop.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      const tokendb = await checkTokenExist.run({\n        token\n      });\n      console.log('tokendb', tokendb);\n      return tokendb.data;\n    };\n    Loop.intervalId = setInterval(process, 5000);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "HomePage_checkTokenExist",
+              "name": "checkTokenExist",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "this.params.token"
+              ],
+              "timeoutInMillisecond": 10000
+            },
             {
               "id": "HomePage_contractMonthChart",
               "name": "contractMonthChart",

@@ -9,8 +9,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 57,
-    "bottomRow": 101,
+    "topRow": 60,
+    "bottomRow": 104,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -180,10 +180,10 @@
     "renderMode": "CANVAS",
     "isLoading": false,
     "yAxisName": "",
-    "originalTopRow": 57,
+    "originalTopRow": 60,
     "chartName": "Contracts per month",
     "borderRadius": "0px",
     "xAxisName": "",
-    "originalBottomRow": 101,
+    "originalBottomRow": 104,
     "chartType": "LINE_CHART"
 }

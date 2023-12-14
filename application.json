@@ -1,6 +1,10 @@
 {
   "pages": [
     {
+      "id": "Form",
+      "isDefault": false
+    },
+    {
       "id": "HomePage",
       "isDefault": false
     },

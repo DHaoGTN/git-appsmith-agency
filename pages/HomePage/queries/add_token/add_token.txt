@@ -1,0 +1,1 @@
+INSERT INTO `xvhjdzr46ytwx4uo`.`token` (`token`) VALUES ('{{this.params.token}}');

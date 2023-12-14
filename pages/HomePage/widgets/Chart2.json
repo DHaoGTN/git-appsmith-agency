@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 109,
-    "bottomRow": 151,
+    "topRow": 112,
+    "bottomRow": 154,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -180,10 +180,10 @@
     "renderMode": "CANVAS",
     "isLoading": false,
     "yAxisName": "Revenue($)",
-    "originalTopRow": 109,
+    "originalTopRow": 112,
     "chartName": "",
     "borderRadius": "0px",
     "xAxisName": "Product Line",
-    "originalBottomRow": 151,
+    "originalBottomRow": 154,
     "chartType": "PIE_CHART"
 }

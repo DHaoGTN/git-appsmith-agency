@@ -1,0 +1,1 @@
+SELECT * FROM tokens WHERE token_value = '{{this.params.token}}';

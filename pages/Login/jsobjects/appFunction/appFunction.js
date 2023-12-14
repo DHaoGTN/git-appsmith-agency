@@ -29,7 +29,9 @@ export default {
 		const [user] = await find_user.run({email});
 
 		if ( user && this.verifyHash(password, user?.password)){
-			storeValue('token', this.createToken(email))
+			const token = this.createToken(email);
+			add_token.run({token})
+			storeValue('token', token)
 				.then( () => navigateTo('HomePage'))}
 		else {
 			showAlert("Invalid email or password", "error")
