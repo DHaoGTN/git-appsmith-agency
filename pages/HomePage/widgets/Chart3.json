@@ -10,8 +10,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 146,
-    "bottomRow": 186,
+    "topRow": 159,
+    "bottomRow": 199,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -100,11 +100,11 @@
     "mobileTopRow": 143,
     "responsiveBehavior": "fill",
     "yAxisName": "Revenue(円)",
-    "originalTopRow": 146,
+    "originalTopRow": 159,
     "chartName": "",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 38,
     "xAxisName": "application id",
-    "originalBottomRow": 186,
+    "originalBottomRow": 199,
     "chartType": "COLUMN_CHART"
 }
