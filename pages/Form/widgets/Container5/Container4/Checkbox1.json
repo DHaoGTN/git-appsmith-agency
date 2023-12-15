@@ -31,7 +31,7 @@
     "widgetId": "ps128711v7",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
-    "isVisible": false,
+    "isVisible": true,
     "label": "   1-光回線/ Fiber internet",
     "version": 1,
     "parentId": "f6o5ujc94b",
