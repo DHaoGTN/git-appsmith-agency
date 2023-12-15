@@ -25,15 +25,15 @@ export default {
 	},
 
 	logout: () =>{
-		// return removeValue('token')
-		// .then(() => navigateTo('Login'));
-		const token = appsmith.store.token;
-		checkTokenExist.run({token});
-		const deteleState = deleteToken.run({token});
-		return deteleState			
-			.then(() => showAlert("token has been delete,",'succes'))
-			.then(() => navigateTo('Login'))
-			.catch(e => showAlert(e.message, 'error'));
+		return removeValue('token')
+		.then(() => navigateTo('Login'));
+		// const token = appsmith.store.token;
+		// checkTokenExist.run({token});
+		// const deteleState = deleteToken.run({token});
+		// return deteleState			
+			// .then(() => showAlert("token has been delete,",'succes'))
+			// .then(() => navigateTo('Login'))
+			// .catch(e => showAlert(e.message, 'error'));
 
 	}
 }

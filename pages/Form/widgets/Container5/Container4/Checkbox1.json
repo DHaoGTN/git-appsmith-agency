@@ -5,8 +5,8 @@
     "displayName": "Checkbox",
     "iconSVG": "/static/media/icon.7b004ee098ca948e952234e7baec6d11.svg",
     "searchTags": ["boolean"],
-    "topRow": 152,
-    "bottomRow": 156,
+    "topRow": 149,
+    "bottomRow": 153,
     "parentRowSpace": 10,
     "type": "CHECKBOX_WIDGET",
     "alignWidget": "LEFT",
@@ -21,7 +21,7 @@
         {"key": "borderRadius"}
     ],
     "labelPosition": "Right",
-    "onCheckChange": "{{electrict_checkbox.myFun1();}}",
+    "onCheckChange": "",
     "isDisabled": false,
     "key": "eaos3m7fks",
     "isRequired": false,
@@ -40,11 +40,11 @@
     "isLoading": false,
     "mobileTopRow": 152,
     "responsiveBehavior": "fill",
-    "originalTopRow": 152,
+    "originalTopRow": 149,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 10,
     "defaultCheckedState": false,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 156,
+    "originalBottomRow": 153,
     "minDynamicHeight": 4
 }

@@ -1,48 +1,33 @@
 {
   "unpublishedPage": {
-    "name": "Form",
-    "slug": "form",
+    "name": "Form2",
+    "slug": "form2",
     "layouts": [
       {
         "viewMode": false,
         "dsl": {
           "widgetName": "MainContainer",
           "backgroundColor": "none",
-          "rightColumn": 1160,
+          "rightColumn": 1224,
           "snapColumns": 64,
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 4330,
+          "bottomRow": 840,
           "containerStyle": "none",
-          "snapRows": 125,
+          "snapRows": 83,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
           "version": 87,
-          "minHeight": 1170,
+          "minHeight": 850,
           "parentColumnSpace": 1,
-          "dynamicTriggerPathList": [],
           "dynamicBindingPathList": [],
           "leftColumn": 0
         },
-        "layoutOnLoadActions": [
-          [
-            {
-              "id": "Form_SelectQuery",
-              "name": "SelectQuery",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "(data_table.pageNo - 1) * data_table.pageSize"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ]
-        ],
-        "layoutOnLoadActionErrors": [],
+        "layoutOnLoadActions": [],
         "validOnPageLoadActions": true,
-        "id": "Form",
+        "id": "Form2",
         "deleted": false,
         "policies": [],
         "userPermissions": []
@@ -53,5 +38,5 @@
     "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657a9aa43010c95d5f5a85ca"
+  "gitSyncId": "65792b023010c95d5f5a84a2_657bba473010c95d5f5a8691"
 }

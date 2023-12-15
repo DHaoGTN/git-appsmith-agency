@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "myFun1",
-    "fullyQualifiedName": "electrict_checkbox.myFun1",
+    "name": "checkbox3_state",
+    "fullyQualifiedName": "checkbox_state.checkbox3_state",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Form",
-    "collectionId": "Form_electrict_checkbox",
+    "collectionId": "Form_checkbox_state",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -23,7 +23,6 @@
       "jsArguments": []
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-14T09:59:43Z"
+    "userPermissions": []
   },
-  "id": "Form_electrict_checkbox.myFun1",
+  "id": "Form_checkbox_state.checkbox3_state",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657ad20f3010c95d5f5a862a"
+  "gitSyncId": "65792b023010c95d5f5a84a2_657bb97f3010c95d5f5a868b"
 }

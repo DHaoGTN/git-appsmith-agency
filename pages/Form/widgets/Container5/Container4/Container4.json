@@ -10,7 +10,7 @@
     "displayName": "Container",
     "iconSVG": "/static/media/icon.1977dca3.svg",
     "topRow": 26,
-    "bottomRow": 235,
+    "bottomRow": 400,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -25,7 +25,7 @@
         "widgetName": "Canvas5Copy",
         "displayName": "Canvas",
         "topRow": 0,
-        "bottomRow": 2160,
+        "bottomRow": 3740,
         "parentRowSpace": 1,
         "type": "CANVAS_WIDGET",
         "canExtend": false,
@@ -61,5 +61,5 @@
     "isLoading": false,
     "borderRadius": "15px",
     "maxDynamicHeight": 9000,
-    "minDynamicHeight": 4
+    "minDynamicHeight": 10
 }

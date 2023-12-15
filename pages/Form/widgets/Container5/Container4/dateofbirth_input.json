@@ -1,6 +1,6 @@
 {
     "boxShadow": "none",
-    "dateFormat": "YYYY-MM-DD HH:mm",
+    "dateFormat": "LL",
     "iconSVG": "/static/media/icon.c0c4b770ee1862b73198267331d1611c.svg",
     "topRow": 36,
     "labelWidth": 5,
