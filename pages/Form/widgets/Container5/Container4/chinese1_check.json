@@ -30,7 +30,7 @@
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
     "isVisible": true,
-    "label": "　　　　　　Chinese",
+    "label": "　　　　　　繁体字",
     "version": 1,
     "parentId": "f6o5ujc94b",
     "tags": ["Toggles"],
@@ -40,7 +40,7 @@
     "responsiveBehavior": "fill",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 9,
-    "defaultCheckedState": true,
+    "defaultCheckedState": false,
     "maxDynamicHeight": 9000,
     "minDynamicHeight": 4
 }
