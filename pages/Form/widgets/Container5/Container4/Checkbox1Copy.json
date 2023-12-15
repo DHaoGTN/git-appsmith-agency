@@ -18,8 +18,7 @@
     "leftColumn": 10,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"},
-        {"key": "isVisible"}
+        {"key": "borderRadius"}
     ],
     "labelPosition": "Right",
     "isDisabled": false,
@@ -31,7 +30,7 @@
     "widgetId": "yu1i9oslch",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
-    "isVisible": "{{Checkbox1Copy.setValue === \"Yes\"}}",
+    "isVisible": "true\n",
     "label": "2-クレジットカード/ Credit card",
     "version": 1,
     "parentId": "f6o5ujc94b",

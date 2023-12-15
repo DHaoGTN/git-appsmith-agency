@@ -73,7 +73,7 @@
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "b31qwjejnb",
     "minWidth": 450,
-    "isVisible": "",
+    "isVisible": "true",
     "parentId": "f6o5ujc94b",
     "tags": ["Layout"],
     "renderMode": "CANVAS",

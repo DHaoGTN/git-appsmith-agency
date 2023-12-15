@@ -94,7 +94,7 @@
         },
         "pagination": {
           "data": {
-            "offset": "{{(data_table.pageNo - 1) * data_table.pageSize}}",
+            "offset": "",
             "limit": "5"
           },
           "viewType": "component",

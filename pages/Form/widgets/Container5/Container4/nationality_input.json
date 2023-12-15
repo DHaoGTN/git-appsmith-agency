@@ -14,10 +14,7 @@
     "dynamicTriggerPathList": [],
     "resetOnSubmit": true,
     "leftColumn": 10,
-    "dynamicBindingPathList": [
-        {"key": "defaultText"},
-        {"key": "accentColor"}
-    ],
+    "dynamicBindingPathList": [{"key": "accentColor"}],
     "labelStyle": "BOLD",
     "inputType": "TEXT",
     "isDisabled": false,
@@ -41,6 +38,6 @@
     "originalBottomRow": 40,
     "shouldAllowAutofill": false,
     "iconAlign": "left",
-    "defaultText": "{{data_table.selectedItem.topInvestments}}",
+    "defaultText": "",
     "minDynamicHeight": 4
 }

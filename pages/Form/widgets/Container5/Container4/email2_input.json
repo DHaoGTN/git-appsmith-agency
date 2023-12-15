@@ -14,10 +14,7 @@
     "dynamicTriggerPathList": [],
     "resetOnSubmit": true,
     "leftColumn": 10,
-    "dynamicBindingPathList": [
-        {"key": "defaultText"},
-        {"key": "accentColor"}
-    ],
+    "dynamicBindingPathList": [{"key": "accentColor"}],
     "labelStyle": "BOLD",
     "inputType": "TEXT",
     "isDisabled": false,
@@ -35,12 +32,12 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 32,
+    "originalTopRow": 105,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 40,
+    "originalBottomRow": 109,
     "shouldAllowAutofill": false,
     "iconAlign": "left",
-    "defaultText": "{{data_table.selectedItem.topInvestments}}",
+    "defaultText": "",
     "minDynamicHeight": 4
 }
