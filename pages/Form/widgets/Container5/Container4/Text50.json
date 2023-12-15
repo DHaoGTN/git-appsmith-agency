@@ -28,7 +28,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "{{RadioGroup1.}}",
+    "text": "{{RadioGroup1.selectedOptionValue}}",
     "key": "tnzhrwntm2",
     "isDeprecated": false,
     "rightColumn": 62,

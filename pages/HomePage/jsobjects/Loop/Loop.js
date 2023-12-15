@@ -4,11 +4,11 @@ export default {
 		if (!this.intervalId) {
 			const process = async () => {
 				// console.log(appsmith.store.token);
-				const token = appsmith.store.token;
+				var token = appsmith.store.token;
 				// const tokendb = await checkTokenExist.run({token});
 				// console.log('tokendb', tokendb);
 				// return tokendb.data;
-				if (!token) {
+				if (!token || token == "") {
 					navigateTo('Login');
 				}
 			};

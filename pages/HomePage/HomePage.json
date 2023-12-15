@@ -34,7 +34,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "function () {\n  if (!Loop.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      if (!token) {\n        navigateTo('Login');\n      }\n    };\n    Loop.intervalId = setInterval(process, 5000);\n  }\n}"
+                "function () {\n  if (!Loop.intervalId) {\n    const process = async () => {\n      var token = appsmith.store.token;\n      if (!token || token == \"\") {\n        navigateTo('Login');\n      }\n    };\n    Loop.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
