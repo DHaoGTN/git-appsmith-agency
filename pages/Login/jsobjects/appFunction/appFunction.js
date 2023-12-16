@@ -24,15 +24,20 @@ export default {
 	},
 
 	signIn:async () =>{
-		const email = Email_si.text;
-		const password = Password_si.text;
+		// const email = Email_si.text;
+		// const password = Password_si.text;
+		const email = 'test@gmail.com';
+		const password = 'asdasd123';
 		const [user] = await find_user.run({email});
 
 		if ( user && this.verifyHash(password, user?.password)){
 			const token = this.createToken(email);
-			add_token.run({token})
-			storeValue('token', token)
-				.then( () => navigateTo('Agency_Fom_All'))}
+
+			await add_token.run({token})
+			await storeValue('user', user );
+			await storeValue('token', token);
+			// .then( () => navigateTo('Agency_Form_All'))}  
+		}
 		else {
 			showAlert("Invalid email or password", "error")
 		}

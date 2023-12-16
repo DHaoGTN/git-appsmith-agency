@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getCurrentUser",
-    "fullyQualifiedName": "appFunction1.getCurrentUser",
+    "name": "logout",
+    "fullyQualifiedName": "appFunction.logout",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,8 +13,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_appFunction1",
+    "pageId": "Google_Home_Page",
+    "collectionId": "Google_Home_Page_appFunction",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-15T16:58:22Z"
+    "userPermissions": []
   },
-  "id": "Agency_Form_All_appFunction1.getCurrentUser",
+  "id": "Google_Home_Page_appFunction.logout",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657c85ae3010c95d5f5a87ee"
+  "gitSyncId": "65792b023010c95d5f5a84a2_657d2fad3010c95d5f5a8840"
 }

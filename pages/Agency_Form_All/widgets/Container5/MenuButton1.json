@@ -27,8 +27,8 @@
     "leftColumn": 52,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
-        {"key": "label"},
-        {"key": "menuItems.menuItem3dfuthklaq.label"}
+        {"key": "menuItems.menuItem3dfuthklaq.label"},
+        {"key": "label"}
     ],
     "isDisabled": false,
     "sourceData": "[]",
@@ -57,7 +57,7 @@
         }
     },
     "isVisible": true,
-    "label": "Hi {{getUserInfo.getCurrentUser.data[0].name}}",
+    "label": "Hi {{appsmith.store.user['name']}}",
     "version": 1,
     "parentId": "i0qokivosc",
     "tags": ["Buttons"],

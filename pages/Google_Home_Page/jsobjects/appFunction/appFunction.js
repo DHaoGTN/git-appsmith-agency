@@ -8,7 +8,6 @@ export default {
 		const deteleState = deleteToken.run({token});
 		return deteleState			
 			.then (()=> removeValue('token'))
-			.then (()=> removeValue('user'))
 			.then(() => showAlert("token has been delete,",'succes'))
 			.then(() => navigateTo('Login'))
 			.catch(e => showAlert(e.message, 'error'));

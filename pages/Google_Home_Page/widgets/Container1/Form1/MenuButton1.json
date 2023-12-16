@@ -13,7 +13,7 @@
     "mobileRightColumn": 52,
     "animateLoading": true,
     "parentColumnSpace": 10.416831970214844,
-    "dynamicTriggerPathList": [],
+    "dynamicTriggerPathList": [{"key": "menuItems.menuItem3.onClick"}],
     "leftColumn": 38,
     "dynamicBindingPathList": [
         {"key": "menuColor"},
@@ -27,6 +27,7 @@
     "menuVariant": "PRIMARY",
     "widgetId": "mv8oij21pc",
     "menuItems": {"menuItem3": {
+        "onClick": "{{appFunction.logout();}}",
         "widgetId": "",
         "index": 0,
         "label": "Log out",
