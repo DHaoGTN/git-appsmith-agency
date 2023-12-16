@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "loopCheckToken",
+    "pageId": "Agency_Fom_All",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Agency_Fom_All_loopCheckToken",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_657c89473010c95d5f5a880a"
+}

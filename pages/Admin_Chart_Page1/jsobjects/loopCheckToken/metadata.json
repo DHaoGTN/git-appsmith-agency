@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "loopCheckToken",
+    "pageId": "Admin_Chart_Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Admin_Chart_Page1_loopCheckToken",
+  "deleted": false,
+  "gitSyncId": "656d96555d315453a764edee_656d97895d315453a764ee12"
+}

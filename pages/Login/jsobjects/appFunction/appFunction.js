@@ -32,12 +32,10 @@ export default {
 			const token = this.createToken(email);
 			add_token.run({token})
 			storeValue('token', token)
-				.then( () => navigateTo('HomePage'))}
+				.then( () => navigateTo('Agency_Fom_All'))}
 		else {
 			showAlert("Invalid email or password", "error")
 		}
-
 	}
-
 
 }

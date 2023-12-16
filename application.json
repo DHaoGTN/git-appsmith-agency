@@ -1,15 +1,15 @@
 {
   "pages": [
     {
-      "id": "Form",
+      "id": "Agency_Fom_All",
       "isDefault": false
     },
     {
-      "id": "HomePage",
+      "id": "Admin_Chart_Page1",
       "isDefault": false
     },
     {
-      "id": "Admin",
+      "id": "Admin_Table_Page2",
       "isDefault": false
     },
     {
@@ -17,7 +17,7 @@
       "isDefault": true
     },
     {
-      "id": "Form2",
+      "id": "GoogleHompage",
       "isDefault": false
     }
   ],

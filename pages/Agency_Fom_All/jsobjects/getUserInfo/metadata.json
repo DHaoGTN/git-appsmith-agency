@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "getUserInfo",
+    "pageId": "Agency_Fom_All",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Agency_Fom_All_getUserInfo",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_657c82ff3010c95d5f5a87e4"
+}

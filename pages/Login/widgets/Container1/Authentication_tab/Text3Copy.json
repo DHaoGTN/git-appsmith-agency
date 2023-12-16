@@ -8,8 +8,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 19,
-    "bottomRow": 24,
+    "topRow": 27,
+    "bottomRow": 31,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 6.833362579345703,
     "dynamicTriggerPathList": [],
-    "leftColumn": 0,
+    "leftColumn": 5,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,7 +30,7 @@
     "text": "Password",
     "key": "z7xp71nrh1",
     "isDeprecated": false,
-    "rightColumn": 13,
+    "rightColumn": 18,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "cb7ouc40aw",
@@ -48,11 +48,11 @@
     "isLoading": false,
     "mobileTopRow": 6,
     "responsiveBehavior": "fill",
-    "originalTopRow": 19,
+    "originalTopRow": 27,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 24,
+    "originalBottomRow": 31,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

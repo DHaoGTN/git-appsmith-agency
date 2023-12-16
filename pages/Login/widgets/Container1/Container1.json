@@ -4,6 +4,7 @@
     "widgetName": "Container1",
     "borderColor": "#E0DEDE",
     "isCanvas": true,
+    "dynamicPropertyPathList": [],
     "displayName": "Container",
     "iconSVG": "/static/media/icon.daebf68875b6c8e909e9e8ac8bee0c02.svg",
     "searchTags": [
@@ -69,7 +70,7 @@
     "borderWidth": "1",
     "flexVerticalAlignment": "stretch",
     "key": "rmd46qdchl",
-    "backgroundColor": "#faf4f4",
+    "backgroundColor": "#b91c1c",
     "isDeprecated": false,
     "rightColumn": 56,
     "dynamicHeight": "FIXED",

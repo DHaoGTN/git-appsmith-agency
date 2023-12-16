@@ -26,7 +26,21 @@
           "dynamicBindingPathList": [],
           "leftColumn": 0
         },
-        "layoutOnLoadActions": [],
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Login_checkTokenExist.checkTokenExist",
+              "name": "checkTokenExist.checkTokenExist",
+              "collectionId": "Login_checkTokenExist",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  try {\n    const token = await appsmith.store.token;\n    const tokenExists = await check_token_exist({\n      token\n    });\n    const {email} = jsonwebtoken.verify(token, 'secret');\n    console.log('token, email', token, email);\n    if (tokenExists && email) {\n      console.log('Redirecting to Agency_Form_All');\n      return navigateTo('Agency_Form_All');\n    } else if (tokenExists) {\n      console.log('Redirecting to Admin_Chart_Page1');\n      return navigateTo('Admin_Chart_Page1');\n    } else {\n      console.log('Token does not exist or invalid email');\n    }\n  } catch (error) {\n    console.error('Error in checkTokenExist:', error);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
         "id": "Login",
