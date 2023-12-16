@@ -1,7 +1,7 @@
 {
   "unpublishedCollection": {
-    "name": "checkTokenExist",
-    "pageId": "Login",
+    "name": "appFunction1",
+    "pageId": "Agency_Form_All",
     "pluginId": "js-plugin",
     "pluginType": "JS",
     "actions": [],
@@ -9,7 +9,7 @@
     "variables": [],
     "userPermissions": []
   },
-  "id": "Login_checkTokenExist",
+  "id": "Agency_Form_All_appFunction1",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657c7a233010c95d5f5a87ca"
+  "gitSyncId": "65792b023010c95d5f5a84a2_657c85ae3010c95d5f5a87f7"
 }

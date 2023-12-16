@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "id": "Agency_Fom_All",
+      "id": "Agency_Form_All",
       "isDefault": false
     },
     {
@@ -17,7 +17,7 @@
       "isDefault": true
     },
     {
-      "id": "GoogleHompage",
+      "id": "Google_Home_Page",
       "isDefault": false
     }
   ],

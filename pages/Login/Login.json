@@ -35,7 +35,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  try {\n    const token = await appsmith.store.token;\n    const tokenExists = await check_token_exist({\n      token\n    });\n    const {email} = jsonwebtoken.verify(token, 'secret');\n    console.log('token, email', token, email);\n    if (tokenExists && email) {\n      console.log('Redirecting to Agency_Form_All');\n      return navigateTo('Agency_Form_All');\n    } else if (tokenExists) {\n      console.log('Redirecting to Admin_Chart_Page1');\n      return navigateTo('Admin_Chart_Page1');\n    } else {\n      console.log('Token does not exist or invalid email');\n    }\n  } catch (error) {\n    console.error('Error in checkTokenExist:', error);\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  console.log('token', token);\n  console.log('count', tokenCountInDb);\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('chuyen huong sang trang emai pass');\n    navigateTo('Agency_Form_All');\n  } else if (token !== undefined & tokenCountInDb === 0) {\n    console.log('chuyen huong sang trang gmail');\n    navigateTo('Google_Home_Page');\n  } else if (token === undefined && tokenCountInDb === 0) {\n    console.log('chua login, k can lam gi');\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -51,7 +51,7 @@
     ],
     "userPermissions": [],
     "policies": [],
-    "isHidden": false
+    "isHidden": true
   },
   "deleted": false,
   "gitSyncId": "656d96555d315453a764edee_656d96555d315453a764edf0"

@@ -1,1 +1,1 @@
-SELECT COUNT(id) FROM token WHERE token = '{{this.params.token}}';
+SELECT COUNT(id) AS count FROM token WHERE token = '{{this.params.token}}';
