@@ -34,10 +34,9 @@ export default {
 			const token = this.createToken(email);
 
 			await add_token.run({token})
-			await storeValue('user', user );
-			await storeValue('token', token);
-			// .then( () => navigateTo('Agency_Form_All'))}  
-		}
+			await storeValue('user', user )
+			await storeValue('token', token)
+				.then( () => navigateTo('Agency_Form_All'))}  
 		else {
 			showAlert("Invalid email or password", "error")
 		}
