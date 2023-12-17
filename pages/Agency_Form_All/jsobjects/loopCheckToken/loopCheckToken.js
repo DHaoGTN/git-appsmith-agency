@@ -6,16 +6,15 @@ export default {
 			const process = async () => {
 				const token = appsmith.store.token;
 
-				const tokenExist=await check_token_exist.run({token});
-				const tokenCount = tokenExist[0]['count'];
-
-				if (tokenCount ===0){
-					console.log('token da bi xoa');
-					return navigateTo('Login');
+				const tokenInDb = await check_token_exist.run({token});
+				const tokenCountInDb= tokenInDb[0]['count'];
+				console.log('tokenCountInDb', tokenCountInDb);
+				if ( tokenCountInDb === 0){
+					navigateTo('Login');
 				}
 			};
 
-			this.intervalId = setInterval(process, 8000);
+			this.intervalId = setInterval(process, 5000);
 		}
 	},
 
@@ -26,3 +25,4 @@ export default {
 		}
 	},
 };
+

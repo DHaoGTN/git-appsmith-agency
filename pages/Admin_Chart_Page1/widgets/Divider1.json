@@ -5,8 +5,8 @@
     "displayName": "Divider",
     "iconSVG": "/static/media/icon.3b7d47d7bd70da418a827287042cbb7f.svg",
     "searchTags": ["line"],
-    "topRow": 100,
-    "bottomRow": 104,
+    "topRow": 108,
+    "bottomRow": 112,
     "parentRowSpace": 10,
     "type": "DIVIDER_WIDGET",
     "capType": "nc",
@@ -33,7 +33,7 @@
     "isLoading": false,
     "mobileTopRow": 73,
     "responsiveBehavior": "fill",
-    "originalTopRow": 100,
+    "originalTopRow": 130,
     "mobileLeftColumn": 37,
-    "originalBottomRow": 104
+    "originalBottomRow": 134
 }

@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1980,
+          "bottomRow": 2060,
           "containerStyle": "none",
           "snapRows": 66,
           "parentRowSpace": 1,
@@ -28,21 +28,22 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Admin_Chart_Page1_check_token_exist",
-              "name": "check_token_exist",
-              "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [
-                "this.params.token"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Admin_Chart_Page1_contractMonthChart",
               "name": "contractMonthChart",
               "confirmBeforeExecute": false,
               "pluginType": "DB",
               "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Admin_Chart_Page1_displayName.userName",
+              "name": "displayName.userName",
+              "collectionId": "Admin_Chart_Page1_displayName",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    const token = await auth_get_token.run();\n    const user = await get_user_by_token.run();\n    storeValue('token', token);\n    storeValue('user', user);\n    console.log('user from google display name', user);\n  }\n}"
+              ],
               "timeoutInMillisecond": 10000
             },
             {
@@ -153,19 +154,6 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "async () => {\n  return await appFunction1.run(yearHaveContract);\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Admin_Chart_Page1_appFunction1.getCurrentUser",
-              "name": "appFunction1.getCurrentUser",
-              "collectionId": "Admin_Chart_Page1_appFunction1",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  return await appFunction1.run(find_user);\n}"
               ],
               "timeoutInMillisecond": 10000
             }

@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 920,
+          "bottomRow": 840,
           "containerStyle": "none",
           "snapRows": 83,
           "parentRowSpace": 1,
@@ -34,7 +34,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "function () {\n  setTimeout(async () => {\n    const token = auth_get_token.data['access_token'];\n    storeValue('token', token);\n    console.log('token da dc luu sau 3s', token);\n  }, 3000);\n}"
+                "function () {\n  setTimeout(async () => {\n    const checkToken = appsmith.store.token;\n    if (checkToken === undefined) {\n      const token = await auth_get_token.data['access_token'];\n      storeValue('token', token);\n      await add_google_token_to_db.run({\n        token\n      });\n      if (token) {\n        const user = await get_user.data;\n        storeValue('user', user);\n        console.log('user', user);\n      }\n    }\n  }, 3000);\n}"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -58,7 +58,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "API",
               "jsonPathKeys": [
-                "auth_get_token.data.access_token"
+                "auth_get_token.data['access_token']"
               ],
               "timeoutInMillisecond": 10000
             }

@@ -1,1 +1,1 @@
-SELECT * FROM xvhjdzr46ytwx4uo.user WHERE `email` = 'test1@gmail.com';
+SELECT * FROM xvhjdzr46ytwx4uo.user WHERE `email` = '{{this.params.email}}';

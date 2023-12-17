@@ -36,7 +36,7 @@
         "isDisabled": false
     }},
     "isVisible": true,
-    "label": "Hello {{get_user.data.name}}",
+    "label": "Hello {{appsmith.store.user['given_name']}}",
     "version": 1,
     "parentId": "voairp4xo5",
     "tags": ["Buttons"],

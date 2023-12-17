@@ -1,1 +1,1 @@
-SELECT * FROM user WHERE email ='{{this.params.email}}';
+SELECT * FROM  user_info."users" WHERE email = '{{this.params.email}}';

@@ -29,13 +29,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Login_checkTokenExist.checkTokenExist",
-              "name": "checkTokenExist.checkTokenExist",
-              "collectionId": "Login_checkTokenExist",
+              "id": "Login_checkHasValidToken.loggedInByPassword",
+              "name": "checkHasValidToken.loggedInByPassword",
+              "collectionId": "Login_checkHasValidToken",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  console.log('token', token);\n  console.log('count', tokenCountInDb);\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('chuyen huong sang trang emai pass');\n    navigateTo('Agency_Form_All');\n  } else if (token !== undefined & tokenCountInDb === 0) {\n    console.log('chuyen huong sang trang gmail');\n    navigateTo('Google_Home_Page');\n  } else if (token === undefined && tokenCountInDb === 0) {\n    console.log('chua login, k can lam gi');\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    navigateTo('Agency_Form_All');\n  } else if (token === undefined && tokenCountInDb === 0) {\n    console.log('do notthing');\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

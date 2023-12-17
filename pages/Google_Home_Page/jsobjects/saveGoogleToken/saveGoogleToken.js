@@ -1,11 +1,22 @@
 export default {
 	save: function() {
 		setTimeout(async () => {
-			const token = auth_get_token.data['access_token'];
-			storeValue('token', token);
-			// add_token.run({ token });
-			console.log('token da dc luu sau 3s', token);
-		}, 3000); // Hàm `save` sẽ chạy sau 5 giây
+			const checkToken = appsmith.store.token;
+			
+			if (checkToken === undefined){
+				const token =await auth_get_token.data['access_token'];
+				storeValue('token', token);
+
+				await add_google_token_to_db.run({token})
+
+				if (token){
+					const user =await get_user.data;
+					storeValue('user',user);
+					console.log('user',user);
+				}
+
+			}
+		}, 3000); 
 	},
 
 	runEveryFiveSeconds: function() {

@@ -1,2 +1,0 @@
-INSERT INTO `xvhjdzr46ytwx4uo`.`user` (`name`, `email`, `password`)
-VALUES ('{{this.params.name}}', '{{this.params.email}}', '{{this.params.password}}');

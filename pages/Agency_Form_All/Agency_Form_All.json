@@ -46,7 +46,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      const tokenExist = await check_token_exist.run({\n        token\n      });\n      const tokenCount = tokenExist[0]['count'];\n      if (tokenCount === 0) {\n        console.log('token da bi xoa');\n        return navigateTo('Login');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 8000);\n  }\n}"
+                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0) {\n        navigateTo('Login');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
