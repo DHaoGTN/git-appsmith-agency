@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS count FROM user_info."google_token" WHERE token = '{{this.params.token}}';

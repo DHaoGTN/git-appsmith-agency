@@ -8,8 +8,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 112,
-    "bottomRow": 116,
+    "topRow": 86,
+    "bottomRow": 90,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 19.296875,
     "dynamicTriggerPathList": [],
-    "leftColumn": 40,
+    "leftColumn": 41,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,7 +30,7 @@
     "text": "Contracts per application by year",
     "key": "r7jkbs6wyt",
     "isDeprecated": false,
-    "rightColumn": 57,
+    "rightColumn": 58,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "iuss4cadjk",

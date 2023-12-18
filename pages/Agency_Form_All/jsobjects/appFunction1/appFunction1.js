@@ -14,6 +14,5 @@ export default {
 			.catch(e => showAlert(e.message, 'error'));
 	},
 
-
 }
 

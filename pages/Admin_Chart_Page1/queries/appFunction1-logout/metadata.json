@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-13T09:16:53Z"
+    "userPermissions": []
   },
   "id": "Admin_Chart_Page1_appFunction1.logout",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657976853010c95d5f5a84f1"
+  "gitSyncId": "65792b023010c95d5f5a84a2_657fbc783010c95d5f5a8972"
 }

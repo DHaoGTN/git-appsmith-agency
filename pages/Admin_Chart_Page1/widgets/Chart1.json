@@ -9,8 +9,8 @@
         "visuals",
         "visualisations"
     ],
-    "topRow": 64,
-    "bottomRow": 108,
+    "topRow": 38,
+    "bottomRow": 82,
     "parentRowSpace": 10,
     "type": "CHART_WIDGET",
     "hideCard": false,
@@ -23,7 +23,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 19.8125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 15,
+    "leftColumn": 16,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "fontFamily"},
@@ -170,7 +170,7 @@
     "key": "qmn359r1v3",
     "showDataPointLabel": false,
     "isDeprecated": false,
-    "rightColumn": 63,
+    "rightColumn": 64,
     "widgetId": "zmyx3nb8zl",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": true,

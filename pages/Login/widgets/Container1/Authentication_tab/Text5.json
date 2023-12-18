@@ -8,7 +8,7 @@
         "paragraph",
         "label"
     ],
-    "topRow": 13,
+    "topRow": 12,
     "bottomRow": 17,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
@@ -27,7 +27,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "Please continue with your gtn workspace gmail account.",
+    "text": "Please continue with your GTN workspace gmail account.",
     "key": "4eyth8h6pb",
     "isDeprecated": false,
     "rightColumn": 55,
@@ -48,11 +48,11 @@
     "isLoading": false,
     "mobileTopRow": 15,
     "responsiveBehavior": "fill",
-    "originalTopRow": 11,
+    "originalTopRow": 12,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 15,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 15,
+    "originalBottomRow": 17,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

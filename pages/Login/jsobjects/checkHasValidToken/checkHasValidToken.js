@@ -7,8 +7,11 @@ export default {
 		if (token!== undefined && tokenCountInDb === 1){
 			navigateTo('Agency_Form_All');
 		}
+		
 		else if (token === undefined && tokenCountInDb ===0){
 			console.log('do notthing');
 		}
 	},
+	
+	
 };
