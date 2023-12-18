@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 13.858642578125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 25,
+    "leftColumn": 14,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,7 +30,7 @@
     "text": "GTN ID ",
     "key": "mosy4u3kvs",
     "isDeprecated": false,
-    "rightColumn": 38,
+    "rightColumn": 27,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "5bqvanjke0",
