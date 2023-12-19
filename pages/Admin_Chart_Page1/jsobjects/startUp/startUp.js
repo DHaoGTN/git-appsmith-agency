@@ -13,7 +13,7 @@ export default {
 
 				// Thực thi hàm thêm token vào cơ sở dữ liệu'
 				const token = response['id_token'];
-				add_google_token_to_db.run({ token })
+				await add_google_token_to_db.run({ token })
 					.then(() => console.log('Token successfully added to database'))
 					.catch((err) => {
 					console.error('Error adding token to database:', err);

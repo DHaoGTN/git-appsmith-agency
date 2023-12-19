@@ -72,7 +72,7 @@ export default {
 					console.log('other page had log out, please log in again')
 				}
 			};
-			this.intervalId = setInterval(process, 50000);
+			this.intervalId = setInterval(process, 5000);
 		}
 	},
 
