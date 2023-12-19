@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-15T17:13:43Z"
+    "userPermissions": []
   },
   "id": "Agency_Form_All_loopCheckToken.stopCountingAndLogging",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657c89473010c95d5f5a8807"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658137f43010c95d5f5a8b2a"
 }

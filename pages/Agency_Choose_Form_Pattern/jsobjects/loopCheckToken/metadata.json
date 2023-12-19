@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "loopCheckToken",
+    "pageId": "Agency_Choose_Form_Pattern",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Agency_Choose_Form_Pattern_loopCheckToken",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_658120f13010c95d5f5a8b15"
+}

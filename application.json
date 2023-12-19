@@ -19,6 +19,14 @@
     {
       "id": "Google_Home_Page",
       "isDefault": false
+    },
+    {
+      "id": "Agency_Form_All Copy",
+      "isDefault": false
+    },
+    {
+      "id": "Agency_Choose_Form_Pattern",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -37,6 +45,9 @@
     },
     {
       "uidString": "dcodeIO_https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"
+    },
+    {
+      "uidString": "Cookies_https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
     }
   ],
   "publishedCustomJSLibs": [],

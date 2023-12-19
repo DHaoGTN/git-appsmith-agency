@@ -9,7 +9,7 @@ export default {
 	},
 
 	createToken : (email ) =>{
-		return jsonwebtoken.sign({email}, 'secret', {expiresIn: 60 * 60});
+		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 30});
 	},
 
 	signUp: async () =>{
@@ -34,15 +34,14 @@ export default {
 	},
 
 	signIn:async () =>{
-		const email = Email_si.text;
-		const password = Password_si.text;
-		// const email = 'test@gmail.com';
-		// const password = 'asdasd123';
+		// const email = Email_si.text;
+		// const password = Password_si.text;
+		const email = 'test@gmail.com';
+		const password = 'asdasd123';
 		const [user] = await find_user.run({email});
 		if ( user && this.verifyHash(password, user?.password)){
 			const token = this.createToken(email);
 			await add_token_to_db.run({token})
-			// await add_email_to_db.run({email})
 			await storeValue('user', user )
 			await storeValue('token', token)
 				.then( () => navigateTo('Agency_Form_All'))}  

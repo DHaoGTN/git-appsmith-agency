@@ -61,7 +61,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    const response = await auth_get_token.run();\n    const google_token = response['access_token'];\n    await storeValue('token', google_token);\n    const token = appsmith.store.token;\n    await add_google_token_to_db.run({\n      token\n    });\n    const user = await get_user_by_token.run();\n    storeValue('user', user);\n  }\n}"
+                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    const response = await auth_get_token.run();\n    const google_token = await response['id_token'];\n    const user = await startUp.getTokenInfo(google_token);\n    storeValue('token', google_token);\n    storeValue('user', user);\n    await add_google_token_to_db.run({\n      google_token\n    });\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },

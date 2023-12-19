@@ -190,7 +190,7 @@
             "isCellVisible": true,
             "isDerived": true,
             "textSize": "0.875rem",
-            "onSave": "{{onSaveToDb.run().then(() => {\n  showAlert('success', '');\n}).catch(() => {\n  showAlert('error', '');\n});}}",
+            "onSave": "{{appFunction.update();}}",
             "discardButtonVariant": "TERTIARY",
             "buttonStyle": "rgb(3, 179, 101)",
             "allowCellWrapping": false,

@@ -7,11 +7,15 @@ export default {
 		if (token!== undefined && tokenCountInDb === 1){
 			navigateTo('Agency_Form_All');
 		}
-		
+
 		else if (token === undefined && tokenCountInDb ===0){
 			console.log('do notthing');
 		}
 	},
-	
-	
+
+	async createToken () {
+		const email= 'test@gmail.com';
+		const token = jsonwebtoken.sign({ email }, 'sign', { expiresIn: '1s' }); 
+		return token;
+	},
 };
