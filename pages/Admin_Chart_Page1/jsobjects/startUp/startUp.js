@@ -23,9 +23,6 @@ export default {
 				console.error('Token is deleted, please login again:', error);
 				// navigateTo('Login');
 			}
-
-
-
 		}
 	},
 
