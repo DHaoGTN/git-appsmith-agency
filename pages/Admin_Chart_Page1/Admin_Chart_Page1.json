@@ -44,17 +44,6 @@
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Admin_Chart_Page1_loopCheckToken.loopToCheckTokenExist",
-              "name": "loopCheckToken.loopToCheckTokenExist",
-              "collectionId": "Admin_Chart_Page1_loopCheckToken",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const tokenInfo = appsmith.store.token;\n      const token = tokenInfo['id_token'];\n      loopCheckToken.checkValidTokenDb();\n      const tokenInDb = await check_token_existt.run({\n        token\n      });\n      console.log('token in db', tokenInDb);\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0) {\n        navigateTo('Login');\n        console.log('other page had log out, please log in again');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Admin_Chart_Page1_yearHaveInvoices",
               "name": "yearHaveInvoices",
               "confirmBeforeExecute": false,
@@ -141,19 +130,6 @@
               "pluginType": "DB",
               "jsonPathKeys": [
                 "Select1.value"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Admin_Chart_Page1_startUp.startUp",
-              "name": "startUp.startUp",
-              "collectionId": "Admin_Chart_Page1_startUp",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    try {\n      const response = await auth_get_token.run();\n      storeValue('token', response);\n      startUp.getUser();\n      const token = response['id_token'];\n      add_google_token_to_db.run({\n        token\n      }).then(() => console.log('Token successfully added to database')).catch(err => {\n        console.error('Error adding token to database:', err);\n      });\n    } catch (error) {\n      console.error('Token is deleted, please login again:', error);\n      navigateTo('Login');\n    }\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

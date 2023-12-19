@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-13T08:10:13Z"
+    "userPermissions": []
   },
   "id": "Login_appFunction.signIn",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657966e53010c95d5f5a84da"
+  "gitSyncId": "65792b023010c95d5f5a84a2_6581cb1d3010c95d5f5a8c00"
 }
