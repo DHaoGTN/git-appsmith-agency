@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "createCookies",
-    "fullyQualifiedName": "appFunction1.createCookies",
+    "name": "getPattern",
+    "fullyQualifiedName": "appFunction1.getPattern",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -22,7 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": []
     },
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -31,12 +31,12 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": false,
+    "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Agency_Form_All_appFunction1.createCookies",
+  "id": "Agency_Form_All_appFunction1.getPattern",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658138023010c95d5f5a8b2e"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65815f623010c95d5f5a8b78"
 }

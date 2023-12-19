@@ -18,9 +18,9 @@ export default {
 		const token =appsmith.store.token;
 		console.log(token);
 	},
-	createCookies : () =>{		
-		console.log(Cookies.get('name'));
-	},
 
+	getPattern: () =>{
+		showAlert(appsmith.URL.queryParams.pattern)
+	},
 }
 

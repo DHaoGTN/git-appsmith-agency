@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getTokenInfo",
-    "fullyQualifiedName": "startUp.getTokenInfo",
+    "name": "isTokenValid",
+    "fullyQualifiedName": "loopCheckToken.isTokenValid",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,17 +14,13 @@
       "userPermissions": []
     },
     "pageId": "Admin_Chart_Page1",
-    "collectionId": "Admin_Chart_Page1_startUp",
+    "collectionId": "Admin_Chart_Page1_loopCheckToken",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [
-        {
-          "name": "token"
-        }
-      ]
+      "jsArguments": []
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -40,7 +36,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Admin_Chart_Page1_startUp.getTokenInfo",
+  "id": "Admin_Chart_Page1_loopCheckToken.isTokenValid",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658117d73010c95d5f5a8ad2"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658160773010c95d5f5a8b7a"
 }

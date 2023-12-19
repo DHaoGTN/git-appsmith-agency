@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getCurrentUser",
-    "fullyQualifiedName": "getUserInfo.getCurrentUser",
+    "name": "checkValidTokenDb",
+    "fullyQualifiedName": "loopCheckToken.checkValidTokenDb",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,8 +13,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_getUserInfo",
+    "pageId": "Admin_Chart_Page1",
+    "collectionId": "Admin_Chart_Page1_loopCheckToken",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -22,7 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": []
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -31,12 +31,13 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-19T09:04:14Z"
   },
-  "id": "Agency_Form_All_getUserInfo.getCurrentUser",
+  "id": "Admin_Chart_Page1_loopCheckToken.checkValidTokenDb",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657c83553010c95d5f5a87e6"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65815c8e3010c95d5f5a8b66"
 }

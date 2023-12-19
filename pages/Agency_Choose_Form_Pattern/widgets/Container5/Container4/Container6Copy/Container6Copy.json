@@ -4,7 +4,7 @@
     "borderColor": "#E0DEDE",
     "widgetName": "Container6Copy",
     "isCanvas": true,
-    "dynamicPropertyPathList": [{"key": "isVisible"}],
+    "dynamicPropertyPathList": [],
     "iconSVG": "/static/media/icon.daebf68875b6c8e909e9e8ac8bee0c02.svg",
     "displayName": "Container",
     "topRow": 7,
@@ -24,10 +24,7 @@
     "parentColumnSpace": 16.637344360351562,
     "dynamicTriggerPathList": [],
     "leftColumn": 11,
-    "dynamicBindingPathList": [
-        {"key": "borderRadius"},
-        {"key": "isVisible"}
-    ],
+    "dynamicBindingPathList": [{"key": "borderRadius"}],
     "children": [{
         "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
         "mobileBottomRow": 100,
@@ -79,7 +76,7 @@
     "containerStyle": "card",
     "bottomRowBeforeCollapse": 194,
     "minWidth": 450,
-    "isVisible": "{{Checkbox3.isChecked}}",
+    "isVisible": true,
     "version": 1,
     "parentId": "f6o5ujc94b",
     "tags": ["Layout"],

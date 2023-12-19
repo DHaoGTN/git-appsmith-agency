@@ -19,5 +19,9 @@ export default {
 		console.log(token);
 	},
 
+	submitPattern: () =>{
+		showAlert('{{RadioGroupPattern.selectedOptionValue[0]}}');
+		{{navigateTo("Agency_Form_All", {"pattern": '11'})}};
+	},
 }
 

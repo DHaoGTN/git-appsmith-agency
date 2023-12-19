@@ -4,34 +4,41 @@ export default {
 		const tokenExist = appsmith.store.token;
 
 		if (tokenExist === undefined){
-			// get google authen token
-			const response =await auth_get_token.run() ;
-			const google_token =await response['id_token'];
 
-			//save token to local storage
-			//save user to local storage
-			const user = await this.getTokenInfo(google_token);
-			storeValue('token', google_token);
-			storeValue('user', user);
+			try {
+				// Get Google authentication token
+				const response = await auth_get_token.run();
+				storeValue('token', response);  // Lưu trữ token
+				this.getUser();
 
-			// save token to db
-			await add_google_token_to_db.run({google_token});
+				// Thực thi hàm thêm token vào cơ sở dữ liệu'
+				const token = response['id_token'];
+				add_google_token_to_db.run({ token })
+					.then(() => console.log('Token successfully added to database'))
+					.catch((err) => {
+					console.error('Error adding token to database:', err);
+					// Xử lý lỗi phát sinh khi thêm token vào cơ sở dữ liệu
+				});
+			} catch (error) {
+				console.error('Token is deleted, please login again:', error);
+				navigateTo('Login');
+			}
+
 
 
 		}
 	},
 
-	getTokenInfo : (token)=>{
-		
-		
-		
-		const secretKey = 'your_secret_key_here'; // Thay bằng khóa bí mật thực tế
-
-		try {
-			const decodedToken = jsonwebtoken.decode(token, secretKey);
-			return decodedToken;
-		} catch (error) {
-			console.error('JWT decoding failed:', error.message);
+	getUser :async ()=>{
+		const userInfo = appsmith.store.user;
+		if (userInfo === undefined){
+			const token = appsmith.store.token.id_token;
+			const decodedToken = await jsonwebtoken.decode(token);
+			storeValue('user', decodedToken);
+			console.log('decode ', decodedToken)
 		}
 	}
+
+
+
 }
