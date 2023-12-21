@@ -12,13 +12,15 @@ export default {
 
 	async loopCheckTokenInDb(){
 		const isTokenValid = this.isTokenValid();
-		if (isTokenValid) {
+		if (isTokenValid){
 			console.log('still valid, continue')
-		} else {
+		}
+		else {
 			console.log('token exprire, delete token in db')
 			const token = appsmith.store.token;
 			delete_token_in_db.run({token});
-			console.log('da xoa token')
+			console.log('deleted token in db ')
+
 		}
 	},
 
@@ -32,11 +34,10 @@ export default {
 				const tokenInDb = await check_token_exist.run({token});
 				const tokenCountInDb= tokenInDb[0]['count'];
 				console.log('tokenCountInDb', tokenCountInDb);
-				if ( tokenCountInDb === 0){
+				if ( tokenCountInDb === 0 && appsmith.mode !== 'EDIT'){
 					navigateTo('Login');
 				}
 			};
-
 			this.intervalId = setInterval(process, 5000);
 		}
 	},

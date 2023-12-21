@@ -35,7 +35,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT') {\n    navigateTo('Agency_Form_All');\n  } else if (token === undefined && tokenCountInDb === 0) {\n    console.log('do notthing');\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT') {\n    navigateTo('Agency_List_Form_Pattern');\n  } else if (token === undefined && tokenCountInDb === 0) {\n    console.log('do notthing');\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -48,7 +48,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      loopCheckToken.loopCheckTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb !== 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Agency_Form_All');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      loopCheckToken.loopCheckTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb !== 0) {\n        navigateTo('Agency_List_Form_Pattern');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

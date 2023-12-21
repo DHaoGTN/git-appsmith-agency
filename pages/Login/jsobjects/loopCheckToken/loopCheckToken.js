@@ -34,8 +34,8 @@ export default {
 				const tokenInDb = await check_token_exist.run({token});
 				const tokenCountInDb= tokenInDb[0]['count'];
 				console.log('tokenCountInDb', tokenCountInDb);
-				if ( tokenCountInDb !== 0 && appsmith.mode !== 'EDIT'){
-				  navigateTo('Agency_Form_All');
+				if ( tokenCountInDb !== 0){
+				  navigateTo('Agency_List_Form_Pattern');
 				}
 			};
 			this.intervalId = setInterval(process, 5000);

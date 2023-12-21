@@ -26,19 +26,7 @@
           "dynamicBindingPathList": [],
           "leftColumn": 0
         },
-        "layoutOnLoadActions": [
-          [
-            {
-              "id": "Agency_List_Form_Pattern_getUserInfo.getCurrentUser",
-              "name": "getUserInfo.getCurrentUser",
-              "collectionId": "Agency_List_Form_Pattern_getUserInfo",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ]
-        ],
+        "layoutOnLoadActions": [],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
         "id": "Agency_List_Form_Pattern",

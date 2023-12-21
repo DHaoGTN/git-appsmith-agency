@@ -5,7 +5,7 @@ export default {
 		const tokenCountInDb= tokenInDb[0]['count'];
 
 		if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
-			navigateTo('Agency_Form_All');
+			navigateTo('Agency_List_Form_Pattern');
 		}
 
 		else if (token === undefined && tokenCountInDb ===0){

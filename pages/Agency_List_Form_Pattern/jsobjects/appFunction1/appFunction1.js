@@ -7,7 +7,7 @@ export default {
 		check_token_exist.run({token});
 		const deteleState = delete_token_in_db.run({token});
 		window.localStorage.clear();
-		return deteleState
+		return deteleState			
 
 			.then(() => showAlert("you have been logged out,",'succes'))
 			.then(() => navigateTo('Login'))
@@ -20,8 +20,7 @@ export default {
 	},
 
 	submitPattern: () =>{
-		// showAlert(RadioGroupPattern.selectedOptionValue, 'info');
-		{{ navigateTo("Agency_Form_All", {"pattern": RadioGroupPattern.selectedOptionValue})}};
+		{{navigateTo("Agency_Form_All", {"pattern": RadioGroupPattern.selectedOptionValue})}}
 	},
 }
 

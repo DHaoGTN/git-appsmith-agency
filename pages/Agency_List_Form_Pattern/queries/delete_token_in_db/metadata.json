@@ -41,10 +41,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-16T14:55:41Z"
+    "userPermissions": []
   },
   "id": "Agency_List_Form_Pattern_delete_token_in_db",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658120f13010c95d5f5a8af3"
+  "gitSyncId": "65792b023010c95d5f5a84a2_6583d73a3010c95d5f5a8c9e"
 }
