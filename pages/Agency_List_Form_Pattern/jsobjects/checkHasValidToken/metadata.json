@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "checkHasValidToken",
+    "pageId": "Agency_List_Form_Pattern",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Agency_List_Form_Pattern_checkHasValidToken",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_658120f13010c95d5f5a8b17"
+}

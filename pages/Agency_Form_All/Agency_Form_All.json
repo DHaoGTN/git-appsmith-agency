@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 4720,
+          "bottomRow": 5230,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -36,6 +36,17 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "() => {\n  showAlert(appsmith.URL.queryParams.pattern);\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Agency_Form_All_loopCheckToken.loopToCheckTokenExist",
+              "name": "loopCheckToken.loopToCheckTokenExist",
+              "collectionId": "Agency_Form_All_loopCheckToken",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      loopCheckToken.loopCheckTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Login');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

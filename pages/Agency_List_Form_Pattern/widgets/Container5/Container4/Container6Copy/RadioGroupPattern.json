@@ -1,0 +1,76 @@
+{
+    "boxShadow": "none",
+    "mobileBottomRow": 17,
+    "widgetName": "RadioGroupPattern",
+    "displayName": "Radio Group",
+    "iconSVG": "/static/media/icon.99c101b3b70073f9c00e9af6523f9427.svg",
+    "searchTags": ["choice"],
+    "topRow": 0,
+    "bottomRow": 20,
+    "parentRowSpace": 10,
+    "labelWidth": "2",
+    "type": "RADIO_GROUP_WIDGET",
+    "hideCard": false,
+    "mobileRightColumn": 34,
+    "defaultOptionValue": "",
+    "animateLoading": true,
+    "parentColumnSpace": 10.34579873085022,
+    "dynamicTriggerPathList": [],
+    "leftColumn": 18,
+    "dynamicBindingPathList": [{"key": "accentColor"}],
+    "labelPosition": "Left",
+    "options": [
+        {
+            "label": "Wifi",
+            "value": "1"
+        },
+        {
+            "label": "Card",
+            "value": "2"
+        },
+        {
+            "label": "Utilities",
+            "value": "3"
+        },
+        {
+            "label": "Wifi+Card",
+            "value": "4"
+        },
+        {
+            "label": "Wifi+Utilities",
+            "value": "5"
+        },
+        {
+            "label": "Card+Utilities",
+            "value": "6"
+        },
+        {
+            "label": "All",
+            "value": "7"
+        }
+    ],
+    "isDisabled": false,
+    "flexVerticalAlignment": "start",
+    "key": "io26eh7ydk",
+    "labelTextSize": "0.875rem",
+    "isRequired": false,
+    "isDeprecated": false,
+    "rightColumn": 42,
+    "dynamicHeight": "FIXED",
+    "widgetId": "vth6gxh4mt",
+    "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+    "isVisible": true,
+    "label": "",
+    "version": 1,
+    "parentId": "2evz7pxcdc",
+    "tags": ["Toggles"],
+    "labelAlignment": "left",
+    "renderMode": "CANVAS",
+    "isLoading": false,
+    "mobileTopRow": 11,
+    "mobileLeftColumn": 14,
+    "maxDynamicHeight": 9000,
+    "isInline": false,
+    "alignment": "left",
+    "minDynamicHeight": 4
+}
