@@ -44,7 +44,7 @@ export default {
 			await add_token_to_db.run({token})
 			await storeValue('user', user )
 			await storeValue('token', token)
-				.then( () => navigateTo('Agency_Form_All'))}  
+				.then( () => navigateTo('Agency_List_Form_Pattern'))}  
 		else {
 			showAlert("Invalid email or password", "error")
 		}
