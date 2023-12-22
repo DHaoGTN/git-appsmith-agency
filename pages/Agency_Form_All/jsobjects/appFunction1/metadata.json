@@ -6,7 +6,20 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "variables": [],
+    "variables": [
+      {
+        "name": "serviceWifi",
+        "value": "null"
+      },
+      {
+        "name": "serviceCard",
+        "value": "null"
+      },
+      {
+        "name": "serviceUtilities",
+        "value": "null"
+      }
+    ],
     "userPermissions": []
   },
   "id": "Agency_Form_All_appFunction1",

@@ -1,7 +1,7 @@
 {
     "mobileBottomRow": 156,
     "widgetName": "Checkbox1",
-    "dynamicPropertyPathList": [{"key": "isVisible"}],
+    "dynamicPropertyPathList": [],
     "displayName": "Checkbox",
     "iconSVG": "/static/media/icon.7b004ee098ca948e952234e7baec6d11.svg",
     "searchTags": ["boolean"],
@@ -18,8 +18,7 @@
     "leftColumn": 10,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"},
-        {"key": "isVisible"}
+        {"key": "borderRadius"}
     ],
     "labelPosition": "Right",
     "onCheckChange": "",
@@ -27,12 +26,12 @@
     "key": "eaos3m7fks",
     "isRequired": false,
     "isDeprecated": false,
-    "rightColumn": 27,
+    "rightColumn": 31,
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "ps128711v7",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
-    "isVisible": "{{appsmith.URL.queryParams.pattern=='4' || appsmith.URL.queryParams.pattern=='5' || appsmith.URL.queryParams.pattern=='7'}}",
+    "isVisible": false,
     "label": "   1-光回線/ Fiber internet",
     "version": 1,
     "parentId": "f6o5ujc94b",

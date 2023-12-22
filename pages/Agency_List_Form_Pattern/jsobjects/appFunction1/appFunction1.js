@@ -20,7 +20,12 @@ export default {
 	},
 
 	submitPattern: () =>{
-		{{navigateTo("Agency_Form_All", {"pattern": RadioGroupPattern.selectedOptionValue})}}
+		//{{navigateTo("Agency_Form_All", {"pattern": RadioGroupPattern.selectedOptionValue})}}
+		{{navigateTo("Agency_Form_All", {
+			"wifi": service_wifi.isChecked,
+			"card": service_card.isChecked,
+			"utilities": service_utilities.isChecked,
+		})}}
 	},
 }
 

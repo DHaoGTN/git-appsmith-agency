@@ -79,7 +79,7 @@
     "containerStyle": "card",
     "bottomRowBeforeCollapse": 194,
     "minWidth": 450,
-    "isVisible": "{{Checkbox1.isChecked || appsmith.URL.queryParams.pattern=='1'}}",
+    "isVisible": "{{appsmith.URL.queryParams.wifi}}",
     "version": 1,
     "parentId": "f6o5ujc94b",
     "tags": ["Layout"],

@@ -1,6 +1,6 @@
 {
     "boxShadow": "none",
-    "widgetName": "Text9Copy",
+    "widgetName": "TitleLabel",
     "dynamicPropertyPathList": [{"key": "fontSize"}],
     "topRow": 0,
     "bottomRow": 7,
@@ -12,7 +12,7 @@
     "fontFamily": "System Default",
     "leftColumn": 2,
     "dynamicBindingPathList": [],
-    "text": "Choose Form Pattern",
+    "text": "ご利用希望サービス選択/ Choose preferred service.",
     "labelTextSize": "0.875rem",
     "rightColumn": 64,
     "textAlign": "LEFT",

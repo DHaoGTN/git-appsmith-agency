@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getPattern",
-    "fullyQualifiedName": "appFunction1.getPattern",
+    "name": "getParams",
+    "fullyQualifiedName": "appFunction1.getParams",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -34,9 +34,10 @@
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-19T09:16:18Z"
   },
-  "id": "Agency_Form_All_appFunction1.getPattern",
+  "id": "Agency_Form_All_appFunction1.getParams",
   "deleted": false,
   "gitSyncId": "65792b023010c95d5f5a84a2_65815f623010c95d5f5a8b78"
 }

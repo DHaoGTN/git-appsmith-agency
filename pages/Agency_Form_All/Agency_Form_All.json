@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 5230,
+          "bottomRow": 5380,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -29,13 +29,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Agency_Form_All_appFunction1.getPattern",
-              "name": "appFunction1.getPattern",
+              "id": "Agency_Form_All_appFunction1.getParams",
+              "name": "appFunction1.getParams",
               "collectionId": "Agency_Form_All_appFunction1",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "() => {\n  showAlert(appsmith.URL.queryParams.pattern);\n}"
+                "() => {\n  appFunction1.serviceWifi = appsmith.URL.queryParams.wifi;\n  appFunction1.serviceCard = appsmith.URL.queryParams.card;\n  appFunction1.serviceUtilities = appsmith.URL.queryParams.utilities;\n  showAlert('wifi ' + appFunction1.serviceWifi + ', card ' + appFunction1.serviceCard + ', utilities ' + appFunction1.serviceUtilities);\n}"
               ],
               "timeoutInMillisecond": 10000
             },

@@ -1,7 +1,7 @@
 {
     "mobileBottomRow": 156,
     "widgetName": "Checkbox3",
-    "dynamicPropertyPathList": [{"key": "isVisible"}],
+    "dynamicPropertyPathList": [],
     "displayName": "Checkbox",
     "iconSVG": "/static/media/icon.7b004ee098ca948e952234e7baec6d11.svg",
     "searchTags": ["boolean"],
@@ -18,8 +18,7 @@
     "leftColumn": 10,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"},
-        {"key": "isVisible"}
+        {"key": "borderRadius"}
     ],
     "labelPosition": "Right",
     "onCheckChange": "",
@@ -32,7 +31,7 @@
     "widgetId": "zn3pak7gap",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
-    "isVisible": "{{appsmith.URL.queryParams.pattern=='5' || appsmith.URL.queryParams.pattern=='6' || appsmith.URL.queryParams.pattern=='7'}}",
+    "isVisible": false,
     "label": "3-電気ガスセットアップ/ Electric, Gas line setup",
     "version": 1,
     "parentId": "f6o5ujc94b",

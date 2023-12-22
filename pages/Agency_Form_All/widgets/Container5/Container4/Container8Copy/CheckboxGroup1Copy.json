@@ -5,7 +5,7 @@
     "iconSVG": "/static/media/icon.9522c5e7f896ce165fcd1dbba438daff.svg",
     "labelText": "",
     "topRow": 6,
-    "bottomRow": 24,
+    "bottomRow": 26,
     "parentRowSpace": 10,
     "labelWidth": 5,
     "type": "CHECKBOX_GROUP_WIDGET",
@@ -61,7 +61,7 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 4,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 24,
+    "originalBottomRow": 26,
     "isInline": true,
     "minDynamicHeight": 4
 }

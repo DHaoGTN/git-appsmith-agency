@@ -1,5 +1,8 @@
 export default {
-
+  serviceWifi: null,
+	serviceCard: null,
+	serviceUtilities: null,
+	
 	logout: () =>{
 		// return removeValue('token')
 		// .then(() => navigateTo('Login'));
@@ -7,7 +10,7 @@ export default {
 		check_token_exist.run({token});
 		const deteleState = delete_token_in_db.run({token});
 		window.localStorage.clear();
-		return deteleState			
+		return deteleState
 
 			.then(() => showAlert("you have been logged out,",'succes'))
 			.then(() => navigateTo('Login'))
@@ -19,8 +22,11 @@ export default {
 		console.log(token);
 	},
 
-	getPattern: () =>{
-		showAlert(appsmith.URL.queryParams.pattern)
+	getParams: () =>{
+		this.serviceWifi = appsmith.URL.queryParams.wifi;
+		this.serviceCard = appsmith.URL.queryParams.card;
+		this.serviceUtilities = appsmith.URL.queryParams.utilities;
+		showAlert('wifi '+this.serviceWifi+', card '+this.serviceCard+', utilities '+this.serviceUtilities);
 	},
 }
 

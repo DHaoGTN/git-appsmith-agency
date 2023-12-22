@@ -23,7 +23,7 @@
     "textAlign": "LEFT",
     "dynamicHeight": "FIXED",
     "widgetId": "t0zrari5yc",
-    "isVisible": true,
+    "isVisible": false,
     "fontStyle": "BOLD",
     "textColor": "#231F20",
     "version": 1,
