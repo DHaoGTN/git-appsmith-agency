@@ -58,9 +58,6 @@ export default {
 			const process = async () => {
 				const tokenInfo = appsmith.store.token;
 				const token = tokenInfo['id_token'];
-
-
-
 				this.checkValidTokenDb();
 
 				const tokenInDb = await check_token_existt.run({token});

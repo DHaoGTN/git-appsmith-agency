@@ -4,24 +4,22 @@ export default {
 		const tokenExist = appsmith.store.token;
 
 		if (tokenExist === undefined){
-
 			try {
 				// Get Google authentication token
 				const response = await auth_get_token.run();
 				storeValue('token', response);  // Lưu trữ token
 				this.getUser();
 
-				// Thực thi hàm thêm token vào cơ sở dữ liệu'
+				// add new token to db
 				const token = response['id_token'];
 				await add_google_token_to_db.run({ token })
 					.then(() => console.log('Token successfully added to database'))
 					.catch((err) => {
 					console.error('Error adding token to database:', err);
-					// Xử lý lỗi phát sinh khi thêm token vào cơ sở dữ liệu
 				});
 			} catch (error) {
 				console.error('Token is deleted, please login again:', error);
-				// navigateTo('Login');
+				navigateTo('Login');
 			}
 		}
 	},

@@ -153,7 +153,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    try {\n      const response = await auth_get_token.run();\n      storeValue('token', response);\n      startUp.getUser();\n      const token = response['id_token'];\n      await add_google_token_to_db.run({\n        token\n      }).then(() => console.log('Token successfully added to database')).catch(err => {\n        console.error('Error adding token to database:', err);\n      });\n    } catch (error) {\n      console.error('Token is deleted, please login again:', error);\n    }\n  }\n}"
+                "async function () {\n  const tokenExist = appsmith.store.token;\n  if (tokenExist === undefined) {\n    try {\n      const response = await auth_get_token.run();\n      storeValue('token', response);\n      startUp.getUser();\n      const token = response['id_token'];\n      await add_google_token_to_db.run({\n        token\n      }).then(() => console.log('Token successfully added to database')).catch(err => {\n        console.error('Error adding token to database:', err);\n      });\n    } catch (error) {\n      console.error('Token is deleted, please login again:', error);\n      navigateTo('Login');\n    }\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
