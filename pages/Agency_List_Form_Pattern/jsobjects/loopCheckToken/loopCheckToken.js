@@ -34,8 +34,7 @@ export default {
 				const tokenInDb = await check_token_exist.run({token});
 				const tokenCountInDb= tokenInDb[0]['count'];
 				console.log('tokenCountInDb', tokenCountInDb);
-				// showAlert('b '+tokenCountInDb);
-				if ( tokenCountInDb === 0 && appsmith.mode !== 'EDIT'){
+				if ( tokenCountInDb === 0 ){
 					navigateTo('Login');
 				}
 			};
