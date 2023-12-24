@@ -67,7 +67,8 @@ export default {
 				console.log('token in db', tokenInDb)
 				const tokenCountInDb= tokenInDb[0]['count'];
 				console.log('tokenCountInDb', tokenCountInDb);
-				if ( tokenCountInDb === 0 && token !== undefined ){
+				// if ( tokenCountInDb === 0 && token !== undefined ){
+				if ( tokenCountInDb === 0 &&  appsmith.mode !== 'EDIT'){
 					navigateTo('Login');
 					console.log('other page had log out, please log in again')
 				}

@@ -50,7 +50,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const tokenInfo = appsmith.store.token;\n      const token = tokenInfo['id_token'];\n      loopCheckToken.checkValidTokenDb();\n      const tokenInDb = await check_token_existt.run({\n        token\n      });\n      console.log('token in db', tokenInDb);\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && token !== undefined) {\n        navigateTo('Login');\n        console.log('other page had log out, please log in again');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 10000);\n  }\n}"
+                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const tokenInfo = appsmith.store.token;\n      const token = tokenInfo['id_token'];\n      loopCheckToken.checkValidTokenDb();\n      const tokenInDb = await check_token_existt.run({\n        token\n      });\n      console.log('token in db', tokenInDb);\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Login');\n        console.log('other page had log out, please log in again');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 10000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
