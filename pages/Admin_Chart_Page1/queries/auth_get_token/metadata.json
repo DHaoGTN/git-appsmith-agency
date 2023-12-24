@@ -34,7 +34,7 @@
       "bodyFormData": [
         {
           "key": "redirect_uri",
-          "value": "http://affiliate-stg.gtn.co.jp/app/agency-site/admin-chart-page1-65791ef2121d847b3b6a2bab/edit?branch=dev"
+          "value": "http://affiliate-stg.gtn.co.jp/app/agency-site/admin-chart-page1-65791ef2121d847b3b6a2bab?branch=dev"
         },
         {
           "key": "code",
