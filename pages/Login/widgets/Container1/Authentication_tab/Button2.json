@@ -5,6 +5,7 @@
     "widgetName": "Button2",
     "onClick": "{{authentication.signUp();}}",
     "buttonColor": "#dbeafe",
+    "dynamicPropertyPathList": [],
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
     "searchTags": [
@@ -40,7 +41,7 @@
     "mobileTopRow": 29,
     "responsiveBehavior": "hug",
     "originalTopRow": 40,
-    "disabledWhenInvalid": false,
+    "disabledWhenInvalid": true,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 33,
     "originalBottomRow": 44,

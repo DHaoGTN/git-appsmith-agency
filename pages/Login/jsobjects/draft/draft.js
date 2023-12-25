@@ -36,7 +36,7 @@ export default {
 				console.log('tokenCountInDb', tokenCountInDb);
 				// showAlert('a '+tokenCountInDb);
 				if ( tokenCountInDb != 0 && appsmith.mode !== 'EDIT'){
-				  navigateTo('Agency_List_Form_Pattern');
+					navigateTo('Agency_List_Form_Pattern');
 				}
 			};
 			this.intervalId = setInterval(process, 5000);
@@ -49,5 +49,9 @@ export default {
 			this.intervalId = null;
 		}
 	},
+
+	checkText(){
+		return Email_su.setRequired(false);
+	}
 };
 
