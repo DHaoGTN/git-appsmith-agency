@@ -42,7 +42,7 @@
             "widgetId": "mnthn746qx",
             "index": 0,
             "id": "menuItem3dfuthklaq",
-            "label": "Email: {{getUserInfo.getCurrentUser.data[0].email}}",
+            "label": "Hi \n{{appsmith.store.user['email']}}\n",
             "isDisabled": false,
             "isVisible": true
         },
