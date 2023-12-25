@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 50,
     "widgetName": "Button14",
-    "onClick": "{{appFunction1.submitPattern();}}",
+    "onClick": "{{app_function.submitPattern();}}",
     "buttonColor": "#2d969b",
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",

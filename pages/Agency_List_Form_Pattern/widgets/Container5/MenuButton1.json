@@ -47,7 +47,7 @@
             "isVisible": true
         },
         "menuItem1": {
-            "onClick": "{{appFunction1.logout();}}",
+            "onClick": "{{app_function.logout();}}",
             "widgetId": "",
             "index": 1,
             "label": "Sign out",

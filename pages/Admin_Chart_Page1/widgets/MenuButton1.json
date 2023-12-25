@@ -34,7 +34,7 @@
     "menuVariant": "PRIMARY",
     "widgetId": "fcra947zqw",
     "menuItems": {"menuItem3": {
-        "onClick": "{{appFunction.logout();}}",
+        "onClick": "{{app_function.logout();}}",
         "widgetId": "",
         "index": 0,
         "label": "Sign out",

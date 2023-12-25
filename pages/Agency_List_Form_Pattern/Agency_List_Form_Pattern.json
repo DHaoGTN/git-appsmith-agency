@@ -29,26 +29,26 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Agency_List_Form_Pattern_checkHasValidToken.loggedInByPassword",
-              "name": "checkHasValidToken.loggedInByPassword",
-              "collectionId": "Agency_List_Form_Pattern_checkHasValidToken",
+              "id": "Agency_List_Form_Pattern_start_up.loggedInByPassword",
+              "name": "start_up.loggedInByPassword",
+              "collectionId": "Agency_List_Form_Pattern_start_up",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do notthing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
             {
-              "id": "Agency_List_Form_Pattern_loopCheckToken.loopToCheckTokenExist",
-              "name": "loopCheckToken.loopToCheckTokenExist",
-              "collectionId": "Agency_List_Form_Pattern_loopCheckToken",
+              "id": "Agency_List_Form_Pattern_loop_check_token.loopToCheckTokenExist",
+              "name": "loop_check_token.loopToCheckTokenExist",
+              "collectionId": "Agency_List_Form_Pattern_loop_check_token",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!loopCheckToken.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      loopCheckToken.loopCheckTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Login');\n      }\n    };\n    loopCheckToken.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  if (!loop_check_token.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      loop_check_token.checkValidTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Login');\n      }\n    };\n    loop_check_token.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
