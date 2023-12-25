@@ -79,7 +79,7 @@
     "containerStyle": "card",
     "bottomRowBeforeCollapse": 194,
     "minWidth": 450,
-    "isVisible": "{{appsmith.URL.queryParams.wifi}}",
+    "isVisible": "{{cb_service_wifi.isChecked}}",
     "version": 1,
     "parentId": "f6o5ujc94b",
     "tags": ["Layout"],

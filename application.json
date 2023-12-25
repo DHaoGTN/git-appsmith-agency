@@ -5,11 +5,11 @@
       "isDefault": false
     },
     {
-      "id": "Admin_Chart_Page1",
+      "id": "tmp1",
       "isDefault": false
     },
     {
-      "id": "Admin_Table_Page2",
+      "id": "tmp2",
       "isDefault": false
     },
     {
@@ -18,10 +18,6 @@
     },
     {
       "id": "Google_Home_Page",
-      "isDefault": false
-    },
-    {
-      "id": "Agency_Form_All Copy",
       "isDefault": false
     },
     {

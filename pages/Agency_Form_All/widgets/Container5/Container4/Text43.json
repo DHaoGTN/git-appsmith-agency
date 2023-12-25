@@ -1,10 +1,7 @@
 {
     "mobileBottomRow": 8,
     "widgetName": "Text43",
-    "dynamicPropertyPathList": [
-        {"key": "fontSize"},
-        {"key": "isVisible"}
-    ],
+    "dynamicPropertyPathList": [{"key": "fontSize"}],
     "displayName": "Text",
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "searchTags": [
@@ -27,8 +24,7 @@
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
-        {"key": "borderRadius"},
-        {"key": "isVisible"}
+        {"key": "borderRadius"}
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
@@ -40,7 +36,7 @@
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "agay7htcqd",
     "minWidth": 450,
-    "isVisible": "{{appsmith.URL.queryParams.pattern=='2' || appsmith.URL.queryParams.pattern=='4' || appsmith.URL.queryParams.pattern=='6' || appsmith.URL.queryParams.pattern=='7'}}",
+    "isVisible": true,
     "fontStyle": "BOLD",
     "textColor": "#71717a",
     "version": 1,
