@@ -9,12 +9,11 @@ export default {
 	},
 
 	createToken : (email ) =>{
-		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 10});
+		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 600});
 	},
 
 	signUp: async () =>{
 		const name = Name_su.text;
-		// const password = Password_si.text;
 		const email = Email_su.text;
 
 		const check_email =await check_email_exist.run({email});
