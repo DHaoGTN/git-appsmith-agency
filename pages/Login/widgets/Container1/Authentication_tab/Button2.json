@@ -5,7 +5,7 @@
     "widgetName": "Button2",
     "onClick": "{{authentication.signUp();}}",
     "buttonColor": "#dbeafe",
-    "dynamicPropertyPathList": [],
+    "dynamicPropertyPathList": [{"key": "isDisabled"}],
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
     "searchTags": [
@@ -22,9 +22,12 @@
     "parentColumnSpace": 6.833362579345703,
     "dynamicTriggerPathList": [{"key": "onClick"}],
     "leftColumn": 32,
-    "dynamicBindingPathList": [{"key": "borderRadius"}],
+    "dynamicBindingPathList": [
+        {"key": "borderRadius"},
+        {"key": "isDisabled"}
+    ],
     "text": "Sign up",
-    "isDisabled": false,
+    "isDisabled": "{{!Name_su.isValid && !Email_su.isValid && !confirm_password_su.isValid}}",
     "key": "y6oil5fhdm",
     "isDeprecated": false,
     "rightColumn": 60,
@@ -41,7 +44,7 @@
     "mobileTopRow": 29,
     "responsiveBehavior": "hug",
     "originalTopRow": 40,
-    "disabledWhenInvalid": true,
+    "disabledWhenInvalid": false,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 33,
     "originalBottomRow": 44,

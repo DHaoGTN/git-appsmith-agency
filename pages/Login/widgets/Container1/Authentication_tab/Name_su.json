@@ -9,11 +9,13 @@
     "leftColumn": 22,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "validation"}
     ],
     "labelStyle": "",
     "inputType": "TEXT",
     "isDisabled": false,
+    "validation": "{{Name_su.text.length >3}}",
     "isRequired": true,
     "dynamicHeight": "FIXED",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
