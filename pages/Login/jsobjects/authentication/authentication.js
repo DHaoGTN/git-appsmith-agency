@@ -9,7 +9,7 @@ export default {
 	},
 
 	createToken : (email ) =>{
-		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 600});
+		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 10});
 	},
 
 	signUp: async () =>{
