@@ -4,6 +4,7 @@ export default {
 		const token = appsmith.store.token;
 		try {
 			jsonwebtoken.verify(token, 'gtn-id');
+			console.log('test')
 			return true; 
 		} catch (error) {
 			return false; 
