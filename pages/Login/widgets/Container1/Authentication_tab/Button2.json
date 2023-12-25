@@ -27,7 +27,7 @@
         {"key": "isDisabled"}
     ],
     "text": "Sign up",
-    "isDisabled": "{{!Name_su.isValid && !Email_su.isValid && !confirm_password_su.isValid}}",
+    "isDisabled": "{{ !(Name_su.isValid) || !(Email_su.isValid) || !(confirm_password_su.isValid) }}",
     "key": "y6oil5fhdm",
     "isDeprecated": false,
     "rightColumn": 60,
