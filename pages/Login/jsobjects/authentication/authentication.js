@@ -24,11 +24,11 @@ export default {
 			const password = this.createHash(pass);
 			console.log(password);
 			return insert_user_info.run({ email,password,name})
-				.then(() => showAlert("Your account hass been created, Please log in",'succes'))
+				.then(() => showAlert("Your account hass been created, Please log in",'success'))
 				.catch(e => showAlert(e.message, 'error'));
 		}
 		else {
-			return showAlert('Your email have been registed, please login or try other email')
+			return showAlert('Your email have been registed, please login or try another email', 'error')
 		}
 	},
 
