@@ -20,17 +20,18 @@ export default {
 		const count_email= check_email[0]['count'];
 		console.log('count', count_email)   ;
 		if (count_email === 0  ){
-			if (name.length != 0){
+			if (name.length=== 0) {
+				return showAlert('Please type your name', 'error')
+			}
+			else if (Password_su.text != confirm_password_su.text){
+				return showAlert('Your password is not match', 'error')
+			}
+			else if (name.length != 0 ){
 				const pass = Password_su.text;
 				const password = this.createHash(pass);
 				return insert_user_info.run({ email,password,name})
 					.then(() => showAlert("Your account hass been created, Please log in",'success'))
 					.catch(e => showAlert(e.message, 'error'));
-			} else if (name.length=== 0) {
-				return showAlert('Please type your name', 'error')
-			}
-			else if (Password_su.text != confirm_password_su.text){
-				return showAlert('Your password is not match', 'error')
 			}
 		}
 		else {
