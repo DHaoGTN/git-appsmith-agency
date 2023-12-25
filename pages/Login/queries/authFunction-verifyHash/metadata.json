@@ -3,7 +3,7 @@
   "pluginId": "js-plugin",
   "unpublishedAction": {
     "name": "verifyHash",
-    "fullyQualifiedName": "appFunction.verifyHash",
+    "fullyQualifiedName": "authFunction.verifyHash",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Login",
-    "collectionId": "Login_appFunction",
+    "collectionId": "Login_authFunction",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -41,9 +41,10 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-19T16:55:57Z"
   },
-  "id": "Login_appFunction.verifyHash",
+  "id": "Login_authFunction.verifyHash",
   "deleted": false,
   "gitSyncId": "65792b023010c95d5f5a84a2_6581cb1d3010c95d5f5a8bfb"
 }

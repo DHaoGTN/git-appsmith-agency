@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 23,
     "widgetName": "Button3",
-    "onClick": "{{appFunction.signIn();}}",
+    "onClick": "{{authFunction.signIn();}}",
     "buttonColor": "#93c5fd",
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",

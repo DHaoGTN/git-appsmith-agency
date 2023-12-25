@@ -1,6 +1,6 @@
 {
   "unpublishedCollection": {
-    "name": "appFunction",
+    "name": "authFunction",
     "pageId": "Login",
     "pluginId": "js-plugin",
     "pluginType": "JS",
@@ -9,7 +9,7 @@
     "variables": [],
     "userPermissions": []
   },
-  "id": "Login_appFunction",
+  "id": "Login_authFunction",
   "deleted": false,
   "gitSyncId": "65792b023010c95d5f5a84a2_6581cb113010c95d5f5a8bf8"
 }
