@@ -1,14 +1,15 @@
 export default {
 	async loggedInByPassword () {
-		const token = await appsmith.store.token;
-		const tokenInDb = await check_token_exist.run({token});
-		const tokenCountInDb= tokenInDb[0]['count'];
 
-		if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
-			navigateTo('Agency_List_Form_Pattern');
-		}
-
-		else if (token === undefined && tokenCountInDb ===0){
+		try{
+			const token = await appsmith.store.token;
+			const tokenInDb = await check_token_exist.run({token});
+			const tokenCountInDb= tokenInDb[0]['count'];
+			if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
+				console.log('token count', tokenCountInDb)
+				navigateTo('Agency_Form_All');
+			}
+		}catch(error){
 			console.log('do not thing');
 		}
 	},

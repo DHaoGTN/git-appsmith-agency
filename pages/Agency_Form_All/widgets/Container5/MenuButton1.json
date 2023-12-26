@@ -58,7 +58,7 @@
         }
     },
     "isVisible": true,
-    "label": "Hi \n{{appsmith.store.user['name']}}\n",
+    "label": "Hi {{appsmith.store.user['last_name']}}\n{{appsmith.store.user['first_name']}}\n",
     "version": 1,
     "parentId": "i0qokivosc",
     "tags": ["Buttons"],

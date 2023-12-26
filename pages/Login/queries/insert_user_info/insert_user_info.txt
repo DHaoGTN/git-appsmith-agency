@@ -1,2 +1,2 @@
-INSERT INTO user_info."users" ( email, password,name)
+INSERT INTO public."agency_accounts" ( email, password,name)
 VALUES ( '{{this.params.email}}', '{{this.params.password}}','{{this.params.name}}');

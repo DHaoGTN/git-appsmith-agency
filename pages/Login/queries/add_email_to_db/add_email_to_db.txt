@@ -1,3 +1,3 @@
-INSERT INTO user_info."users_token" (email)
+INSERT INTO  public."agency_accounts" (email)
 VALUES ( '{{this.params.email}}');
 

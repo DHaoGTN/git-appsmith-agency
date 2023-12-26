@@ -1,1 +1,1 @@
-SELECT COUNT(*) AS count FROM user_info."users" WHERE email = '{{this.params.email}}';
+SELECT COUNT(*) AS count FROM public."agency_accounts" WHERE email = '{{this.params.email}}';

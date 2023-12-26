@@ -1,1 +1,1 @@
-DELETE FROM user_info."users_token" WHERE token = '{{this.params.token}}';
+DELETE FROM public."agency_accounts" WHERE token = '{{this.params.token}}';

@@ -1,1 +1,1 @@
-SELECT * FROM  user_info."users" WHERE email = '{{this.params.email}}';
+SELECT * FROM  public."agency_accounts" WHERE email = '{{this.params.email}}';
