@@ -65,8 +65,10 @@
         },
         "menuItemo22spze7ps": {
             "onClick": "{{navigateTo('Change_User_Info_Page', {}, 'SAME_WINDOW');}}",
+            "iconName": "annotation",
             "widgetId": "4k00fugvjx",
             "index": 1,
+            "iconAlign": "right",
             "id": "menuItemo22spze7ps",
             "label": "Profile",
             "isDisabled": false,

@@ -6,8 +6,8 @@
     "isCanvas": true,
     "displayName": "Tabs",
     "iconSVG": "/static/media/icon.9e3d67c0af9c0bd092dc56240314e18a.svg",
-    "topRow": 4,
-    "bottomRow": 36,
+    "topRow": 17,
+    "bottomRow": 49,
     "parentRowSpace": 10,
     "type": "TABS_WIDGET",
     "hideCard": false,
@@ -172,7 +172,7 @@
             "index": 2,
             "id": "tab7gz574d0xz",
             "label": "Google",
-            "isVisible": true
+            "isVisible": false
         },
         "tab1": {
             "widgetId": "kth5rn0ueg",
@@ -188,7 +188,7 @@
             "index": 1,
             "label": "Sign up",
             "id": "tab2",
-            "isVisible": true
+            "isVisible": false
         }
     },
     "isVisible": true,
@@ -199,10 +199,10 @@
     "isLoading": false,
     "mobileTopRow": 16,
     "responsiveBehavior": "fill",
-    "originalTopRow": 4,
+    "originalTopRow": 17,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 17,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 36,
+    "originalBottomRow": 49,
     "minDynamicHeight": 10
 }
