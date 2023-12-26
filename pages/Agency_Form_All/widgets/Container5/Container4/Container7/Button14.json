@@ -3,7 +3,9 @@
     "boxShadow": "none",
     "mobileBottomRow": 50,
     "widgetName": "Button14",
+    "onClick": "{{app_function.saveApplicationToDB()}}",
     "buttonColor": "#2d969b",
+    "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
     "searchTags": [
@@ -18,7 +20,7 @@
     "mobileRightColumn": 52,
     "animateLoading": true,
     "parentColumnSpace": 10.085840225219727,
-    "dynamicTriggerPathList": [],
+    "dynamicTriggerPathList": [{"key": "onClick"}],
     "leftColumn": 36,
     "dynamicBindingPathList": [{"key": "borderRadius"}],
     "text": "送信・Submit",
@@ -38,11 +40,11 @@
     "isLoading": false,
     "mobileTopRow": 46,
     "responsiveBehavior": "hug",
-    "originalTopRow": 46,
+    "originalTopRow": 51,
     "disabledWhenInvalid": false,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 36,
-    "originalBottomRow": 50,
+    "originalBottomRow": 55,
     "buttonVariant": "PRIMARY",
     "placement": "CENTER"
 }

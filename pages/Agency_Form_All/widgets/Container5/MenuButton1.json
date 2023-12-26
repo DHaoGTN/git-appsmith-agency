@@ -13,7 +13,7 @@
             "isDisabled": false
         }
     },
-    "dynamicPropertyPathList": [{"key": "menuItems.menuItem1.onClick"}],
+    "dynamicPropertyPathList": [],
     "displayName": "Menu button",
     "iconSVG": "/static/media/icon.631848e88e7a3db05f6015f22835e81b.svg",
     "topRow": 5,
