@@ -53,13 +53,16 @@ export default {
 	},
 
 	changePassword: async()=>{
-		const email = appsmith.store.email
+		const email = appsmith.store.user['email']
 		const [user] = await find_user_by_email.run({email});
 
 		//user type passwod
 		const current_password_typing=  current_password_input.text;
 		const new_password_typing = confirm_password_input.text
+		console.log('result')
 
+		const result = await this.verifyHash(current_password_typing, user?.hash)
+		console.log('result', result)
 
 		// compare type password with db password
 		if ( user && this.verifyHash(current_password_typing, user?.hash)){

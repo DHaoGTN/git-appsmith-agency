@@ -1,5 +1,5 @@
 {
-    "resetFormOnClick": false,
+    "resetFormOnClick": true,
     "boxShadow": "none",
     "mobileBottomRow": 56,
     "widgetName": "edit_email_btn",
