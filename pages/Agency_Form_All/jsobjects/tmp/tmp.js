@@ -13,12 +13,12 @@ export default {
 		this.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);
 	},
 
-	saveApplicationToDB: () =>{
+	async saveApplicationToDB () {
 		// Save applicants
-		let applicant_id = this.saveApplicant();
-		showAlert(applicant_id);
+		let applicantId = this.saveApplicant();
+		showAlert(applicantId);
 		// Save applications
-		
+		let applicationsId = this.saveApplications(applicantId);
 		// Save wifi_applications
 
 		// Save card_applications
@@ -47,7 +47,27 @@ export default {
 		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email, address});
 	},
 	
-	async saveApplications () {
+	async saveApplications(applicantId) {
 		const agencyId = await appsmith.store.agency_id;
+		let serviceCodeTypes = [];
+		if (service_wifi_cb.isChecked)
+			serviceCodeTypes.push('wifi');
+		if (service_card_cb.isChecked)
+			serviceCodeTypes.push('card');
+		if (service_utilities_cb.isChecked)
+			serviceCodeTypes.push('utilities');
+		return insert_application.run({agencyId, applicantId, serviceCodeTypes});
+	},
+	
+	async saveWifiApplications(applicationId) {
+		const agencyId = await appsmith.store.agency_id;
+		let serviceCodeTypes = [];
+		if (service_wifi_cb.isChecked)
+			serviceCodeTypes.push('wifi');
+		if (service_card_cb.isChecked)
+			serviceCodeTypes.push('card');
+		if (service_utilities_cb.isChecked)
+			serviceCodeTypes.push('utilities');
+		return insert_application.run({agencyId, applicantId, serviceCodeTypes});
 	},
 }
