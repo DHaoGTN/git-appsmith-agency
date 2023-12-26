@@ -6,7 +6,7 @@
     "iconSVG": "/static/media/icon.7b004ee098ca948e952234e7baec6d11.svg",
     "searchTags": ["boolean"],
     "topRow": 153,
-    "bottomRow": 158,
+    "bottomRow": 157,
     "parentRowSpace": 10,
     "type": "CHECKBOX_WIDGET",
     "alignWidget": "LEFT",

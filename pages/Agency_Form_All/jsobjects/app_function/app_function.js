@@ -13,7 +13,7 @@ export default {
 		}catch(error){
 			return navigateTo("Login")
 		}
-		return  showAlert("you have been logged out,",'succes')
+		return  showAlert("you have been logged out,",'success')
 			.then(() => navigateTo('Login'))
 			.catch(e => showAlert(e.message, 'error'));
 	},
@@ -22,6 +22,40 @@ export default {
 		const token =appsmith.store.token;
 		console.log(token);
 	},
+
+	// ----------- Change email and password function ---------------//
+	changeEmail: async()=>{
+		const current_email = appsmith.store.email;
+		const new_email = change_email_input2.text;
+		// const new_email = 'test@gmail.com'
+		const check_email=await check_email_exist.run({new_email})
+		const count_new_email= check_email[0]['count']
+		console.log('count new email', count_new_email)
+		if (current_email === new_email){
+			return showAlert('Your new email is same with current email', 'error')
+		}
+		else if (count_new_email>0){
+			return showAlert('Your new email have existed, please choose another email or login', 'error')
+		}
+		else {
+			await change_email.run({new_email, current_email})
+			await this.logout()
+			return showAlert('changed email successfully,  please login again', 'success')
+		}		
+
+	},
+
+
+
+
+
+
+
+
+
+
+
+
 
 	setAgencyServicesAllowed: () =>{
 		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
@@ -53,15 +87,16 @@ export default {
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
 		let desiredLang = japanese_cb.isChecked ? '日本語' :
-		  vietnamese_cb.isChecked ? 'Tiếng Việt' :
-		    chinese_cb.isChecked ? '簡体字' :
-		      english_cb.isChecked ? 'English' :
-		        korean_cb.isChecked ? '한국어' :
-		          taiwan_cb.isChecked ? '繁体字' : 'none';
+		vietnamese_cb.isChecked ? 'Tiếng Việt' :
+		chinese_cb.isChecked ? '簡体字' :
+		english_cb.isChecked ? 'English' :
+		korean_cb.isChecked ? '한국어' :
+		taiwan_cb.isChecked ? '繁体字' : 'none';
 		let phone = phone_input.text;
 		let email = email_input.text;
+		let address = address1_input.text+" - "+address2_input.text+" - "+address3_input.text+" - "+address4_input.text+" - "+address5_input.text;
 
-		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email});
+		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email, address});
 	}
 
 	// serviceWifi: null,

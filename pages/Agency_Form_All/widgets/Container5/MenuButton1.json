@@ -24,12 +24,15 @@
     "mobileRightColumn": 30,
     "animateLoading": true,
     "parentColumnSpace": 27.611083984375,
-    "dynamicTriggerPathList": [{"key": "menuItems.menuItem1.onClick"}],
+    "dynamicTriggerPathList": [
+        {"key": "menuItems.menuItem1.onClick"},
+        {"key": "menuItems.menuItem3dfuthklaq.onClick"}
+    ],
     "leftColumn": 52,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
-        {"key": "label"},
-        {"key": "menuItems.menuItem3dfuthklaq.label"}
+        {"key": "menuItems.menuItem3dfuthklaq.label"},
+        {"key": "label"}
     ],
     "isDisabled": false,
     "sourceData": "[]",
@@ -40,17 +43,32 @@
     "widgetId": "hoe88fyti2",
     "menuItems": {
         "menuItem3dfuthklaq": {
+            "onClick": "{{showModal('change_email_modal');}}",
+            "iconName": "annotation",
             "widgetId": "mnthn746qx",
+            "iconColor": "#d4d4d8",
             "index": 0,
+            "iconAlign": "right",
             "id": "menuItem3dfuthklaq",
-            "label": "Email: {{appsmith.store.user.email}}",
+            "label": "Email: {{appsmith.store.email}}",
+            "isDisabled": false,
+            "isVisible": true
+        },
+        "menuItemxmkozp4r5o": {
+            "iconName": "annotation",
+            "widgetId": "e21ouujzop",
+            "iconColor": "#d4d4d8",
+            "index": 1,
+            "iconAlign": "right",
+            "id": "menuItemxmkozp4r5o",
+            "label": "Password",
             "isDisabled": false,
             "isVisible": true
         },
         "menuItem1": {
             "onClick": "{{app_function.logout();}}",
             "widgetId": "",
-            "index": 1,
+            "index": 2,
             "label": "Sign out",
             "id": "menuItem1",
             "isVisible": true,
@@ -58,7 +76,7 @@
         }
     },
     "isVisible": true,
-    "label": "Hi {{appsmith.store.user['last_name']}}\n{{appsmith.store.user['first_name']}}\n",
+    "label": "Hi {{appsmith.store.last_name}}\n{{appsmith.store.first_name}}\n",
     "version": 1,
     "parentId": "i0qokivosc",
     "tags": ["Buttons"],

@@ -41,19 +41,21 @@ export default {
 	// },
 
 	signIn:async () =>{
-		// const email = Email_si.text;
-		// const password = Password_si.text;
-		const email = 'test@gmail.com';
-		const password = 'asdasd123';
-		const [user] = await find_user.run({email});
-		console.log('user', user)
+		const email = Email_si.text;
+		const password = Password_si.text;
+		// const email = 'test@gmail.com';
+		// const password = 'asdasd123';
+		const [user] = await find_user_by_email.run({email});
 		if ( user && this.verifyHash(password, user?.hash)){
 			const token = this.createToken(email);
 
 			await this.addTokenToDb(email, token)
 			console.log('successfully added token to db')
 
-			await storeValue('user', user )
+			await storeValue('email', user['email'] )
+			await storeValue('first_name', user['first_name'] )
+			await storeValue('last_name', user['last_name'] )
+
 			await storeValue('token', token)
 				.then( () => navigateTo('Agency_Form_All'))
 			console.log('added token to local')

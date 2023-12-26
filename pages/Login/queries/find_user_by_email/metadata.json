@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "find_user",
+    "name": "find_user_by_email",
     "datasource": {
       "name": "affiliate-db",
       "pluginId": "postgres-plugin",
@@ -44,7 +44,7 @@
     "userPermissions": [],
     "createdAt": "2023-12-16T10:59:28Z"
   },
-  "id": "Login_find_user",
+  "id": "Login_find_user_by_email",
   "deleted": false,
   "gitSyncId": "65792b023010c95d5f5a84a2_657d83103010c95d5f5a885f"
 }

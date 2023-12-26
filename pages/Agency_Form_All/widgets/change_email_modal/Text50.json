@@ -1,6 +1,6 @@
 {
     "mobileBottomRow": 5,
-    "widgetName": "Text41",
+    "widgetName": "Text50",
     "displayName": "Text",
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "searchTags": [
@@ -16,6 +16,7 @@
     "animateLoading": true,
     "overflow": "NONE",
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+    "dynamicTriggerPathList": [],
     "leftColumn": 1,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
@@ -24,19 +25,19 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "Modal Title",
-    "key": "0v7frr6pru",
+    "text": "Change Email",
+    "key": "85n48aitiv",
     "isDeprecated": false,
     "rightColumn": 41,
     "textAlign": "LEFT",
-    "dynamicHeight": "AUTO_HEIGHT",
-    "widgetId": "ll597mhx5o",
+    "dynamicHeight": "FIXED",
+    "widgetId": "a1xcni06dx",
     "minWidth": 450,
     "isVisible": true,
     "fontStyle": "BOLD",
     "textColor": "#231F20",
     "version": 1,
-    "parentId": "si1h0yxo6e",
+    "parentId": "43wq5uz9ok",
     "tags": [
         "Suggested",
         "Content"
