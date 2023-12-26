@@ -9,11 +9,11 @@ export default {
 		// use try catch incase there is token in local storage to compare with token in db
 		try{
 			await delete_token_in_db.run({token});
+			await window.localStorage.clear()
 		}catch(error){
 			return navigateTo("Login")
 		}
-		return await window.localStorage.clear()
-			.then(() => showAlert("you have been logged out,",'succes'))
+		return  showAlert("you have been logged out,",'succes')
 			.then(() => navigateTo('Login'))
 			.catch(e => showAlert(e.message, 'error'));
 	},
@@ -44,7 +44,7 @@ export default {
 
 		// Save applications
 	},
-  saveApplicant: () =>{
+	saveApplicant: () =>{
 		let fistname = firstname_input.text;
 		let lastname = lastname_input.text;
 		let fistnameKtkn = firstname_ktkn_input.text;
@@ -53,14 +53,14 @@ export default {
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
 		let desiredLang = japanese_cb.isChecked ? '日本語' :
-		                     vietnamese_cb.isChecked ? 'Tiếng Việt' :
-		                       chinese_cb.isChecked ? '簡体字' :
-		                         english_cb.isChecked ? 'English' :
-		                           korean_cb.isChecked ? '한국어' :
-		                             taiwan_cb.isChecked ? '繁体字' : 'none';
+		vietnamese_cb.isChecked ? 'Tiếng Việt' :
+		chinese_cb.isChecked ? '簡体字' :
+		english_cb.isChecked ? 'English' :
+		korean_cb.isChecked ? '한국어' :
+		taiwan_cb.isChecked ? '繁体字' : 'none';
 		let phone = phone_input.text;
 		let email = email_input.text;
-		
+
 		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email});
 	}
 
