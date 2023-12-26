@@ -34,7 +34,8 @@ export default {
 
 	saveApplicationToDB: () =>{
 		// Save applicants
-
+		let applicant_id = this.saveApplicant();
+		showAlert(applicant_id);
 		// Save wifi_applications
 
 		// Save card_applications
@@ -60,7 +61,7 @@ export default {
 		let phone = phone_input.text;
 		let email = email_input.text;
 		
-		insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email});
+		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email});
 	}
 
 	// serviceWifi: null,
