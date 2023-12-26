@@ -27,9 +27,9 @@ export default {
 		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
 		this.isCardAllowed = this.serviceAllowed.includes('card');
 		this.isUtilitiesAllowed = this.serviceAllowed.includes('utilities');
-		this.isWifiAllowed ? service_wifi_cb.setVisibility(true) : service_wifi_cb.setVisibility(false);
-		this.isCardAllowed ? service_card_cb.setVisibility(true) : service_card_cb.setVisibility(false);
-		this.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);
+		this.isWifiAllowed ? cb_service_wifi.setVisibility(true) : cb_service_wifi.setVisibility(false);
+		this.isCardAllowed ? cb_service_card.setVisibility(true) : cb_service_card.setVisibility(false);
+		this.isUtilitiesAllowed ? cb_service_utilities.setVisibility(true) : cb_service_utilities.setVisibility(false);
 	},
 
 	saveApplicationToDB: () =>{
@@ -43,12 +43,7 @@ export default {
 
 		// Save applications
 	},
-  saveApplicant: () =>{
-		let fistname = firstname_input.text;
-		let lastname = lastname_input.text;
-		let fistnameKtkn = firstname_ktkn_input.text;
-		let lastnameKtkn = lastname_ktkn_input.text;
-	}
+
 
 	// serviceWifi: null,
 	// serviceCard: null,
