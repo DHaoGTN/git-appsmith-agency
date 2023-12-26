@@ -51,7 +51,7 @@ export default {
 		let birthday = dateofbirth_input.selectedDate;
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
-		let desired_lang = japanese_cb.isChecked ? '日本語' :
+		let desiredLang = japanese_cb.isChecked ? '日本語' :
 		                     vietnamese_cb.isChecked ? 'Tiếng Việt' :
 		                       chinese_cb.isChecked ? '簡体字' :
 		                         english_cb.isChecked ? 'English' :
@@ -59,6 +59,8 @@ export default {
 		                             taiwan_cb.isChecked ? '繁体字' : 'none';
 		let phone = phone_input.text;
 		let email = email_input.text;
+		
+		insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email});
 	}
 
 	// serviceWifi: null,

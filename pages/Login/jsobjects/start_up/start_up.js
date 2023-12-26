@@ -1,5 +1,5 @@
 export default {
-	async loggedInByPassword () {
+	async checkIfLoggedIn () {
 
 		try{
 			const token = await appsmith.store.token;

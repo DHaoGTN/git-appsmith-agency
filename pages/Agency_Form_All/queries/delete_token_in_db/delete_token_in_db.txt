@@ -1,1 +1,1 @@
-DELETE FROM public."users_token" WHERE token = '{{this.params.token}}';
+DELETE FROM public."user_tokens" WHERE token = '{{this.params.token}}';

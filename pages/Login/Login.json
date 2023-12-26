@@ -29,8 +29,8 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Login_start_up.loggedInByPassword",
-              "name": "start_up.loggedInByPassword",
+              "id": "Login_start_up.checkIfLoggedIn",
+              "name": "start_up.checkIfLoggedIn",
               "collectionId": "Login_start_up",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
