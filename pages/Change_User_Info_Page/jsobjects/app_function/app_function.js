@@ -25,7 +25,7 @@ export default {
 
 	// ----------- Change email and password function ---------------//
 	changeEmail: async()=>{
-		const current_email = appsmith.store.email;
+		const current_email = appsmith.store.user['email'];
 		const new_email = change_email_input2.text;
 		// const new_email = 'test@gmail.com'
 		const check_email=await check_email_exist.run({new_email})
