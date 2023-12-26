@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "delete_token_in_db",
+    "name": "Query1",
     "datasource": {
       "name": "affiliate-db",
       "pluginId": "postgres-plugin",
@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "DELETE FROM public.\"users_token\" WHERE token = '{{this.params.token}}';\n",
+      "body": "INSERT INTO public.\"applicants\" (first_name, last_name, first_name_kana, last_name_kana, birthday, nationality, visa_classification, desired_language_code, phone_number, email) VALUES ();",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -27,24 +27,17 @@
       ]
     },
     "executeOnLoad": false,
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
+    "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [
-      "this.params.token"
-    ],
+    "jsonPathKeys": [],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-16T14:55:41Z"
+    "userPermissions": []
   },
-  "id": "Agency_Form_All_delete_token_in_db",
+  "id": "Agency_Form_All_Query1",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_657dba6d3010c95d5f5a8867"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658a3e7c3010c95d5f5a8ff9"
 }

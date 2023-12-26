@@ -1,0 +1,1 @@
+INSERT INTO public."applicants" (first_name, last_name, first_name_kana, last_name_kana, birthday, nationality, visa_classification, desired_language_code, phone_number, email) VALUES ();
