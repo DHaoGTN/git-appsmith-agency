@@ -23,6 +23,10 @@
     {
       "id": "Agency_List_Form_Pattern",
       "isDefault": false
+    },
+    {
+      "id": "Change_User_Info_Page",
+      "isDefault": false
     }
   ],
   "viewMode": false,

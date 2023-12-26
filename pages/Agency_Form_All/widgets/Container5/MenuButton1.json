@@ -26,7 +26,8 @@
     "parentColumnSpace": 27.611083984375,
     "dynamicTriggerPathList": [
         {"key": "menuItems.menuItem1.onClick"},
-        {"key": "menuItems.menuItem3dfuthklaq.onClick"}
+        {"key": "menuItems.menuItem3dfuthklaq.onClick"},
+        {"key": "menuItems.menuItemxmkozp4r5o.onClick"}
     ],
     "leftColumn": 52,
     "dynamicBindingPathList": [
@@ -55,6 +56,7 @@
             "isVisible": true
         },
         "menuItemxmkozp4r5o": {
+            "onClick": "{{showModal('change_password_modal');}}",
             "iconName": "annotation",
             "widgetId": "e21ouujzop",
             "iconColor": "#d4d4d8",
