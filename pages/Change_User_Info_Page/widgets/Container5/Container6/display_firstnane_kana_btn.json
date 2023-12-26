@@ -21,7 +21,7 @@
     "dynamicTriggerPathList": [],
     "leftColumn": 35,
     "dynamicBindingPathList": [{"key": "text"}],
-    "text": "{{appsmith.store.last_name}}",
+    "text": "{{appsmith.store.user['first_name_kana']}}",
     "isDisabled": false,
     "key": "a395lz8vuq",
     "isDeprecated": false,

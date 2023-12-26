@@ -46,16 +46,14 @@ export default {
 		// const email = 'test@gmail.com';
 		// const password = 'asdasd123';
 		const [user] = await find_user_by_email.run({email});
+		const [user_info] = await find_user_without_hash_info.run({email});
 		if ( user && this.verifyHash(password, user?.hash)){
 			const token = this.createToken(email);
 
 			await this.addTokenToDb(email, token)
 			console.log('successfully added token to db')
 
-			await storeValue('email', user['email'] )
-			await storeValue('first_name', user['first_name'] )
-			await storeValue('last_name', user['last_name'] )
-
+			await storeValue('user', user_info )
 			await storeValue('token', token)
 				.then( () => navigateTo('Agency_Form_All'))
 			console.log('added token to local')

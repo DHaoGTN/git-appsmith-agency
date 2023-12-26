@@ -24,15 +24,10 @@
     "mobileRightColumn": 30,
     "animateLoading": true,
     "parentColumnSpace": 27.611083984375,
-    "dynamicTriggerPathList": [
-        {"key": "menuItems.menuItem1.onClick"},
-        {"key": "menuItems.menuItem3dfuthklaq.onClick"},
-        {"key": "menuItems.menuItemxmkozp4r5o.onClick"}
-    ],
+    "dynamicTriggerPathList": [{"key": "menuItems.menuItem1.onClick"}],
     "leftColumn": 52,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
-        {"key": "menuItems.menuItem3dfuthklaq.label"},
         {"key": "label"}
     ],
     "isDisabled": false,
@@ -42,43 +37,17 @@
     "rightColumn": 62,
     "menuVariant": "PRIMARY",
     "widgetId": "hoe88fyti2",
-    "menuItems": {
-        "menuItem3dfuthklaq": {
-            "onClick": "{{showModal('change_email_modal');}}",
-            "iconName": "annotation",
-            "widgetId": "mnthn746qx",
-            "iconColor": "#d4d4d8",
-            "index": 0,
-            "iconAlign": "right",
-            "id": "menuItem3dfuthklaq",
-            "label": "Email: {{appsmith.store.email}}",
-            "isDisabled": false,
-            "isVisible": true
-        },
-        "menuItemxmkozp4r5o": {
-            "onClick": "{{showModal('change_password_modal');}}",
-            "iconName": "annotation",
-            "widgetId": "e21ouujzop",
-            "iconColor": "#d4d4d8",
-            "index": 1,
-            "iconAlign": "right",
-            "id": "menuItemxmkozp4r5o",
-            "label": "Password",
-            "isDisabled": false,
-            "isVisible": true
-        },
-        "menuItem1": {
-            "onClick": "{{app_function.logout();}}",
-            "widgetId": "",
-            "index": 2,
-            "label": "Sign out",
-            "id": "menuItem1",
-            "isVisible": true,
-            "isDisabled": false
-        }
-    },
+    "menuItems": {"menuItem1": {
+        "onClick": "{{app_function.logout();}}",
+        "widgetId": "",
+        "index": 0,
+        "label": "Sign out",
+        "id": "menuItem1",
+        "isVisible": true,
+        "isDisabled": false
+    }},
     "isVisible": true,
-    "label": "Hi {{appsmith.store.last_name}}\n{{appsmith.store.first_name}}\n",
+    "label": "Hi {{appsmith.store.user['last_name']}}\n{{appsmith.store.user['first_name']}}\n",
     "version": 1,
     "parentId": "i0qokivosc",
     "tags": ["Buttons"],

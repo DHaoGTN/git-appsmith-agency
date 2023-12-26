@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "insert_wifi_application",
+    "name": "find_user_without_hash_info",
     "datasource": {
       "name": "affiliate-db",
       "pluginId": "postgres-plugin",
@@ -13,12 +13,12 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Agency_Form_All",
+    "pageId": "Login",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "INSERT INTO public.\"wifi_applications\" (application_id, contact_day_of_weeks, contact_times, visa_front_url, visa_back_url, status) VALUES (1, '{Monday, Tuesday}', '{9, 10}', 'url1', 'url2', '1.未対応');",
+      "body": "SELECT email, first_name, last_name,first_name_kana,last_name_kana,phone_number,department\nFROM public.\"agency_accounts\"\nWHERE email = '{{this.params.email}}';\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -27,18 +27,24 @@
       ]
     },
     "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
+    "jsonPathKeys": [
+      "this.params.email"
+    ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-12-26T08:51:38Z"
+    "createdAt": "2023-12-26T09:10:22Z"
   },
-  "id": "Agency_Form_All_insert_wifi_application",
+  "id": "Login_find_user_without_hash_info",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a941a3010c95d5f5a911d"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658a987e3010c95d5f5a9148"
 }

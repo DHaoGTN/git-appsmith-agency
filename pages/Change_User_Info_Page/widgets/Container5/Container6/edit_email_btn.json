@@ -25,7 +25,7 @@
         {"key": "borderRadius"},
         {"key": "text"}
     ],
-    "text": "{{appsmith.store.email}}",
+    "text": "{{appsmith.store.user['email']}}",
     "isDisabled": false,
     "key": "a395lz8vuq",
     "isDeprecated": false,

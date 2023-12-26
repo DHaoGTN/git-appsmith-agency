@@ -25,7 +25,7 @@
         {"key": "borderRadius"},
         {"key": "isDisabled"}
     ],
-    "text": "Confirm",
+    "text": "Submit",
     "isDisabled": "{{ !(confirm_password_input.isValid)\n|| !(current_password_input.text.length!==0)\n|| !(new_password_input.text.length!==0)\n}}",
     "key": "9m92eduwma",
     "isDeprecated": false,

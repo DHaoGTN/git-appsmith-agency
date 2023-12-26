@@ -27,7 +27,7 @@
     "dynamicTriggerPathList": [
         {"key": "menuItems.menuItem1.onClick"},
         {"key": "menuItems.menuItem3dfuthklaq.onClick"},
-        {"key": "menuItems.menuItemxmkozp4r5o.onClick"}
+        {"key": "menuItems.menuItemo22spze7ps.onClick"}
     ],
     "leftColumn": 52,
     "dynamicBindingPathList": [
@@ -44,26 +44,13 @@
     "widgetId": "hoe88fyti2",
     "menuItems": {
         "menuItem3dfuthklaq": {
-            "onClick": "{{showModal('change_email_modal');}}",
-            "iconName": "annotation",
+            "onClick": "",
             "widgetId": "mnthn746qx",
             "iconColor": "#d4d4d8",
             "index": 0,
             "iconAlign": "right",
             "id": "menuItem3dfuthklaq",
-            "label": "Email: {{appsmith.store.email}}",
-            "isDisabled": false,
-            "isVisible": true
-        },
-        "menuItemxmkozp4r5o": {
-            "onClick": "{{showModal('change_password_modal');}}",
-            "iconName": "annotation",
-            "widgetId": "e21ouujzop",
-            "iconColor": "#d4d4d8",
-            "index": 1,
-            "iconAlign": "right",
-            "id": "menuItemxmkozp4r5o",
-            "label": "Password",
+            "label": "Email: {{appsmith.store.user['email']}}",
             "isDisabled": false,
             "isVisible": true
         },
@@ -75,10 +62,19 @@
             "id": "menuItem1",
             "isVisible": true,
             "isDisabled": false
+        },
+        "menuItemo22spze7ps": {
+            "onClick": "{{navigateTo('Change_User_Info_Page', {}, 'SAME_WINDOW');}}",
+            "widgetId": "4k00fugvjx",
+            "index": 1,
+            "id": "menuItemo22spze7ps",
+            "label": "Profile",
+            "isDisabled": false,
+            "isVisible": true
         }
     },
     "isVisible": true,
-    "label": "Hi {{appsmith.store.last_name}}\n{{appsmith.store.first_name}}\n",
+    "label": "Hi {{appsmith.store.user['last_name']}}\n{{appsmith.store.user['first_name']}}\n",
     "version": 1,
     "parentId": "i0qokivosc",
     "tags": ["Buttons"],

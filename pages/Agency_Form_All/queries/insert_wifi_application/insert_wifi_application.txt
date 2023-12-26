@@ -1,1 +1,1 @@
-INSERT INTO public."wifi_applications" (application_id, contact_day_of_weeks, contact_times, visa_front_url, visa_back_url, status) VALUES (1, '{2,3}', '{9,10}', 'url1', 'url2', '1.未対応');
+INSERT INTO public."wifi_applications" (application_id, contact_day_of_weeks, contact_times, visa_front_url, visa_back_url, status) VALUES (1, '{Monday, Tuesday}', '{9, 10}', 'url1', 'url2', '1.未対応');
