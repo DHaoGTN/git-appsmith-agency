@@ -10,7 +10,7 @@
         "label"
     ],
     "topRow": 5,
-    "bottomRow": 11,
+    "bottomRow": 13,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -53,7 +53,7 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 0,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 13,
+    "originalBottomRow": 11,
     "fontSize": "0.75rem",
     "minDynamicHeight": 4
 }

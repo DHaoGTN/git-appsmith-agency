@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 4920,
+          "bottomRow": 5380,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -36,6 +36,17 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "() => {\n  app_function.isWifiAllowed = app_function.serviceAllowed.includes('wifi');\n  app_function.isCardAllowed = app_function.serviceAllowed.includes('card');\n  app_function.isUtilitiesAllowed = app_function.serviceAllowed.includes('utilities');\n  app_function.isWifiAllowed ? service_wifi_cb.setVisibility(true) : service_wifi_cb.setVisibility(false);\n  app_function.isCardAllowed ? service_card_cb.setVisibility(true) : service_card_cb.setVisibility(false);\n  app_function.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Agency_Form_All_loop_check_token.loopToCheckTokenExist",
+              "name": "loop_check_token.loopToCheckTokenExist",
+              "collectionId": "Agency_Form_All_loop_check_token",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  if (!loop_check_token.intervalId) {\n    const process = async () => {\n      const token = appsmith.store.token;\n      console.log('token', token);\n      loop_check_token.checkValidTokenInDb();\n      const tokenInDb = await check_token_exist.run({\n        token\n      });\n      console.log('token in db', tokenInDb);\n      const tokenCountInDb = tokenInDb[0]['count'];\n      console.log('tokenCountInDb', tokenCountInDb);\n      if (tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n        navigateTo('Login');\n        console.log('navigate to login');\n      }\n      console.log('token still valid');\n    };\n    loop_check_token.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
