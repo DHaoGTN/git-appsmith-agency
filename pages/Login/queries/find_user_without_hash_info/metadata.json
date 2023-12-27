@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT email, first_name, last_name,first_name_kana,last_name_kana,phone_number,department\nFROM public.\"agency_accounts\"\nWHERE email = '{{this.params.email}}';\n",
+      "body": "SELECT agency_id, email, first_name, last_name,first_name_kana,last_name_kana,phone_number,department\nFROM public.\"agency_accounts\"\nWHERE email = '{{this.params.email}}';\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {

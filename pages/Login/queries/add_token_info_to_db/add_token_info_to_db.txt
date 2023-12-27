@@ -1,2 +1,2 @@
-INSERT INTO public."user_tokens" (email, site_id, token)
+INSERT INTO public."user_tokens" (email, site_code, token)
 VALUES ( '{{this.params.email}}', '{{this.params.site_id}}','{{this.params.token}}');

@@ -91,11 +91,6 @@ export default {
 
 
 
-
-
-
-
-
 	setAgencyServicesAllowed: () =>{
 		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
 		this.isCardAllowed = this.serviceAllowed.includes('card');
@@ -105,19 +100,35 @@ export default {
 		this.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);
 	},
 
-	saveApplicationToDB: () =>{
+	async saveApplicationToDB () {
+		let saveSuccessFlag = true;
 		// Save applicants
-		let applicant_id = this.saveApplicant();
-		showAlert(applicant_id);
-		// Save wifi_applications
+		let applicantId = await this.saveApplicant();
+		if (applicantId) {
+			// Save Address
+			// showAlert(applicantId);
+			await this.saveAddresses(applicantId);
+			// Save applications
+			let applicationId = await this.saveApplications(applicantId);
+			// showAlert(applicationId);
+			if (applicationId) {
+				// Save wifi_applications
 
-		// Save card_applications
+				// Save card_applications
 
-		// Save utility_applications
-
-		// Save applications
+				// Save utility_applications
+			} else {
+				saveSuccessFlag = false;
+			}
+		} else {
+			saveSuccessFlag = false;
+		}
+		if (!saveSuccessFlag) {
+			showAlert('Can not save information. Please try again...', 'error');
+		}
 	},
-	saveApplicant: () =>{
+	async saveApplicant() {
+		let applicantId = 0;
 		let fistname = firstname_input.text;
 		let lastname = lastname_input.text;
 		let fistnameKtkn = firstname_ktkn_input.text;
@@ -126,17 +137,57 @@ export default {
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
 		let desiredLang = japanese_cb.isChecked ? '日本語' :
-		vietnamese_cb.isChecked ? 'Tiếng Việt' :
-		chinese_cb.isChecked ? '簡体字' :
-		english_cb.isChecked ? 'English' :
-		korean_cb.isChecked ? '한국어' :
-		taiwan_cb.isChecked ? '繁体字' : 'none';
+		  vietnamese_cb.isChecked ? 'Tiếng Việt' :
+		    chinese_cb.isChecked ? '簡体字' :
+		      english_cb.isChecked ? 'English' :
+		        korean_cb.isChecked ? '한국어' :
+		          taiwan_cb.isChecked ? '繁体字' : '日本語';
 		let phone = phone_input.text;
 		let email = email_input.text;
-		let address = address1_input.text+" - "+address2_input.text+" - "+address3_input.text+" - "+address4_input.text+" - "+address5_input.text;
 
-		return insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email, address});
-	}
+		await insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email})
+		  .then(res => applicantId = JSON.stringify(res[0].id))
+			.catch(e => showAlert(e.message, 'error'));
+		return applicantId;
+	},
+	
+	async saveAddresses(applicantId) {
+	  let postalCode = address1_input.text;
+		let prefecture = address2_input.text;
+		let city = address3_input.text;
+		let addressDetail = address4_input.text;
+		let building = address5_input.text;
+		let room = address5_input.text;
+		return insert_address.run({applicantId, postalCode, prefecture, city, addressDetail, building, room});
+  },
+	
+	async saveApplications(applicantId) {
+		let applicationId = 0;
+		let userInfo = await appsmith.store.user;
+		const agencyId = JSON.stringify(userInfo.agency_id);
+		let serviceTypeCodes = '{';
+		let numService = 0;
+		if (service_wifi_cb.isChecked) {
+			serviceTypeCodes += '光wifi';
+			numService++;
+		}
+		if (service_card_cb.isChecked) {
+			numService > 0 ? serviceTypeCodes += ',カードcredit_card' : serviceTypeCodes += 'カードcredit_card';
+			numService++;
+		}
+		if (service_utilities_cb.isChecked) {
+			numService > 0 ? serviceTypeCodes += ',電気ガスutility' : serviceTypeCodes += '電気ガスutility';
+		}
+		serviceTypeCodes += '}';
+		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
+		  .then(res => applicationId = JSON.stringify(res[0].id))
+			.catch(e => showAlert(e.message, 'error'));
+		return applicationId;
+	},
+	
+	async saveWifiApplications(applicationId) {
+		
+	},
 
 	// serviceWifi: null,
 	// serviceCard: null,

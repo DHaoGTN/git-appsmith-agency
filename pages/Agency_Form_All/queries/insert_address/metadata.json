@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "insert_application",
+    "name": "insert_address",
     "datasource": {
       "name": "affiliate-db",
       "pluginId": "postgres-plugin",
@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "INSERT INTO public.\"applications\" (agency_id, applicant_id, service_type_codes) VALUES ('{{this.params.agencyId}}', '{{this.params.applicantId}}', '{{this.params.serviceTypeCodes}}') RETURNING id;",
+      "body": "--INSERT INTO public.\"addresses\" (applicant_id, postal_code, prefecture, city, address_detail, building, room_number) VALUES (2, 'a', 'a', 'city', 'ad', 'b', 'r');\nINSERT INTO public.\"addresses\" (applicant_id, postal_code, prefecture, city, address_detail, building, room_number) VALUES ({{this.params.applicantId}}, '{{this.params.postalCode}}', '{{this.params.prefecture}}', '{{this.params.city}}', '{{this.params.addressDetail}}', '{{this.params.building}}', '{{this.params.room}}');",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,17 +36,21 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "this.params.agencyId",
+      "this.params.addressDetail",
       "this.params.applicantId",
-      "this.params.serviceTypeCodes"
+      "this.params.building",
+      "this.params.city",
+      "this.params.postalCode",
+      "this.params.prefecture",
+      "this.params.room"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2023-12-26T06:21:56Z"
+    "createdAt": "2023-12-27T03:09:13Z"
   },
-  "id": "Agency_Form_All_insert_application",
+  "id": "Agency_Form_All_insert_address",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a71043010c95d5f5a906d"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658b95593010c95d5f5a916e"
 }
