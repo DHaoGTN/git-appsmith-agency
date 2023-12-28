@@ -12,8 +12,8 @@
         "parent",
         "group"
     ],
-    "topRow": 226,
-    "bottomRow": 307,
+    "topRow": 225,
+    "bottomRow": 306,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -78,7 +78,7 @@
     "widgetId": "kvtet48rq1",
     "containerStyle": "card",
     "minWidth": 450,
-    "isVisible": "{{RadioGroup1.selectedOptionValue == 'radio_1'}}",
+    "isVisible": "{{utility_type_radiogrp.selectedOptionValue == '電気とガスboth' || utility_type_radiogrp.selectedOptionValue == '電気のみelectric' || utility_type_radiogrp.selectedOptionValue == 'ガスのみgas'}}",
     "version": 1,
     "parentId": "f6o5ujc94b",
     "tags": ["Layout"],
@@ -86,10 +86,10 @@
     "isLoading": false,
     "mobileTopRow": 218,
     "responsiveBehavior": "fill",
-    "originalTopRow": 226,
+    "originalTopRow": 225,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 10,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 307,
+    "originalBottomRow": 306,
     "minDynamicHeight": 10
 }

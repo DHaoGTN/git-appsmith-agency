@@ -64,8 +64,8 @@ export default {
 	},
 
 	addTokenToDb: async(email, token)=>{
-		const site_id= 'Agency';
-		return await add_token_info_to_db.run({email, site_id, token})
+		const site_code= 'agency';
+		return await add_token_info_to_db.run({email, site_code, token})
 			.then(() => showAlert("user info has successfully saved to database",'success'))
 			.catch(e => showAlert(e.message, 'error'));
 	}

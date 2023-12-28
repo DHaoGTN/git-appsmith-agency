@@ -1,6 +1,6 @@
 {
     "mobileBottomRow": 18,
-    "widgetName": "CheckboxGroup1Copy",
+    "widgetName": "contract_type_cbgrp",
     "displayName": "Checkbox Group",
     "iconSVG": "/static/media/icon.9522c5e7f896ce165fcd1dbba438daff.svg",
     "labelText": "",
@@ -23,19 +23,19 @@
     "options": [
         {
             "label": "電気一括契約/ Electricity included with rent",
-            "value": "BLUE"
+            "value": "電気一括契約electric"
         },
         {
             "label": "水道一括契約/ Water included with rent",
-            "value": "GREEN"
+            "value": "水道一括契約water_supply"
         },
         {
             "label": "ガス一括契約/ Gas included with rent",
-            "value": "RED"
+            "value": "ガス一括契約gas"
         },
         {
             "label": "一括契約なし/ No contract",
-            "value": "OPTION1"
+            "value": "一括契約なしno_contract"
         }
     ],
     "isDisabled": false,
@@ -47,21 +47,21 @@
     "rightColumn": 32,
     "defaultSelectedValues": "",
     "dynamicHeight": "AUTO_HEIGHT",
-    "widgetId": "m6vdmp9c29",
+    "widgetId": "xmglbc47nn",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": true,
     "version": 2,
-    "parentId": "n0qdcy948o",
+    "parentId": "z3a0lmf6ot",
     "tags": ["Toggles"],
     "labelAlignment": "left",
     "renderMode": "CANVAS",
     "isLoading": false,
     "mobileTopRow": 12,
-    "originalTopRow": 5,
+    "originalTopRow": 6,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 4,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 18,
+    "originalBottomRow": 24,
     "isInline": true,
     "minDynamicHeight": 4
 }

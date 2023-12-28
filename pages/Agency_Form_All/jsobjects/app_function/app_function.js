@@ -3,6 +3,8 @@ export default {
 	isWifiAllowed: null,
 	isCardAllowed: null,
 	isUtilitiesAllowed: null,
+	saveResultCode: 0,
+	
 	logout: async () =>{
 		const token = appsmith.store.token;
 		// check_token_exist.run({token});
@@ -101,7 +103,9 @@ export default {
 	},
 
 	async saveApplicationToDB () {
-		let saveSuccessFlag = true;
+		let isChooseWifi = service_wifi_cb.isChecked;
+		let isChooseCard = service_card_cb.isChecked;
+		let isChooseUtility = service_utilities_cb.isChecked;
 		// Save applicants
 		let applicantId = await this.saveApplicant();
 		if (applicantId) {
@@ -112,19 +116,24 @@ export default {
 			let applicationId = await this.saveApplications(applicantId);
 			// showAlert(applicationId);
 			if (applicationId) {
-				// Save wifi_applications
-
-				// Save card_applications
-
-				// Save utility_applications
-			} else {
-				saveSuccessFlag = false;
+				if (isChooseWifi) {
+					// Save wifi_applications
+					await this.saveWifiApplications(applicationId);
+				}
+				if (isChooseCard) {
+					// Save card_applications
+					await this.saveCardApplications(applicationId);
+				}
+				if (isChooseUtility) {
+					// Save utility_applications
+					await this.saveUtilityApplications(applicationId);
+				}
 			}
-		} else {
-			saveSuccessFlag = false;
 		}
-		if (!saveSuccessFlag) {
-			showAlert('Can not save information. Please try again...', 'error');
+		if (this.saveResultCode == 0) {
+			showAlert('Save information success.', 'success');
+		} else {
+			showAlert('There are an error when saving information. Please try again. Result code: '+this.saveResultCode, 'error');
 		}
 	},
 	async saveApplicant() {
@@ -133,7 +142,7 @@ export default {
 		let lastname = lastname_input.text;
 		let fistnameKtkn = firstname_ktkn_input.text;
 		let lastnameKtkn = lastname_ktkn_input.text;
-		let birthday = dateofbirth_input.selectedDate;
+		let birthday = dateofbirth_dpk.selectedDate;
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
 		let desiredLang = japanese_cb.isChecked ? '日本語' :
@@ -147,7 +156,7 @@ export default {
 
 		await insert_applicant.run({fistname, lastname, fistnameKtkn, lastnameKtkn, birthday, nationality, visa, desiredLang, phone, email})
 		  .then(res => applicantId = JSON.stringify(res[0].id))
-			.catch(e => showAlert(e.message, 'error'));
+			.catch(e => {this.saveResultCode = 1; showAlert(e.message, 'error');});
 		return applicantId;
 	},
 	
@@ -158,35 +167,73 @@ export default {
 		let addressDetail = address4_input.text;
 		let building = address5_input.text;
 		let room = address5_input.text;
-		return insert_address.run({applicantId, postalCode, prefecture, city, addressDetail, building, room});
+		await insert_address.run({applicantId, postalCode, prefecture, city, addressDetail, building, room})
+		  .then()
+			.catch(e => {this.saveResultCode = 2; showAlert(e.message, 'error');});
   },
 	
 	async saveApplications(applicantId) {
 		let applicationId = 0;
 		let userInfo = await appsmith.store.user;
-		const agencyId = JSON.stringify(userInfo.agency_id);
-		let serviceTypeCodes = '{';
-		let numService = 0;
-		if (service_wifi_cb.isChecked) {
-			serviceTypeCodes += '光wifi';
-			numService++;
+		if (userInfo) {
+			const agencyId = JSON.stringify(userInfo.agency_id);
+			let serviceTypeCodes = '{';
+			let numService = 0;
+			if (service_wifi_cb.isChecked) {
+				serviceTypeCodes += '光wifi';
+				numService++;
+			}
+			if (service_card_cb.isChecked) {
+				numService > 0 ? serviceTypeCodes += ',カードcredit_card' : serviceTypeCodes += 'カードcredit_card';
+				numService++;
+			}
+			if (service_utilities_cb.isChecked) {
+				numService > 0 ? serviceTypeCodes += ',電気ガスutility' : serviceTypeCodes += '電気ガスutility';
+			}
+			serviceTypeCodes += '}';
+			await insert_application.run({agencyId, applicantId, serviceTypeCodes})
+				.then(res => applicationId = JSON.stringify(res[0].id))
+				.catch(e => {this.saveResultCode = 3; showAlert(e.message, 'error');});
+		} else {
+			this.saveResultCode = 31; // Can not get userInfo in storage
 		}
-		if (service_card_cb.isChecked) {
-			numService > 0 ? serviceTypeCodes += ',カードcredit_card' : serviceTypeCodes += 'カードcredit_card';
-			numService++;
-		}
-		if (service_utilities_cb.isChecked) {
-			numService > 0 ? serviceTypeCodes += ',電気ガスutility' : serviceTypeCodes += '電気ガスutility';
-		}
-		serviceTypeCodes += '}';
-		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
-		  .then(res => applicationId = JSON.stringify(res[0].id))
-			.catch(e => showAlert(e.message, 'error'));
 		return applicationId;
 	},
 	
 	async saveWifiApplications(applicationId) {
-		
+		let contactDow = contact_dow_sb.selectedOptionValue;
+		// showAlert(contactDow);
+		let urlFront = '';
+		let urlBack = '';
+		let statusWifi = '1.未対応';
+		await insert_wifi_application.run({applicationId, contactDow, urlFront, urlBack, statusWifi})
+		  .then()
+			.catch(e => {this.saveResultCode = 4; showAlert(e.message, 'error');});
+	},
+	
+	async saveCardApplications(applicationId) {
+		let statusCard = '1.未対応';
+		await insert_card_application.run({applicationId, statusCard})
+		  .then()
+			.catch(e => {this.saveResultCode = 5; showAlert(e.message, 'error');});
+	},
+	
+	async saveUtilityApplications(applicationId) {
+		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
+		let contractTypeCodes = '{電気一括契約electric,ガス一括契約gas}';
+		let electricityStartDate = electric_start_date_dpk.selectedDate;
+		// electricityStartDate = new Date(electricityStartDate);
+		// electricityStartDate.toISOString().split('T')[0];
+		// showAlert(electricityStartDate);
+		let gasStartDate = gas_start_date_dpk.selectedDate;
+		// gasStartDate = new Date(gasStartDate);
+		// gasStartDate.toISOString().split('T')[0];
+		let gasStartTimeCode = gas_start_time_radiogrp.selectedOptionValue;
+		let withWaterSupply = water_radiogrp.selectedOptionValue == 'true' ? true : false;
+		let statusUtility = '1.未対応';
+		await insert_utility_application.run({applicationId, utilityTypeCode, contractTypeCodes, electricityStartDate, gasStartDate, gasStartTimeCode, withWaterSupply, statusUtility})
+		  .then()
+			.catch(e => {this.saveResultCode = 6; showAlert(e.message, 'error');});
 	},
 
 	// serviceWifi: null,

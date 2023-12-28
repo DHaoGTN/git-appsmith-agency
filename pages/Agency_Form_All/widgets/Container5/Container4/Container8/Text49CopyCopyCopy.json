@@ -1,7 +1,10 @@
 {
     "mobileBottomRow": 7,
     "widgetName": "Text49CopyCopyCopy",
-    "dynamicPropertyPathList": [{"key": "fontSize"}],
+    "dynamicPropertyPathList": [
+        {"key": "fontSize"},
+        {"key": "isVisible"}
+    ],
     "displayName": "Text",
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "searchTags": [
@@ -24,7 +27,8 @@
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
-        {"key": "borderRadius"}
+        {"key": "borderRadius"},
+        {"key": "isVisible"}
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
@@ -36,7 +40,7 @@
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "qsyuzsmsu4",
     "minWidth": 450,
-    "isVisible": true,
+    "isVisible": "{{utility_type_radiogrp.selectedOptionValue == '電気とガスboth' || utility_type_radiogrp.selectedOptionValue == 'ガスのみgas'}}",
     "fontStyle": "BOLD",
     "textColor": "#231F20",
     "version": 1,
@@ -49,11 +53,11 @@
     "isLoading": false,
     "mobileTopRow": 3,
     "responsiveBehavior": "fill",
-    "originalTopRow": 43,
+    "originalTopRow": 50,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 2,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 47,
+    "originalBottomRow": 55,
     "fontSize": "0.875rem",
     "minDynamicHeight": 4
 }

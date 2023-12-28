@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "saveApplicant",
-    "fullyQualifiedName": "app_function.saveApplicant",
+    "name": "saveCardApplications",
+    "fullyQualifiedName": "tmp.saveCardApplications",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,13 +14,17 @@
       "userPermissions": []
     },
     "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_app_function",
+    "collectionId": "Agency_Form_All_tmp",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": []
+      "jsArguments": [
+        {
+          "name": "applicationId"
+        }
+      ]
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -34,10 +38,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-26T08:55:57Z"
+    "userPermissions": []
   },
-  "id": "Agency_Form_All_app_function.saveApplicant",
+  "id": "Agency_Form_All_tmp.saveCardApplications",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a951d3010c95d5f5a9138"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658cfe543010c95d5f5a9272"
 }

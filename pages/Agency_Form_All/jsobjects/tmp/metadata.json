@@ -22,6 +22,10 @@
       {
         "name": "isUtilitiesAllowed",
         "value": "null"
+      },
+      {
+        "name": "saveResultCode",
+        "value": "0"
       }
     ],
     "userPermissions": []
