@@ -6,28 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "variables": [
-      {
-        "name": "serviceAllowed",
-        "value": "'wifi, utilities'"
-      },
-      {
-        "name": "isWifiAllowed",
-        "value": "null"
-      },
-      {
-        "name": "isCardAllowed",
-        "value": "null"
-      },
-      {
-        "name": "isUtilitiesAllowed",
-        "value": "null"
-      },
-      {
-        "name": "saveResultCode",
-        "value": "0"
-      }
-    ],
+    "variables": [],
     "userPermissions": []
   },
   "id": "Agency_Form_All_app_function",

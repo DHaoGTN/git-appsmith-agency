@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "saveApplicationToDB",
-    "fullyQualifiedName": "app_function.saveApplicationToDB",
+    "name": "getFieldValue",
+    "fullyQualifiedName": "form.getFieldValue",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_app_function",
+    "collectionId": "Agency_Form_All_form",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -36,7 +36,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Agency_Form_All_app_function.saveApplicationToDB",
+  "id": "Agency_Form_All_form.getFieldValue",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a951d3010c95d5f5a9142"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658d3e1f3010c95d5f5a9314"
 }

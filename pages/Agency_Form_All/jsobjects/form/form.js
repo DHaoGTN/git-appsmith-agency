@@ -5,6 +5,17 @@ export default {
 	isUtilitiesAllowed: null,
 	saveResultCode: 0,
 	
+	// fistname: '',
+	// lastname: '',
+	// fistnameKtkn: '',
+	// lastnameKtkn: '',
+	// birthday: '',
+	// nationality: '',
+	// visa: '',
+	// desiredLang: '',
+	// phone: '',
+	// email: '',
+	
 	async setAgencyServicesAllowed() {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) {
@@ -31,7 +42,7 @@ export default {
 	getFieldValue:() =>{
 	
 	},
-	validateForm: () =>{
+	validateForm:() =>{
 		
 	},
 	async saveApplicationAll() {

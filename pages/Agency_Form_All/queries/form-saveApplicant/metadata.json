@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "saveApplications",
-    "fullyQualifiedName": "app_function.saveApplications",
+    "name": "saveApplicant",
+    "fullyQualifiedName": "form.saveApplicant",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,17 +14,13 @@
       "userPermissions": []
     },
     "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_app_function",
+    "collectionId": "Agency_Form_All_form",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [
-        {
-          "name": "applicantId"
-        }
-      ]
+      "jsArguments": []
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -38,9 +34,10 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-26T06:36:48Z"
   },
-  "id": "Agency_Form_All_app_function.saveApplications",
+  "id": "Agency_Form_All_form.saveApplicant",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658b91963010c95d5f5a9166"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658a74803010c95d5f5a9088"
 }

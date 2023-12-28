@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 50,
     "widgetName": "Button14",
-    "onClick": "{{app_function.saveApplicationToDB()}}",
+    "onClick": "{{form.saveApplicationAll()}}",
     "buttonColor": "#2d969b",
     "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",

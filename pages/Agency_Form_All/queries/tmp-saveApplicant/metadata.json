@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2023-12-26T06:36:48Z"
+    "userPermissions": []
   },
   "id": "Agency_Form_All_tmp.saveApplicant",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a74803010c95d5f5a9088"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658d2ff13010c95d5f5a92e2"
 }

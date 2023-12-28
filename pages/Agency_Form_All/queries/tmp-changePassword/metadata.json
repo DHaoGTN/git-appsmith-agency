@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "saveApplications",
-    "fullyQualifiedName": "tmp.saveApplications",
+    "name": "changePassword",
+    "fullyQualifiedName": "tmp.changePassword",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -20,11 +20,7 @@
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [
-        {
-          "name": "applicantId"
-        }
-      ]
+      "jsArguments": []
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -40,7 +36,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Agency_Form_All_tmp.saveApplications",
+  "id": "Agency_Form_All_tmp.changePassword",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658d2ff13010c95d5f5a92f1"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658d2ff13010c95d5f5a92e1"
 }
