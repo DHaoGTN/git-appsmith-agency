@@ -16,7 +16,7 @@
     "leftColumn": 9,
     "dynamicBindingPathList": [{"key": "accentColor"}],
     "labelStyle": "BOLD",
-    "inputType": "TEXT",
+    "inputType": "EMAIL",
     "placeholderText": "Confirm Email",
     "isDisabled": false,
     "key": "0equv9lg65",
@@ -37,7 +37,7 @@
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
     "originalBottomRow": 106,
-    "shouldAllowAutofill": false,
+    "shouldAllowAutofill": true,
     "iconAlign": "left",
     "defaultText": "",
     "minDynamicHeight": 4
