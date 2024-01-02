@@ -26,6 +26,22 @@
       {
         "name": "saveResultCode",
         "value": "0"
+      },
+      {
+        "name": "VALIDATE_NO_CHOICE",
+        "value": "0"
+      },
+      {
+        "name": "VALIDATE_CHOICE_ENOUGH",
+        "value": "1"
+      },
+      {
+        "name": "VALIDATE_CHOICE_NOT_ENOUGH",
+        "value": "2"
+      },
+      {
+        "name": "VALIDATE_DATA_INCORRECT",
+        "value": "3"
       }
     ],
     "userPermissions": []

@@ -28,7 +28,7 @@
     "widgetId": "ngetcy4xke",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": "true",
-    "label": "郵便番号/ Postal number",
+    "label": "郵便番号/ Postal number *",
     "version": 2,
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",

@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "verifyHash",
-    "fullyQualifiedName": "tmp.verifyHash",
+    "name": "validateFormApplicant",
+    "fullyQualifiedName": "form.validateFormApplicant",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,20 +14,13 @@
       "userPermissions": []
     },
     "pageId": "Agency_Form_All",
-    "collectionId": "Agency_Form_All_tmp",
+    "collectionId": "Agency_Form_All_form",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": [
-        {
-          "name": "password"
-        },
-        {
-          "name": "hash"
-        }
-      ]
+      "jsArguments": []
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -41,9 +34,10 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-28T09:15:47Z"
   },
-  "id": "Agency_Form_All_tmp.verifyHash",
+  "id": "Agency_Form_All_form.validateFormApplicant",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658d2ff13010c95d5f5a92e6"
+  "gitSyncId": "65792b023010c95d5f5a84a2_658d3cc33010c95d5f5a9310"
 }

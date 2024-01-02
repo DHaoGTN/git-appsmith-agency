@@ -52,10 +52,10 @@
     "renderMode": "CANVAS",
     "isLoading": false,
     "mobileTopRow": 11,
-    "originalTopRow": 5,
+    "originalTopRow": 7,
     "mobileLeftColumn": 14,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 17,
+    "originalBottomRow": 20,
     "isInline": true,
     "alignment": "left",
     "minDynamicHeight": 4

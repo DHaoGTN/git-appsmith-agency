@@ -28,7 +28,7 @@
     "widgetId": "im3mw9d7eu",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": "true",
-    "label": "都道府県/ Prefecture",
+    "label": "都道府県/ Prefecture *",
     "version": 2,
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",

@@ -4,17 +4,10 @@ export default {
 	isCardAllowed: null,
 	isUtilitiesAllowed: null,
 	saveResultCode: 0,
-	
-	// fistname: '',
-	// lastname: '',
-	// fistnameKtkn: '',
-	// lastnameKtkn: '',
-	// birthday: '',
-	// nationality: '',
-	// visa: '',
-	// desiredLang: '',
-	// phone: '',
-	// email: '',
+	VALIDATE_NO_CHOICE: 0,
+	VALIDATE_CHOICE_ENOUGH: 1,
+	VALIDATE_CHOICE_NOT_ENOUGH: 2,
+	VALIDATE_DATA_INCORRECT: 3,
 	
 	async setAgencyServicesAllowed() {
 		let userInfo = await appsmith.store.user;
@@ -23,28 +16,105 @@ export default {
 			await find_service_allowed.run({agencyId})
 		    .then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
 			  .catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
-			showAlert(this.serviceAllowed);
+			
 			this.isWifiAllowed = this.serviceAllowed.includes('光wifi');
 			this.isCardAllowed = this.serviceAllowed.includes('カードcredit_card');
 			this.isUtilitiesAllowed = this.serviceAllowed.includes('電気ガスutility');
-			this.isWifiAllowed ? service_wifi_cb.setVisibility(true) : service_wifi_cb.setVisibility(false);
-			this.isCardAllowed ? service_card_cb.setVisibility(true) : service_card_cb.setVisibility(false);
-			this.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);
+			service_wifi_cb.setVisibility(this.isWifiAllowed);
+			service_card_cb.setVisibility(this.isCardAllowed);
+			service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
 		} else {
-			showAlert("Can not retrieve user info. ", 'error')
+			showAlert("Can not retrieve user info. ", 'error');
 		}
 	},
 
 	async submitForm() {
-		if (this.validateForm())
+		if (this.validateFormAll())
 			await this.saveApplicationAll();
 	},
-	getFieldValue:() =>{
+	validateFormAll:() =>{
+		if (this.validateFormApplicant() == this.VALIDATE_CHOICE_ENOUGH && 
+				(this.validateFormWifi() == this.VALIDATE_CHOICE_ENOUGH || 
+				 this.validateFormCard() == this.VALIDATE_CHOICE_ENOUGH ||
+				 this.validateFormUtility() == this.VALIDATE_CHOICE_ENOUGH) &&
+				(this.validateFormWifi() != this.VALIDATE_CHOICE_NOT_ENOUGH && 
+				 this.validateFormCard() != this.VALIDATE_CHOICE_NOT_ENOUGH && 
+				 this.validateFormUtility() != this.VALIDATE_CHOICE_NOT_ENOUGH) &&
+				this.validateFormAgreement() == this.VALIDATE_CHOICE_ENOUGH
+			 ) {
+			return true;
+		}
+		showAlert('Please fill all of required fields and check data correctly.', 'warn'); 
+		return false;
+	},
+	validateFormApplicant:() =>{
+		if (firstname_input.text == '' ||
+				lastname_input.text == '' ||
+				firstname_ktkn_input.text == '' ||
+				lastname_ktkn_input.text == '' ||
+				dateofbirth_dpk.selectedDate == '' ||
+				nationality_input.text == '' ||
+				visa_input.text == '' ||
+				(!japanese_cb.isChecked && !vietnamese_cb.isChecked && !chinese_cb.isChecked && !english_cb.isChecked && !korean_cb.isChecked && !taiwan_cb.isChecked) ||
+				phone_input.text == '' ||
+				email_input.text == '' ||
+				email_cf_input.text == '' ||
+				address1_input.text == '' ||
+				address2_input.text == '' ||
+				address3_input.text == '' ||
+				address4_input.text == ''
+		) {
+			return this.VALIDATE_CHOICE_NOT_ENOUGH;
+		}
+		if (!this.validateEmail(email_input.text) || email_input.text != email_cf_input.text)
+			return this.VALIDATE_DATA_INCORRECT;
+		return this.VALIDATE_CHOICE_ENOUGH;
+	},
+	validateFormWifi:() =>{
+		if (service_wifi_cb.isChecked) {
+			if (contact_dow_sb.selectedOptionValue == '' ||
+					resident_front_fpk.files.length == 0 ||
+					resident_back_fpk.files.length == 0
+			)
+				return this.VALIDATE_CHOICE_NOT_ENOUGH;
+			return this.VALIDATE_CHOICE_ENOUGH;
+		}
+		return this.VALIDATE_NO_CHOICE;
+	},
+	validateFormCard:() =>{
+		if (service_card_cb.isChecked) {
+			return this.VALIDATE_CHOICE_ENOUGH;
+		}
+		return this.VALIDATE_NO_CHOICE;
+	},
+	validateFormUtility:() =>{
+		if (service_utilities_cb.isChecked) {
+			if (utility_type_radiogrp.selectedOptionValue == '' ||
+					contract_type_cbgrp.selectedValues == '' ||
+					water_radiogrp.selectedOptionValue == '' ||
+					(utility_type_radiogrp.selectedOptionValue == '電気とガスboth' && (
+				      electric_start_date_dpk.selectedDate == '' || 
+				      gas_start_date_dpk.selectedDate == '' || 
+				      gas_start_time_radiogrp.selectedOptionValue == ''
+			    )) ||
+					(utility_type_radiogrp.selectedOptionValue == '電気のみelectric' && electric_start_date_dpk.selectedDate == '') ||
+					(utility_type_radiogrp.selectedOptionValue == 'ガスのみgas' && (
+				      gas_start_date_dpk.selectedDate == '' || 
+				      gas_start_time_radiogrp.selectedOptionValue == ''
+			    ))
+			)
+					return this.VALIDATE_CHOICE_NOT_ENOUGH;
+			return this.VALIDATE_CHOICE_ENOUGH;
+		}
+		return this.VALIDATE_NO_CHOICE;
+	},
+	validateFormAgreement:() =>{
+		if (agreement1_cb.isChecked && agreement2_cb.isChecked) {
+			return this.VALIDATE_CHOICE_ENOUGH;
+		}
+		return this.VALIDATE_CHOICE_NOT_ENOUGH;
+	},
 	
-	},
-	validateForm:() =>{
-		
-	},
 	async saveApplicationAll() {
 		let isChooseWifi = service_wifi_cb.isChecked;
 		let isChooseCard = service_card_cb.isChecked;
@@ -53,11 +123,9 @@ export default {
 		let applicantId = await this.saveApplicant();
 		if (applicantId) {
 			// Save Address
-			// showAlert(applicantId);
 			await this.saveAddresses(applicantId);
 			// Save applications
 			let applicationId = await this.saveApplications(applicantId);
-			// showAlert(applicationId);
 			if (applicationId) {
 				if (isChooseWifi) {
 					// Save wifi_applications
@@ -137,12 +205,24 @@ export default {
 	
 	async saveWifiApplications(applicationId) {
 		let contactDow = contact_dow_sb.selectedOptionValue;
-		let urlFront = '';
-		let urlBack = '';
+		let urlFront = resident_front_fpk.files[0].name;
+		let urlBack = resident_back_fpk.files[0].name;
+		let isUploadFrontSuccess = false;
+		await upload_resident_front_image.run()
+		  .then(res => isUploadFrontSuccess = true)
+		  .catch();
+		let isUploadBackSuccess = false;
+		await upload_resident_back_image.run()
+		  .then(res => isUploadBackSuccess = true)
+		  .catch();
 		let statusWifi = '1.未対応';
-		await insert_wifi_application.run({applicationId, contactDow, urlFront, urlBack, statusWifi})
-		  .then()
-			.catch(e => {this.saveResultCode = 4; showAlert(e.message, 'error');});
+		if (isUploadFrontSuccess && isUploadFrontSuccess) {
+			await insert_wifi_application.run({applicationId, contactDow, urlFront, urlBack, statusWifi})
+			  .then()
+				.catch(e => {this.saveResultCode = 4; showAlert(e.message, 'error');});
+		} else {
+			this.saveResultCode = 41;
+		}
 	},
 	
 	async saveCardApplications(applicationId) {
@@ -155,9 +235,9 @@ export default {
 	async saveUtilityApplications(applicationId) {
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
 		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
-		let electricityStartDate = electric_start_date_dpk.selectedDate;
-		let gasStartDate = gas_start_date_dpk.selectedDate;
-		let gasStartTimeCode = gas_start_time_radiogrp.selectedOptionValue;
+		let electricityStartDate = electric_start_date_dpk.selectedDate == '' ? null : electric_start_date_dpk.selectedDate;
+		let gasStartDate = gas_start_date_dpk.selectedDate == '' ? null : gas_start_date_dpk.selectedDate;
+		let gasStartTimeCode = gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue;
 		let withWaterSupply = water_radiogrp.selectedOptionValue == 'true' ? true : false;
 		let statusUtility = '1.未対応';
 		await insert_utility_application.run({applicationId, utilityTypeCode, contractTypeCodes, electricityStartDate, gasStartDate, gasStartTimeCode, withWaterSupply, statusUtility})
@@ -172,6 +252,13 @@ export default {
     const formattedString = `{${array.join(", ")}}`;
     return formattedString;
   },
+	validateEmail: (email) => {
+		return String(email)
+			.toLowerCase()
+			.match(
+				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
+	},
 
 }
 

@@ -1,6 +1,6 @@
 {
     "mobileBottomRow": 5,
-    "widgetName": "Checkbox4",
+    "widgetName": "agreement1_cb",
     "displayName": "Checkbox",
     "iconSVG": "/static/media/icon.7b004ee098ca948e952234e7baec6d11.svg",
     "searchTags": ["boolean"],
@@ -24,7 +24,7 @@
     "key": "usxzlxqixq",
     "isRequired": false,
     "isDeprecated": false,
-    "rightColumn": 21,
+    "rightColumn": 30,
     "dynamicHeight": "FIXED",
     "widgetId": "gyxioje8a8",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",

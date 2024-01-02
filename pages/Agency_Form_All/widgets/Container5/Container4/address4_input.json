@@ -28,7 +28,7 @@
     "widgetId": "e1655egc87",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": "true",
-    "label": "番地/ Street",
+    "label": "番地/ Street *",
     "version": 2,
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",

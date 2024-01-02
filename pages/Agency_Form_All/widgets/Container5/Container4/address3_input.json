@@ -28,7 +28,7 @@
     "widgetId": "br9cmabp6d",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": "true",
-    "label": "市区町村/ City, Ward",
+    "label": "市区町村/ City, Ward *",
     "version": 2,
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",

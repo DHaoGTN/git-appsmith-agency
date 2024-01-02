@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 50,
     "widgetName": "Button14",
-    "onClick": "{{form.saveApplicationAll()}}",
+    "onClick": "{{form.submitForm()}}",
     "buttonColor": "#2d969b",
     "dynamicPropertyPathList": [{"key": "onClick"}],
     "displayName": "Button",
@@ -40,11 +40,11 @@
     "isLoading": false,
     "mobileTopRow": 46,
     "responsiveBehavior": "hug",
-    "originalTopRow": 48,
+    "originalTopRow": 51,
     "disabledWhenInvalid": false,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 36,
-    "originalBottomRow": 52,
+    "originalBottomRow": 55,
     "buttonVariant": "PRIMARY",
     "placement": "CENTER"
 }

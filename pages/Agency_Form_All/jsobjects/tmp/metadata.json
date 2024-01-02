@@ -9,7 +9,7 @@
     "variables": [
       {
         "name": "serviceAllowed",
-        "value": "'wifi, utilities'"
+        "value": "'{光wifi, 電気ガスutility}'"
       },
       {
         "name": "isWifiAllowed",
