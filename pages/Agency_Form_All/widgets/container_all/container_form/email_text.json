@@ -3,8 +3,8 @@
     "widgetName": "email_text",
     "displayName": "Text",
     "iconSVG": "/static/media/icon.97c59b52.svg",
-    "topRow": 93,
-    "bottomRow": 97,
+    "topRow": 92,
+    "bottomRow": 96,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -30,10 +30,10 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 93,
+    "originalTopRow": 94,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 97,
+    "originalBottomRow": 98,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

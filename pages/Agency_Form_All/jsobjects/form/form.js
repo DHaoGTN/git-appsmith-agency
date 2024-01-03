@@ -102,7 +102,8 @@ export default {
 				dateofbirth_dpk.selectedDate == '' ||
 				nationality_input.text == '' ||
 				visa_input.text == '' ||
-				(!japanese_cb.isChecked && !vietnamese_cb.isChecked && !chinese_cb.isChecked && !english_cb.isChecked && !korean_cb.isChecked && !taiwan_cb.isChecked) ||
+				// (!japanese_cb.isChecked && !vietnamese_cb.isChecked && !chinese_cb.isChecked && !english_cb.isChecked && !korean_cb.isChecked && !taiwan_cb.isChecked) ||
+				lang_radiogrp.selectedOptionValue == '' ||
 				phone_input.text == '' ||
 				email_input.text == '' ||
 				email_cf_input.text == '' ||
@@ -203,12 +204,13 @@ export default {
 		let birthday = dateofbirth_dpk.selectedDate;
 		let nationality = nationality_input.text;
 		let visa = visa_input.text;
-		let desiredLang = japanese_cb.isChecked ? '日本語' :
-		  vietnamese_cb.isChecked ? 'Tiếng Việt' :
-		    chinese_cb.isChecked ? '簡体字' :
-		      english_cb.isChecked ? 'English' :
-		        korean_cb.isChecked ? '한국어' :
-		          taiwan_cb.isChecked ? '繁体字' : '日本語';
+		// let desiredLang = japanese_cb.isChecked ? '日本語' :
+		  // vietnamese_cb.isChecked ? 'Tiếng Việt' :
+		    // chinese_cb.isChecked ? '簡体字' :
+		      // english_cb.isChecked ? 'English' :
+		        // korean_cb.isChecked ? '한국어' :
+		          // taiwan_cb.isChecked ? '繁体字' : '日本語';
+		let desiredLang = lang_radiogrp.selectedOptionValue;
 		let phone = phone_input.text;
 		let email = email_input.text;
 
@@ -282,9 +284,9 @@ export default {
 	async saveUtilityApplications(applicationId) {
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
 		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
-		let electricityStartDate = electric_start_date_dpk.selectedDate == '' ? null : electric_start_date_dpk.selectedDate;
-		let gasStartDate = gas_start_date_dpk.selectedDate == '' ? null : gas_start_date_dpk.selectedDate;
-		let gasStartTimeCode = gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue;
+		let electricityStartDate = utilityTypeCode == 'ガスのみgas' ? null : (electric_start_date_dpk.selectedDate == '' ? null : electric_start_date_dpk.selectedDate);
+		let gasStartDate = utilityTypeCode == '電気のみelectric' ? null : (gas_start_date_dpk.selectedDate == '' ? null : gas_start_date_dpk.selectedDate);
+		let gasStartTimeCode = utilityTypeCode == '電気のみelectric' ? null : (gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue);
 		let withWaterSupply = water_radiogrp.selectedOptionValue == 'true' ? true : false;
 		let statusUtility = '1.未対応';
 		await insert_utility_application.run({applicationId, utilityTypeCode, contractTypeCodes, electricityStartDate, gasStartDate, gasStartTimeCode, withWaterSupply, statusUtility})

@@ -1,0 +1,75 @@
+{
+    "boxShadow": "none",
+    "mobileBottomRow": 17,
+    "widgetName": "lang_radiogrp",
+    "iconSVG": "/static/media/icon.99c101b3b70073f9c00e9af6523f9427.svg",
+    "displayName": "Radio Group",
+    "topRow": 70,
+    "searchTags": ["choice"],
+    "bottomRow": 79,
+    "parentRowSpace": 10,
+    "labelWidth": "3",
+    "type": "RADIO_GROUP_WIDGET",
+    "hideCard": false,
+    "mobileRightColumn": 34,
+    "shouldScrollContents": true,
+    "defaultOptionValue": "",
+    "animateLoading": true,
+    "parentColumnSpace": 10.34579873085022,
+    "dynamicTriggerPathList": [],
+    "leftColumn": 10,
+    "dynamicBindingPathList": [{"key": "accentColor"}],
+    "labelPosition": "Left",
+    "options": [
+        {
+            "label": "日本語",
+            "value": "日本語"
+        },
+        {
+            "label": "Tiếng Việt",
+            "value": "Tiếng Việt"
+        },
+        {
+            "label": "簡体字",
+            "value": "簡体字"
+        },
+        {
+            "label": "English",
+            "value": "English"
+        },
+        {
+            "label": "한국어",
+            "value": "한국어"
+        },
+        {
+            "label": "繁体字",
+            "value": "繁体字"
+        }
+    ],
+    "isDisabled": false,
+    "flexVerticalAlignment": "start",
+    "key": "io26eh7ydk",
+    "labelTextSize": "0.875rem",
+    "isRequired": false,
+    "isDeprecated": false,
+    "rightColumn": 31,
+    "dynamicHeight": "AUTO_HEIGHT",
+    "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+    "widgetId": "wkbr23zlmp",
+    "isVisible": true,
+    "label": "",
+    "version": 1,
+    "parentId": "f6o5ujc94b",
+    "tags": ["Toggles"],
+    "isLoading": false,
+    "labelAlignment": "left",
+    "renderMode": "CANVAS",
+    "mobileTopRow": 11,
+    "originalTopRow": 70,
+    "mobileLeftColumn": 14,
+    "maxDynamicHeight": 9000,
+    "originalBottomRow": 81,
+    "isInline": true,
+    "alignment": "left",
+    "minDynamicHeight": 4
+}

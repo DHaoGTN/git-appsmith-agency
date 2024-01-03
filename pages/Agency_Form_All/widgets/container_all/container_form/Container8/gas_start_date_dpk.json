@@ -5,7 +5,7 @@
     "topRow": 43,
     "labelWidth": 5,
     "type": "DATE_PICKER_WIDGET2",
-    "topRowBeforeCollapse": 24,
+    "topRowBeforeCollapse": 25,
     "animateLoading": true,
     "leftColumn": 1,
     "dynamicBindingPathList": [
@@ -17,7 +17,7 @@
     "isRequired": false,
     "dynamicHeight": "FIXED",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-    "bottomRowBeforeCollapse": 31,
+    "bottomRowBeforeCollapse": 32,
     "isVisible": "{{utility_type_radiogrp.selectedOptionValue == '電気とガスboth' || utility_type_radiogrp.selectedOptionValue == 'ガスのみgas'}}",
     "datePickerType": "DATE_PICKER",
     "version": 2,

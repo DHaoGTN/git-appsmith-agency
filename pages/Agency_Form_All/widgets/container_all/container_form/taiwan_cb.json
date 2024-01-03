@@ -14,7 +14,7 @@
     "animateLoading": true,
     "parentColumnSpace": 16.637344360351562,
     "dynamicTriggerPathList": [],
-    "leftColumn": 27,
+    "leftColumn": 44,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"}
@@ -24,12 +24,12 @@
     "key": "smodrwv6mv",
     "isRequired": false,
     "isDeprecated": false,
-    "rightColumn": 40,
+    "rightColumn": 57,
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "6owf8vxh1g",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "minWidth": 450,
-    "isVisible": true,
+    "isVisible": false,
     "label": "　　　繁体字",
     "version": 1,
     "parentId": "f6o5ujc94b",
