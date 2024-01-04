@@ -4,9 +4,9 @@
     "widgetName": "lang_radiogrp",
     "iconSVG": "/static/media/icon.99c101b3b70073f9c00e9af6523f9427.svg",
     "displayName": "Radio Group",
-    "topRow": 70,
+    "topRow": 68,
     "searchTags": ["choice"],
-    "bottomRow": 79,
+    "bottomRow": 85,
     "parentRowSpace": 10,
     "labelWidth": "3",
     "type": "RADIO_GROUP_WIDGET",
@@ -23,27 +23,27 @@
     "options": [
         {
             "label": "日本語",
-            "value": "日本語"
+            "value": "japanese"
         },
         {
             "label": "Tiếng Việt",
-            "value": "Tiếng Việt"
+            "value": "vietnamese"
         },
         {
             "label": "簡体字",
-            "value": "簡体字"
+            "value": "chinese"
         },
         {
             "label": "English",
-            "value": "English"
+            "value": "english"
         },
         {
             "label": "한국어",
-            "value": "한국어"
+            "value": "korean"
         },
         {
             "label": "繁体字",
-            "value": "繁体字"
+            "value": "taiwan"
         }
     ],
     "isDisabled": false,
@@ -52,7 +52,7 @@
     "labelTextSize": "0.875rem",
     "isRequired": true,
     "isDeprecated": false,
-    "rightColumn": 31,
+    "rightColumn": 26,
     "dynamicHeight": "AUTO_HEIGHT",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "widgetId": "wkbr23zlmp",
@@ -65,10 +65,10 @@
     "labelAlignment": "left",
     "renderMode": "CANVAS",
     "mobileTopRow": 11,
-    "originalTopRow": 70,
+    "originalTopRow": 68,
     "mobileLeftColumn": 14,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 79,
+    "originalBottomRow": 85,
     "isInline": true,
     "alignment": "left",
     "minDynamicHeight": 4

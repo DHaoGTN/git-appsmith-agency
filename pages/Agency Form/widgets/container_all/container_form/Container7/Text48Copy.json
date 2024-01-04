@@ -19,7 +19,7 @@
     "fontFamily": "Inter",
     "parentColumnSpace": 10.085840225219727,
     "dynamicTriggerPathList": [],
-    "leftColumn": 14,
+    "leftColumn": 10,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "borderRadius"}
@@ -29,7 +29,7 @@
     "text": "Thank you for your application.\nPress the submit button to complete.",
     "key": "owcej3cp7p",
     "isDeprecated": false,
-    "rightColumn": 51,
+    "rightColumn": 55,
     "textAlign": "CENTER",
     "dynamicHeight": "FIXED",
     "widgetId": "8fkdubshmm",
@@ -47,11 +47,11 @@
     "isLoading": false,
     "mobileTopRow": 26,
     "responsiveBehavior": "fill",
-    "originalTopRow": 36,
+    "originalTopRow": 39,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 21,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 45,
+    "originalBottomRow": 48,
     "fontSize": "1.25rem",
     "minDynamicHeight": 4
 }

@@ -1,5 +1,5 @@
 export default {
-	serviceAllowed: '{光wifi, 電気ガスutility}',
+	serviceAllowed: '{wifi, utility}',
 	isWifiAllowed: null,
 	isCardAllowed: null,
 	isUtilitiesAllowed: null,
@@ -17,9 +17,9 @@ export default {
 		    .then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
 			  .catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
 			
-			this.isWifiAllowed = this.serviceAllowed.includes('光wifi');
-			this.isCardAllowed = this.serviceAllowed.includes('カードcredit_card');
-			this.isUtilitiesAllowed = this.serviceAllowed.includes('電気ガスutility');
+			this.isWifiAllowed = this.serviceAllowed.includes('wifi');
+			this.isCardAllowed = this.serviceAllowed.includes('credit_card');
+			this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
 			service_wifi_cb.setVisibility(this.isWifiAllowed);
 			service_card_cb.setVisibility(this.isCardAllowed);
 			service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
@@ -140,13 +140,13 @@ export default {
 			if (utility_type_radiogrp.selectedOptionValue == '' ||
 					contract_type_cbgrp.selectedValues == '' ||
 					water_radiogrp.selectedOptionValue == '' ||
-					(utility_type_radiogrp.selectedOptionValue == '電気とガスboth' && (
+					(utility_type_radiogrp.selectedOptionValue == 'both' && (
 				      electric_start_date_dpk.selectedDate == '' || 
 				      gas_start_date_dpk.selectedDate == '' || 
 				      gas_start_time_radiogrp.selectedOptionValue == ''
 			    )) ||
-					(utility_type_radiogrp.selectedOptionValue == '電気のみelectric' && electric_start_date_dpk.selectedDate == '') ||
-					(utility_type_radiogrp.selectedOptionValue == 'ガスのみgas' && (
+					(utility_type_radiogrp.selectedOptionValue == 'electric' && electric_start_date_dpk.selectedDate == '') ||
+					(utility_type_radiogrp.selectedOptionValue == 'gas' && (
 				      gas_start_date_dpk.selectedDate == '' || 
 				      gas_start_time_radiogrp.selectedOptionValue == ''
 			    ))
@@ -238,9 +238,9 @@ export default {
 		if (userInfo) {
 			const agencyId = JSON.stringify(userInfo.agency_id);
 			let serviceTypeCodes = [];
-			service_wifi_cb.isChecked ? serviceTypeCodes.push('光wifi') : '';
-			service_card_cb.isChecked ? serviceTypeCodes.push('カードcredit_card') : '';
-			service_utilities_cb.isChecked ? serviceTypeCodes.push('電気ガスutility') : '';
+			service_wifi_cb.isChecked ? serviceTypeCodes.push('wifi') : '';
+			service_card_cb.isChecked ? serviceTypeCodes.push('credit_card') : '';
+			service_utilities_cb.isChecked ? serviceTypeCodes.push('utility') : '';
 			serviceTypeCodes = this.convertArrayToPostgresArray(serviceTypeCodes);
 			
 			await insert_application.run({agencyId, applicantId, serviceTypeCodes})
@@ -264,7 +264,7 @@ export default {
 		await upload_resident_back_image.run()
 		  .then(res => isUploadBackSuccess = true)
 		  .catch();
-		let statusWifi = '1.未対応';
+		let statusWifi = 'not_handle';
 		if (isUploadFrontSuccess && isUploadFrontSuccess) {
 			await insert_wifi_application.run({applicationId, contactDow, urlFront, urlBack, statusWifi})
 			  .then()
@@ -275,7 +275,7 @@ export default {
 	},
 	
 	async saveCardApplications(applicationId) {
-		let statusCard = '1.未対応';
+		let statusCard = 'not_handle';
 		await insert_card_application.run({applicationId, statusCard})
 		  .then()
 			.catch(e => {this.resultCode = 5; showAlert(e.message, 'error');});
@@ -284,11 +284,11 @@ export default {
 	async saveUtilityApplications(applicationId) {
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
 		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
-		let electricityStartDate = utilityTypeCode == 'ガスのみgas' ? null : (electric_start_date_dpk.selectedDate == '' ? null : electric_start_date_dpk.selectedDate);
-		let gasStartDate = utilityTypeCode == '電気のみelectric' ? null : (gas_start_date_dpk.selectedDate == '' ? null : gas_start_date_dpk.selectedDate);
-		let gasStartTimeCode = utilityTypeCode == '電気のみelectric' ? null : (gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue);
+		let electricityStartDate = utilityTypeCode == 'gas' ? null : (electric_start_date_dpk.selectedDate == '' ? null : electric_start_date_dpk.selectedDate);
+		let gasStartDate = utilityTypeCode == 'electric' ? null : (gas_start_date_dpk.selectedDate == '' ? null : gas_start_date_dpk.selectedDate);
+		let gasStartTimeCode = utilityTypeCode == 'electric' ? null : (gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue);
 		let withWaterSupply = water_radiogrp.selectedOptionValue == 'true' ? true : false;
-		let statusUtility = '1.未対応';
+		let statusUtility = 'not_handle';
 		await insert_utility_application.run({applicationId, utilityTypeCode, contractTypeCodes, electricityStartDate, gasStartDate, gasStartTimeCode, withWaterSupply, statusUtility})
 		  .then()
 			.catch(e => {this.resultCode = 6; showAlert(e.message, 'error');});

@@ -3,8 +3,8 @@
     "widgetName": "address_text",
     "displayName": "Text",
     "iconSVG": "/static/media/icon.97c59b52.svg",
-    "topRow": 104,
-    "bottomRow": 108,
+    "topRow": 112,
+    "bottomRow": 116,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -30,10 +30,10 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 104,
+    "originalTopRow": 112,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 108,
+    "originalBottomRow": 116,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

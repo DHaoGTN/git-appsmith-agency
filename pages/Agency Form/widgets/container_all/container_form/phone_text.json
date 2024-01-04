@@ -3,8 +3,8 @@
     "widgetName": "phone_text",
     "displayName": "Text",
     "iconSVG": "/static/media/icon.97c59b52.svg",
-    "topRow": 84,
-    "bottomRow": 88,
+    "topRow": 88,
+    "bottomRow": 92,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -30,10 +30,10 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 84,
+    "originalTopRow": 88,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 88,
+    "originalBottomRow": 92,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }
