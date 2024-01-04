@@ -48,7 +48,7 @@
     "rightColumn": 34,
     "widgetId": "wbcxez5d31",
     "minWidth": 450,
-    "label": "yyyy/MM/dd",
+    "label": "yyyy-MM-dd",
     "parentId": "z3a0lmf6ot",
     "labelAlignment": "left",
     "renderMode": "CANVAS",

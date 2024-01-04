@@ -30,10 +30,10 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 86,
+    "originalTopRow": 84,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 90,
+    "originalBottomRow": 88,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }

@@ -21,7 +21,7 @@
     "key": "0equv9lg65",
     "validation": "true",
     "labelTextSize": "0.875rem",
-    "isRequired": false,
+    "isRequired": true,
     "rightColumn": 32,
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "mqsyz28dpp",

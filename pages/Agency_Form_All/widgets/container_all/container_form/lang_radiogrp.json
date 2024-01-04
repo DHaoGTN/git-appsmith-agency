@@ -50,7 +50,7 @@
     "flexVerticalAlignment": "start",
     "key": "io26eh7ydk",
     "labelTextSize": "0.875rem",
-    "isRequired": false,
+    "isRequired": true,
     "isDeprecated": false,
     "rightColumn": 31,
     "dynamicHeight": "AUTO_HEIGHT",
@@ -68,7 +68,7 @@
     "originalTopRow": 70,
     "mobileLeftColumn": 14,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 81,
+    "originalBottomRow": 79,
     "isInline": true,
     "alignment": "left",
     "minDynamicHeight": 4

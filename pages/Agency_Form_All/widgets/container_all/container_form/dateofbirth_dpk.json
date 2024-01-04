@@ -12,7 +12,7 @@
         {"key": "borderRadius"}
     ],
     "isDisabled": false,
-    "isRequired": false,
+    "isRequired": true,
     "dynamicHeight": "FIXED",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": true,
@@ -44,7 +44,7 @@
     "rightColumn": 32,
     "widgetId": "6ehjl872s6",
     "minWidth": 450,
-    "label": "yyyy/MM/dd",
+    "label": "yyyy-MM-dd",
     "parentId": "f6o5ujc94b",
     "labelAlignment": "left",
     "renderMode": "CANVAS",

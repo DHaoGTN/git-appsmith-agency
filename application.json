@@ -2,7 +2,7 @@
   "pages": [
     {
       "id": "Agency_Form_All",
-      "isDefault": false
+      "isDefault": true
     },
     {
       "id": "tmp1",
@@ -14,7 +14,7 @@
     },
     {
       "id": "Login",
-      "isDefault": true
+      "isDefault": false
     },
     {
       "id": "Google_Home_Page",
@@ -35,6 +35,17 @@
   "unpublishedApplicationDetail": {
     "appPositioning": {
       "type": "FIXED"
+    },
+    "navigationSetting": {
+      "showNavbar": true,
+      "orientation": "side",
+      "navStyle": "sidebar",
+      "position": "static",
+      "itemStyle": "text",
+      "colorStyle": "theme",
+      "logoAssetId": "",
+      "logoConfiguration": "logoOnly",
+      "showSignIn": false
     }
   },
   "color": "#C7F3E3",
@@ -45,9 +56,6 @@
     },
     {
       "uidString": "dcodeIO_https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"
-    },
-    {
-      "uidString": "Cookies_https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
     }
   ],
   "publishedCustomJSLibs": [],

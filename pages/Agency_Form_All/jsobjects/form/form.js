@@ -95,22 +95,22 @@ export default {
 		return false;
 	},
 	validateFormApplicant:() =>{
-		if (firstname_input.text == '' ||
-				lastname_input.text == '' ||
-				firstname_ktkn_input.text == '' ||
-				lastname_ktkn_input.text == '' ||
-				dateofbirth_dpk.selectedDate == '' ||
-				nationality_input.text == '' ||
-				visa_input.text == '' ||
+		if (!firstname_input.isValid ||
+				!lastname_input.isValid ||
+				!firstname_ktkn_input.isValid ||
+				!lastname_ktkn_input.isValid ||
+				!dateofbirth_dpk.isValid ||
+				!nationality_input.isValid ||
+				!visa_input.isValid ||
 				// (!japanese_cb.isChecked && !vietnamese_cb.isChecked && !chinese_cb.isChecked && !english_cb.isChecked && !korean_cb.isChecked && !taiwan_cb.isChecked) ||
-				lang_radiogrp.selectedOptionValue == '' ||
-				phone_input.text == '' ||
-				email_input.text == '' ||
-				email_cf_input.text == '' ||
-				address1_input.text == '' ||
-				address2_input.text == '' ||
-				address3_input.text == '' ||
-				address4_input.text == ''
+				!lang_radiogrp.isValid ||
+				!phone_input.isValid ||
+				!email_input.isValid ||
+				!email_cf_input.isValid ||
+				!address1_input.isValid ||
+				!address2_input.isValid ||
+				!address3_input.isValid ||
+				!address4_input.isValid
 		) {
 			return this.VALIDATE_CHOICE_NOT_ENOUGH;
 		}

@@ -30,7 +30,7 @@
     "widgetId": "wwit0xn3iv",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
     "isVisible": "true",
-    "label": "姓/ Last name（katakana）\n",
+    "label": "姓/ Last name（katakana）",
     "version": 2,
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
