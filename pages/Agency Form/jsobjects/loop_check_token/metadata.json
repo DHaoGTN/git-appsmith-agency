@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "loop_check_token",
+    "pageId": "Agency Form",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Agency Form_loop_check_token",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65893f543010c95d5f5a8f34"
+}

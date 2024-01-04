@@ -1,7 +1,7 @@
 {
   "pages": [
     {
-      "id": "Agency_Form_All",
+      "id": "Agency Form",
       "isDefault": true
     },
     {
@@ -25,7 +25,7 @@
       "isDefault": false
     },
     {
-      "id": "Change_User_Info_Page",
+      "id": "Change User Info",
       "isDefault": false
     }
   ],

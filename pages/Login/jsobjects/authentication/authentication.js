@@ -55,7 +55,7 @@ export default {
 
 			await storeValue('user', user_info )
 			await storeValue('token', token)
-				.then( () => navigateTo('Agency_Form_All'))
+				.then( () => navigateTo('Agency Form'))
 			console.log('added token to local')
 		}  
 		else {
