@@ -13,7 +13,7 @@ export default {
 		}catch(error){
 			return navigateTo("Login")
 		}
-		return  showAlert("you have been logged out,",'success')
+		return  showAlert("You have been logged out. Bye bye,",'success')
 			.then(() => navigateTo('Login'))
 			.catch(e => showAlert(e.message, 'error'));
 	},
@@ -35,12 +35,12 @@ export default {
 			return showAlert('Your new email is same with current email', 'error')
 		}
 		if (count_new_email>0){
-			return showAlert('Your new email have existed, please choose another email or login', 'error')
+			return showAlert('Your new email have existed, please choose another email.', 'error')
 		}
 
 		await change_email.run({new_email, current_email})
 		await this.logout()
-		return showAlert('changed email successfully,  please login again', 'success')
+		return showAlert('Changed email successfully,  please login again', 'success')
 
 	},
 

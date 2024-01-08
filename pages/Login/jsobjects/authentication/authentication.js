@@ -59,7 +59,7 @@ export default {
 			console.log('added token to local')
 		}  
 		else {
-			showAlert("Invalid email or password", "error")
+			showAlert("Invalid email or password. Please try again.", "error")
 		}
 	},
 

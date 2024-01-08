@@ -27,6 +27,10 @@
     {
       "id": "Change User Info",
       "isDefault": false
+    },
+    {
+      "id": "Revenue",
+      "isDefault": false
     }
   ],
   "viewMode": false,

@@ -1,0 +1,69 @@
+{
+  "unpublishedPage": {
+    "name": "Revenue",
+    "slug": "revenue",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1160,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 790,
+          "containerStyle": "none",
+          "snapRows": 125,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 1170,
+          "parentColumnSpace": 1,
+          "dynamicTriggerPathList": [],
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Revenue_form.setAgencyServicesAllowed",
+              "name": "form.setAgencyServicesAllowed",
+              "collectionId": "Revenue_form",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  let userInfo = await appsmith.store.user;\n  if (userInfo) {\n    const agencyId = JSON.stringify(userInfo.agency_id);\n    await find_service_allowed.run({\n      agencyId\n    }).then(res => form.serviceAllowed = JSON.stringify(res[0].service_type_codes)).catch(e => {\n      showAlert(\"Can not retrieve service type code. \" + e.message, 'error');\n    });\n    form.isWifiAllowed = form.serviceAllowed.includes('wifi');\n    form.isCardAllowed = form.serviceAllowed.includes('credit_card');\n    form.isUtilitiesAllowed = form.serviceAllowed.includes('utility');\n    service_wifi_cb.setVisibility(form.isWifiAllowed);\n    service_card_cb.setVisibility(form.isCardAllowed);\n    service_utilities_cb.setVisibility(form.isUtilitiesAllowed);\n  } else {\n    showAlert(\"Can not retrieve user info. \", 'error');\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue_loop_check_token.loopToCheckTokenExist",
+              "name": "loop_check_token.loopToCheckTokenExist",
+              "collectionId": "Revenue_loop_check_token",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Revenue",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65977af23010c95d5f5a97bc"
+}
