@@ -40,7 +40,7 @@ export default {
 
 		await change_email.run({new_email, current_email})
 		await this.logout()
-		return showAlert('Changed email successfully,  please login again', 'success')
+		return showAlert('Changed email successfully, please login again', 'success')
 
 	},
 

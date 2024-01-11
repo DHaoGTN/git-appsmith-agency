@@ -1,3 +1,0 @@
-INSERT INTO user_info."google_token" (token)
-VALUES ( '{{this.params.token}}');
-

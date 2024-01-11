@@ -16,7 +16,7 @@ export default {
 			await find_service_allowed.run({agencyId})
 				.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
 				.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
-			showAlert(this.serviceAllowed);
+			// showAlert(this.serviceAllowed);
 			this.isWifiAllowed = this.serviceAllowed.includes('wifi');
 			this.isCardAllowed = this.serviceAllowed.includes('credit_card');
 			this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
@@ -30,9 +30,10 @@ export default {
 
 	async submitForm() {
 		if (this.validateFormAll()) {
-			await this.saveApplicationAll();
-			await this.sendToAutoFill();
-			await this.sendEmailToPoC();
+			if (await this.saveApplicationAll()) {
+				await this.sendToAutoFill();
+				await this.sendEmailToPoC();	
+			}
 		}
 	},
 	async sendToAutoFill() {
@@ -163,36 +164,105 @@ export default {
 		return this.VALIDATE_CHOICE_NOT_ENOUGH;
 	},
 
-	async saveApplicationAll() {
+	// async saveApplicationAll() {
+		// let isChooseWifi = service_wifi_cb.isChecked;
+		// let isChooseCard = service_card_cb.isChecked;
+		// let isChooseUtility = service_utilities_cb.isChecked;
+		// 
+		// let applicantId = await this.saveApplicant();
+		// if (applicantId) {
+			// await this.saveAddresses(applicantId);
+			// let applicationId = await this.saveApplications(applicantId);
+			// if (applicationId) {
+				// if (isChooseWifi) {
+					// await this.saveWifiApplications(applicationId);
+				// }
+				// if (isChooseCard) {
+					// await this.saveCardApplications(applicationId);
+				// }
+				// if (isChooseUtility) {
+					// await this.saveUtilityApplications(applicationId);
+				// }
+			// }
+		// }
+		// if (this.resultCode == 0) {
+			// showAlert('Application was created successfully. We will inform by sending email to person in charge for this application.', 'success');
+			// return true;
+		// } else {
+			// showAlert('There are an error when saving information. Please try again. Result code: '+this.resultCode, 'error');
+	    // return false;
+		// }
+	// },
+	async saveApplicationAll() { // add rollback
 		let isChooseWifi = service_wifi_cb.isChecked;
 		let isChooseCard = service_card_cb.isChecked;
 		let isChooseUtility = service_utilities_cb.isChecked;
-		// Save applicants
+		
 		let applicantId = await this.saveApplicant();
+		let applicationId = 0;
 		if (applicantId) {
-			// Save Address
-			await this.saveAddresses(applicantId);
-			// Save applications
-			let applicationId = await this.saveApplications(applicantId);
-			if (applicationId) {
-				if (isChooseWifi) {
-					// Save wifi_applications
-					await this.saveWifiApplications(applicationId);
+			try {
+				if (!(await this.saveAddresses(applicantId))) {
+            throw new Error("Failed to save addresses");
+        }
+				applicationId = await this.saveApplications(applicantId);
+				if (applicationId) {
+					if (isChooseWifi) {
+						if (!(await this.saveWifiApplications(applicationId))) {
+								throw new Error("Failed to save wifi");
+						}
+					}
+					if (isChooseCard) {
+						if (!(await this.saveCardApplications(applicationId))) {
+								throw new Error("Failed to save card");
+						}
+					}
+					if (isChooseUtility) {
+						if (!(await this.saveUtilityApplications(applicationId))) {
+								throw new Error("Failed to save addresses");
+						}
+					}
+				} else {
+					throw new Error("Failed to save applications");
 				}
-				if (isChooseCard) {
-					// Save card_applications
-					await this.saveCardApplications(applicationId);
-				}
-				if (isChooseUtility) {
-					// Save utility_applications
-					await this.saveUtilityApplications(applicationId);
+			} catch(error) {
+				switch (this.resultCode) {
+					case 2: // save Address failed
+						rollback_applicant.run({applicantId});
+						break;
+					case 3: // save Application failed
+					case 31: // save Application failed
+						rollback_applicant.run({applicantId});
+						rollback_address.run({applicantId});
+						break;
+					case 4: // save Wifi failed
+					case 41: // save Wifi failed
+						rollback_applicant.run({applicantId});
+						rollback_address.run({applicantId});
+						rollback_application.run({applicationId});
+						break;
+					case 5: // save Card failed
+						rollback_applicant.run({applicantId});
+						rollback_address.run({applicantId});
+						rollback_application.run({applicationId});
+						rollback_wifi_application.run({applicationId});
+						break;
+					case 6: // save Utility failed
+						rollback_applicant.run({applicantId});
+						rollback_address.run({applicantId});
+						rollback_application.run({applicationId});
+						rollback_wifi_application.run({applicationId});
+						rollback_card_application.run({applicationId});
+						break;
 				}
 			}
 		}
 		if (this.resultCode == 0) {
 			showAlert('Application was created successfully. We will inform by sending email to person in charge for this application.', 'success');
+			return true;
 		} else {
 			showAlert('There are an error when saving information. Please try again. Result code: '+this.resultCode, 'error');
+			return false;
 		}
 	},
 	async saveApplicant() {
@@ -221,15 +291,17 @@ export default {
 	},
 
 	async saveAddresses(applicantId) {
+		let isSuccess = false;
 		let postalCode = address1_input.text;
 		let prefecture = address2_input.text;
 		let city = address3_input.text;
 		let addressDetail = address4_input.text;
 		let building = address5_input.text;
-		let room = address5_input.text;
+		let room = address6_input.text;
 		await insert_address.run({applicantId, postalCode, prefecture, city, addressDetail, building, room})
-			.then()
+			.then(res => {isSuccess = true})
 			.catch(e => {this.resultCode = 2; showAlert(e.message, 'error');});
+		return isSuccess;
 	},
 
 	async saveApplications(applicantId) {
@@ -253,6 +325,7 @@ export default {
 	},
 
 	async saveWifiApplications(applicationId) {
+		let isSuccess = false;
 		let contactDow = contact_dow_sb.selectedOptionValue;
 		let urlFront = resident_front_fpk.files[0].name;
 		let urlBack = resident_back_fpk.files[0].name;
@@ -267,21 +340,25 @@ export default {
 		let statusWifi = 'not_handle';
 		if (isUploadFrontSuccess && isUploadFrontSuccess) {
 			await insert_wifi_application.run({applicationId, contactDow, urlFront, urlBack, statusWifi})
-				.then()
+				.then(res => {isSuccess = true})
 				.catch(e => {this.resultCode = 4; showAlert(e.message, 'error');});
 		} else {
 			this.resultCode = 41;
 		}
+		return isSuccess;
 	},
 
 	async saveCardApplications(applicationId) {
+		let isSuccess = false;
 		let statusCard = 'not_handle';
 		await insert_card_application.run({applicationId, statusCard})
-			.then()
+			.then(res => {isSuccess = true})
 			.catch(e => {this.resultCode = 5; showAlert(e.message, 'error');});
+		return isSuccess;
 	},
 
 	async saveUtilityApplications(applicationId) {
+		let isSuccess = false;
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
 		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
 		let electricStartDate = utilityTypeCode == 'gas' ? null : (electric_start_date_dpk.formattedDate == '' ? null : electric_start_date_dpk.formattedDate);
@@ -290,8 +367,9 @@ export default {
 		let withWaterSupply = water_radiogrp.selectedOptionValue == 'true' ? true : false;
 		let statusUtility = 'not_handle';
 		await insert_utility_application.run({applicationId, utilityTypeCode, contractTypeCodes, electricStartDate, gasStartDate, gasStartTimeCode, withWaterSupply, statusUtility})
-			.then()
+			.then(res => {isSuccess = true})
 			.catch(e => {this.resultCode = 6; showAlert(e.message, 'error');});
+		return isSuccess;
 	},
 
 	/**

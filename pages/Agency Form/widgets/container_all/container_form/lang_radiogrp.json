@@ -6,7 +6,7 @@
     "displayName": "Radio Group",
     "topRow": 68,
     "searchTags": ["choice"],
-    "bottomRow": 85,
+    "bottomRow": 77,
     "parentRowSpace": 10,
     "labelWidth": "3",
     "type": "RADIO_GROUP_WIDGET",

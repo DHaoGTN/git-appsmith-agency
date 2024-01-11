@@ -17,10 +17,6 @@
       "isDefault": false
     },
     {
-      "id": "Google_Home_Page",
-      "isDefault": false
-    },
-    {
       "id": "Agency_List_Form_Pattern",
       "isDefault": false
     },
@@ -54,12 +50,24 @@
   },
   "color": "#C7F3E3",
   "icon": "frame",
+  "unpublishedAppLayout": {
+    "type": "DESKTOP"
+  },
   "unpublishedCustomJSLibs": [
     {
       "uidString": "jsonwebtoken_/libraries/jsonwebtoken@8.5.1.js"
     },
     {
       "uidString": "dcodeIO_https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"
+    },
+    {
+      "uidString": "html2pdf_https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"
+    },
+    {
+      "uidString": "jspdf_https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    },
+    {
+      "uidString": "html2canvas_https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
     }
   ],
   "publishedCustomJSLibs": [],
