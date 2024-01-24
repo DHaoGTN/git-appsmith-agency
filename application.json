@@ -1,16 +1,44 @@
 {
   "pages": [
     {
-      "id": "Home Page",
-      "isDefault": false
-    },
-    {
-      "id": "Admin",
-      "isDefault": false
-    },
-    {
       "id": "Login",
+      "isDefault": false
+    },
+    {
+      "id": "Affiliate Form",
       "isDefault": true
+    },
+    {
+      "id": "Applications",
+      "isDefault": false
+    },
+    {
+      "id": "Revenue",
+      "isDefault": false
+    },
+    {
+      "id": "Change User Info",
+      "isDefault": false
+    },
+    {
+      "id": "tmp1",
+      "isDefault": false
+    },
+    {
+      "id": "tmp2",
+      "isDefault": false
+    },
+    {
+      "id": "Agency_List_Form_Pattern",
+      "isDefault": false
+    },
+    {
+      "id": "Revenue Copy1",
+      "isDefault": false
+    },
+    {
+      "id": "Affiliate Form Copy",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -19,18 +47,57 @@
   "unpublishedApplicationDetail": {
     "appPositioning": {
       "type": "FIXED"
+    },
+    "navigationSetting": {
+      "showNavbar": true,
+      "orientation": "side",
+      "navStyle": "sidebar",
+      "position": "static",
+      "itemStyle": "text",
+      "colorStyle": "theme",
+      "logoAssetId": "",
+      "logoConfiguration": "logoOnly",
+      "showSignIn": false
     }
   },
   "color": "#C7F3E3",
   "icon": "frame",
-  "unpublishedCustomJSLibs": [],
+  "unpublishedAppLayout": {
+    "type": "DESKTOP"
+  },
+  "publishedAppLayout": {
+    "type": "DESKTOP"
+  },
+  "unpublishedCustomJSLibs": [
+    {
+      "uidString": "jsonwebtoken_/libraries/jsonwebtoken@8.5.1.js"
+    },
+    {
+      "uidString": "dcodeIO_https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"
+    },
+    {
+      "uidString": "html2pdf_https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"
+    },
+    {
+      "uidString": "jspdf_https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    },
+    {
+      "uidString": "html2canvas_https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    },
+    {
+      "uidString": "PDFLib_https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"
+    },
+    {
+      "uidString": "fontkit_https://unpkg.com/@pdf-lib/fontkit/dist/fontkit.umd.min.js"
+    }
+  ],
   "publishedCustomJSLibs": [],
   "evaluationVersion": 2,
   "applicationVersion": 2,
   "embedSetting": {
     "height": "720px",
     "width": "1024px",
-    "showNavigationBar": false
+    "showNavigationBar": true
   },
   "collapseInvisibleWidgets": true,
   "isManualUpdate": false,

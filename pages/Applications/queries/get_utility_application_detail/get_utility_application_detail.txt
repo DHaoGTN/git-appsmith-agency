@@ -1,0 +1,17 @@
+SELECT 
+    utility_applications.utility_type_code,
+    utility_applications.current_contract_type_codes,
+    utility_applications.electric_start_date,
+    utility_applications.gas_start_date,
+    utility_applications.gas_start_time_code,
+    utility_applications.with_water_supply,
+    utility_applications.status,
+    utility_companies.id,
+    utility_companies.name
+FROM 
+    public."utility_applications" 
+JOIN 
+    public."utility_companies" 
+    ON utility_applications.utility_company_id = utility_companies.id 
+WHERE 
+    application_id = {{tbl_application.selectedRow.id}};

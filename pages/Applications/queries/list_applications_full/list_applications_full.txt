@@ -1,0 +1,51 @@
+SELECT
+    applications.id, 
+    agencies.name AS agency_name, 
+    applications.applicant_id, 
+    applications.service_type_codes AS service,
+    applications.created_at,
+    wifi_applications.status AS wifi_status,
+    utility_applications.status AS utility_status,
+		credit_card_applications.status AS credit_card_status,
+    utility_applications.utility_type_code,
+    utility_applications.current_contract_type_codes,
+    utility_applications.electric_start_date,
+    utility_applications.gas_start_date,
+    utility_applications.gas_start_time_code
+FROM 
+    public."applications" 
+INNER JOIN 
+    public."agencies" 
+    ON applications.agency_id = agencies.id 
+LEFT JOIN 
+    public."wifi_applications"
+    ON applications.id = wifi_applications.application_id
+LEFT JOIN 
+    public."utility_applications" 
+    ON applications.id = utility_applications.application_id
+LEFT JOIN 
+    public."credit_card_applications" 
+    ON applications.id = credit_card_applications.application_id
+WHERE CASE 
+       WHEN '{{this.params.agencyId}}' = 'null' THEN TRUE
+       ELSE  agencies.id = {{this.params.agencyId}}
+    END
+AND CASE 
+       WHEN '{{this.params.service}}' = '{}' THEN TRUE
+       ELSE applications.service_type_codes && '{{this.params.service}}'
+    END
+AND CASE 
+       WHEN '{{this.params.wifiStatus}}' = 'null' THEN TRUE
+       ELSE  wifi_applications.status IN ({{this.params.wifiStatus.map(status => `'${status}'`).join(', ')}})
+    END
+AND CASE 
+       WHEN '{{this.params.utilityStatus}}' = 'null' THEN TRUE
+       ELSE  utility_applications.status IN ({{this.params.utilityStatus.map(status => `'${status}'`).join(', ')}})
+    END
+AND CASE 
+       WHEN '{{this.params.creditStatus}}' = 'null' THEN TRUE
+       ELSE  credit_card_applications.status IN ({{this.params.creditStatus.map(status => `'${status}'`).join(', ')}})
+    END
+ORDER BY applications.created_at DESC
+LIMIT {{tbl_application.pageSize}}
+OFFSET '{{tbl_application.pageOffset}}'

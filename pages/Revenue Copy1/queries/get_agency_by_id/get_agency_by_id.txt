@@ -1,0 +1,2 @@
+SELECT * FROM public.agencies WHERE id = {{appsmith.store.user.agency_id}}
+ORDER BY id ASC 

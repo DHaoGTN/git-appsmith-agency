@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "auth",
+    "pageId": "Change User Info",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Change User Info_auth",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_658a88243010c95d5f5a90e8"
+}

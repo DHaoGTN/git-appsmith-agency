@@ -1,0 +1,79 @@
+{
+  "unpublishedPage": {
+    "name": "Applications",
+    "slug": "applications",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 1120,
+          "containerStyle": "none",
+          "snapRows": 90,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 920,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Applications_auth.loopToCheckTokenExist",
+              "name": "auth.loopToCheckTokenExist",
+              "collectionId": "Applications_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          auth.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Applications_auth.startUp",
+              "name": "auth.startUp",
+              "collectionId": "Applications_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Applications_handler_filter.getFilteredApplications",
+              "name": "handler_filter.getFilteredApplications",
+              "collectionId": "Applications_handler_filter",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  try {\n    const serviceFilter = service_select.selectedOptionValue;\n    const statusFilter = status_muti_select.selectedOptionValues;\n    let serviceStatus = {\n      wifi: null,\n      utility: null,\n      credit_card: null\n    };\n    if (serviceFilter && statusFilter && statusFilter.length > 0) {\n      serviceStatus[serviceFilter] = statusFilter;\n    }\n    const agencyId = await appsmith.store.user.agency_id;\n    const queryParams = {\n      agencyId: agencyId,\n      service: postgres_helpers.convertStringToPostgresArray(serviceFilter),\n      wifiStatus: serviceStatus.wifi,\n      utilityStatus: serviceStatus.utility,\n      creditStatus: serviceStatus.credit_card\n    };\n    await list_applications_full.run(queryParams);\n    const count = await count_application.run(queryParams);\n    handler_filter.totalRecord = count[0].count;\n    if (handler_filter.totalRecord === 0) {\n      showAlert('No have any record', 'warning');\n    }\n  } catch (error) {\n    console.log(error);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Applications",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65a78e477083d359c7819d53"
+}

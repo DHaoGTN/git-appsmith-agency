@@ -1,0 +1,5 @@
+UPDATE public."{{this.params.tableName}}"
+SET 
+    status = '{{this.params.status}}'
+WHERE 
+    application_id = {{this.params.id}};

@@ -1,0 +1,19 @@
+SELECT 
+    correspondences.id,
+    correspondences.application_id,
+    correspondences.destination_type_code,
+    correspondences.date,
+    correspondences.message,
+    correspondences.email_sent_at,
+    correspondences.created_at,
+    correspondences.updated_at
+FROM 
+    public."correspondences"
+WHERE 
+    application_id = {{tbl_application.selectedRow.id}}
+ORDER BY 
+    "id" ASC
+LIMIT 
+    {{correspondences_table.pageSize}} 
+OFFSET 
+    {{(correspondences_table.pageNo - 1) * correspondences_table.pageSize}};

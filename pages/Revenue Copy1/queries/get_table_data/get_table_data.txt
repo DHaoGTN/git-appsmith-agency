@@ -1,0 +1,33 @@
+SELECT 
+    building, 
+    room_number,  
+    to_char(a.created_at, 'YYYY"年"MM"月"DD"日') AS created_at,  
+    to_char(
+			CASE 
+			WHEN electric_start_date IS NOT NULL THEN electric_start_date
+			ELSE gas_start_date
+			END, 'YYYY"年"MM"月"DD"日'
+		) AS start_date, 
+    CASE 
+        WHEN utility_type_code = 'both' THEN '電気ガス'
+        WHEN utility_type_code = 'gas' THEN 'ガス'
+        WHEN utility_type_code = 'electric' THEN '電気'
+    END AS modified_utility_type_code,
+    CASE 
+        WHEN utility_type_code = 'both' THEN 2500
+        WHEN utility_type_code = 'gas' THEN 1000
+        WHEN utility_type_code = 'electric' THEN 1500
+    END AS comission_fee,
+    SUM(
+			CASE 
+			WHEN utility_type_code = 'both' THEN 2500
+			WHEN utility_type_code = 'gas' THEN 1000
+			WHEN utility_type_code = 'electric' THEN 1500
+			END
+		) OVER (ORDER BY a.id ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS total_comission_fee
+FROM public.applications a
+INNER JOIN utility_applications ua ON a.id = ua.application_id
+INNER JOIN addresses ad ON a.applicant_id = ad.applicant_id
+WHERE a.agency_id = {{appsmith.store.user.agency_id}}
+AND to_char(a.created_at, 'YYYY-MM') = '2024-01'
+ORDER BY a.id ASC;

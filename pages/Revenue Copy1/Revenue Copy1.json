@@ -1,0 +1,104 @@
+{
+  "unpublishedPage": {
+    "name": "Revenue Copy1",
+    "slug": "revenue-copy1",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1160,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 930,
+          "containerStyle": "none",
+          "snapRows": 125,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 1170,
+          "parentColumnSpace": 1,
+          "dynamicTriggerPathList": [],
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "Revenue Copy1_exportPDF.dataOfTreeSelect",
+              "name": "exportPDF.dataOfTreeSelect",
+              "collectionId": "Revenue Copy1_exportPDF",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  let treeData = [];\n  let yearsMap = {};\n  const responseData = await get_months_have_billing.run().catch(e => showAlert(' fail to get months have billing', 'error'));\n  responseData.forEach(record => {\n    if (!yearsMap[record.year]) {\n      yearsMap[record.year] = {\n        label: record.year.toString(),\n        value: record.year.toString(),\n        children: []\n      };\n      treeData.push(yearsMap[record.year]);\n    }\n    yearsMap[record.year].children.push({\n      label: record.month,\n      value: record.month\n    });\n  });\n  return treeData;\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Revenue Copy1_get_table_data",
+              "name": "get_table_data",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue Copy1_get_agency_by_id",
+              "name": "get_agency_by_id",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue Copy1_loop_check_token.loopToCheckTokenExist",
+              "name": "loop_check_token.loopToCheckTokenExist",
+              "collectionId": "Revenue Copy1_loop_check_token",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue Copy1_get_billing_by_month",
+              "name": "get_billing_by_month",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id",
+                "year_month_treeselect.selectedOptionLabel"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "Revenue Copy1",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": true
+  },
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65ae1ebb7083d359c781aadc"
+}

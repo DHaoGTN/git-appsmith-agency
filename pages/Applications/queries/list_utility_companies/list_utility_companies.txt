@@ -1,0 +1,2 @@
+SELECT utility_companies.name
+FROM public."utility_companies";

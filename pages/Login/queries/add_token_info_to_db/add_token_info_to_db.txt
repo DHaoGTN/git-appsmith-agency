@@ -1,0 +1,5 @@
+INSERT INTO public."user_tokens" (email, site_code, token)
+VALUES ( '{{this.params.email}}', '{{this.params.site_code}}','{{this.params.token}}'); 
+
+--INSERT INTO public."user_tokens" (email, site_code, token)
+--VALUES ( 'test@gmail.com', 'gtn_admin','email test token');

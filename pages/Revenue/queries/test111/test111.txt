@@ -1,0 +1,23 @@
+SELECT 
+    building, 
+    room_number,  
+    CASE 
+        WHEN electric_start_date IS NOT NULL THEN electric_start_date
+        ELSE gas_start_date
+    END AS start_date, 
+    CASE 
+        WHEN utility_type_code = 'both' THEN '電気ガス'
+        WHEN utility_type_code = 'gas' THEN 'ガス'
+        WHEN utility_type_code = 'electric' THEN '電気'
+    END AS modified_utility_type_code,
+    CASE 
+        WHEN utility_type_code = 'both' THEN 2500
+        WHEN utility_type_code = 'gas' THEN 1000
+        WHEN utility_type_code = 'electric' THEN 1500
+    END AS comission_fee
+FROM public.applications a
+INNER JOIN utility_applications ua ON a.id = ua.application_id
+INNER JOIN addresses ad ON a.applicant_id = ad.applicant_id
+WHERE a.agency_id = 1
+  AND DATE_TRUNC('month', COALESCE(electric_start_date, gas_start_date)) = DATE_TRUNC('month', TO_DATE('2023-12', 'YYYY-MM'))
+;
