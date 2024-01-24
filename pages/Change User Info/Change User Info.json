@@ -29,23 +29,25 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Change User Info_app_function.setAgencyServicesAllowed",
-              "name": "app_function.setAgencyServicesAllowed",
-              "collectionId": "Change User Info_app_function",
+              "id": "Change User Info_auth.loopToCheckTokenExist",
+              "name": "auth.loopToCheckTokenExist",
+              "collectionId": "Change User Info_auth",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "() => {\n  app_function.isWifiAllowed = app_function.serviceAllowed.includes('wifi');\n  app_function.isCardAllowed = app_function.serviceAllowed.includes('card');\n  app_function.isUtilitiesAllowed = app_function.serviceAllowed.includes('utilities');\n  app_function.isWifiAllowed ? service_wifi_cb.setVisibility(true) : service_wifi_cb.setVisibility(false);\n  app_function.isCardAllowed ? service_card_cb.setVisibility(true) : service_card_cb.setVisibility(false);\n  app_function.isUtilitiesAllowed ? service_utilities_cb.setVisibility(true) : service_utilities_cb.setVisibility(false);\n}"
+                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          auth.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Change User Info_loop_check_token.loopToCheckTokenExist",
-              "name": "loop_check_token.loopToCheckTokenExist",
-              "collectionId": "Change User Info_loop_check_token",
+              "id": "Change User Info_auth.startUp",
+              "name": "auth.startUp",
+              "collectionId": "Change User Info_auth",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
-              "jsonPathKeys": [],
+              "jsonPathKeys": [
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+              ],
               "timeoutInMillisecond": 10000
             }
           ]

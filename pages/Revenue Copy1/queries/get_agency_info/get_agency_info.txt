@@ -1,0 +1,5 @@
+SELECT 
+name, invoice_number, bank_name, branch, account_number, account_name, classification
+FROM public."agencies"
+LEFT JOIN public."bank_accounts" ON agencies.id = bank_accounts.agency_id
+WHERE agencies.id = {{appsmith.store.user.agency_id}} ;

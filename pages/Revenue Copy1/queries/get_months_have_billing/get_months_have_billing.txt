@@ -1,0 +1,5 @@
+SELECT DISTINCT EXTRACT(YEAR FROM TO_DATE(month, 'YYYY-MM')) AS year, month
+FROM public.billings
+WHERE agency_id = {{appsmith.store.user['agency_id']}}
+  AND TO_DATE(month, 'YYYY-MM') < DATE_TRUNC('MONTH', CURRENT_DATE)
+ORDER BY year DESC, month DESC;

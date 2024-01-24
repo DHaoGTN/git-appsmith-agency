@@ -5,12 +5,14 @@ export default {
 			const token = await appsmith.store.token;
 			const tokenInDb = await check_token_exist.run({token});
 			const tokenCountInDb= tokenInDb[0]['count'];
-			if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
+			// if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
+			if (token!== undefined && tokenCountInDb === 1 ){
 				console.log('token count', tokenCountInDb)
-				navigateTo('Agency_Form_All');
+				navigateTo('Affiliate Form');
 			}
 		}catch(error){
-			console.log('do not thing');
+			console.log('do no thing');
+			// showAlert('Something wrong, please login again! \n'+error.message,'error')
 		}
 	},
 

@@ -1,5 +1,4 @@
 export default {
-
 	createHash : ()=>{
 		const password= 'asdasd123';
 		return dcodeIO.bcrypt.hashSync(password,10 );
@@ -12,6 +11,40 @@ export default {
 	createToken : (email ) =>{
 		return jsonwebtoken.sign({email}, 'gtn-id', {expiresIn: 3600});
 	},
+
+	signIn:async () =>{
+		const email = Email_si.text;
+		const password = Password_si.text;
+
+		try{
+			const [user] = await find_user_by_email.run({email});
+			const [user_info] = await find_user_without_hash_info.run({email});
+			if ( user && this.verifyHash(password, user?.hash)){
+				const token = this.createToken(email);
+
+				await this.addTokenToDb(email, token)
+				console.log('successfully added token to db')
+				await storeValue('user', user_info )
+				await storeValue('token', token)
+					.then( () => navigateTo('Affiliate Form'))
+				console.log('added token to local')
+			}  
+			else {
+				showAlert("Invalid email or password. Please try again.", "error")
+			}
+		}catch(error){
+			showAlert('Something wrong, please login again! \n'+error.message,'error')
+		}
+	},
+
+	addTokenToDb: async(email, token)=>{
+		const site_code= 'agency';
+		return await add_token_info_to_db.run({email, site_code, token})
+			.then(() => showAlert("You have been logged in successfully.",'success'))
+			.catch(error=> 			showAlert('Something wrong, please login again! \n'+error.message,'error'));
+	}
+
+	///-------- SIGN UP, save for later --------//
 
 	// signUp: async () =>{
 	// const name = Name_su.text;
@@ -39,35 +72,5 @@ export default {
 	// return showAlert('Your email have been registed, please login or try another email', 'error')
 	// }
 	// },
-
-	signIn:async () =>{
-		const email = Email_si.text;
-		const password = Password_si.text;
-		// const email = 'test@gmail.com';
-		// const password = 'asdasd123';
-		const [user] = await find_user_by_email.run({email});
-		const [user_info] = await find_user_without_hash_info.run({email});
-		if ( user && this.verifyHash(password, user?.hash)){
-			const token = this.createToken(email);
-
-			await this.addTokenToDb(email, token)
-			console.log('successfully added token to db')
-
-			await storeValue('user', user_info )
-			await storeValue('token', token)
-				.then( () => navigateTo('Agency Form'))
-			console.log('added token to local')
-		}  
-		else {
-			showAlert("Invalid email or password. Please try again.", "error")
-		}
-	},
-
-	addTokenToDb: async(email, token)=>{
-		const site_code= 'agency';
-		return await add_token_info_to_db.run({email, site_code, token})
-			.then(() => showAlert("user info has successfully saved to database",'success'))
-			.catch(e => showAlert(e.message, 'error'));
-	}
 
 }

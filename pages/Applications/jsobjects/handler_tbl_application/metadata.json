@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "handler_tbl_application",
+    "pageId": "Applications",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Applications_handler_tbl_application",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65a87f097083d359c7819de7"
+}

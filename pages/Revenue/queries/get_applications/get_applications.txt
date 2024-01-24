@@ -1,1 +1,0 @@
-SELECT * FROM public."applications" LIMIT 10;

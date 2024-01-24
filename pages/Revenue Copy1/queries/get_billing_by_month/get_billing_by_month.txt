@@ -1,0 +1,5 @@
+SELECT *
+FROM public.billings
+WHERE agency_id = {{appsmith.store.user.agency_id}}
+AND month = {{year_month_treeselect.selectedOptionLabel}}
+ORDER BY id ASC;

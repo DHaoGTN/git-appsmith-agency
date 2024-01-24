@@ -1,0 +1,7 @@
+SELECT 
+    credit_card_applications.status,
+		credit_card_applications.application_id
+FROM 
+    public."credit_card_applications"
+WHERE 
+		application_id = {{tbl_application.selectedRow.id}};

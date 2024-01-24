@@ -1,0 +1,8 @@
+SELECT 
+    enums.enumlabel
+FROM 
+    pg_enum AS enums
+JOIN 
+    pg_type AS types ON enums.enumtypid = types.oid
+WHERE 
+    types.typname IN ('language');

@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "INSERT INTO public.\"user_tokens\" (email, site_code, token)\nVALUES ( '{{this.params.email}}', '{{this.params.site_code}}','{{this.params.token}}'); \n\n--INSERT INTO public.\"user_tokens\" (email, site_code, token)\n--VALUES ( 'test@gmail.com', 'gtn_admin','email test token');",
+      "body": "INSERT INTO public.\"user_tokens\" (email, site_code, token)\nVALUES ( '{{this.params.email}}', '{{this.params.site_code}}','{{this.params.token}}'); \n\n--INSERT INTO public.\"user_tokens\" (email, site_code, token)\n--VALUES ( 'test@gmail.com', 'gtn_admin','email test token');\n",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {

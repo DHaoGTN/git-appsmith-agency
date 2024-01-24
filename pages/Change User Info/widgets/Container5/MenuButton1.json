@@ -38,7 +38,7 @@
     "menuVariant": "PRIMARY",
     "widgetId": "hoe88fyti2",
     "menuItems": {"menuItem1": {
-        "onClick": "{{app_function.logout();}}",
+        "onClick": "{{auth.logout();}}",
         "widgetId": "",
         "index": 0,
         "label": "Sign out",

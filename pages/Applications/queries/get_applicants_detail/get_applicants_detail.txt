@@ -1,0 +1,26 @@
+SELECT 
+    applicants.id,
+    applicants.first_name,
+    applicants.last_name,
+    applicants.first_name_kana,
+    applicants.last_name_kana,
+    applicants.birthdate,
+    applicants.nationality,
+    applicants.visa_classification,
+    applicants.desired_language_code,
+    applicants.phone_number,
+    applicants.email,
+		addresses.applicant_id AS address_id,
+		addresses.postal_code,
+		addresses.prefecture,
+		addresses.city,
+		addresses.address_detail,
+		addresses.building,
+		addresses.room_number
+FROM 
+    public."applicants"
+LEFT JOIN 
+    public."addresses" 
+    ON addresses.applicant_id = applicants.id 
+WHERE 
+    id = {{tbl_application.selectedRow.applicant_id}};

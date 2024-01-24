@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 550,
+          "bottomRow": 1460,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -29,22 +29,76 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Revenue_get_applications",
-              "name": "get_applications",
+              "id": "Revenue_auth.startUp",
+              "name": "auth.startUp",
+              "collectionId": "Revenue_auth",
               "confirmBeforeExecute": false,
-              "pluginType": "DB",
-              "jsonPathKeys": [],
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Revenue_exportPDF.dataOfTreeSelect",
+              "name": "exportPDF.dataOfTreeSelect",
+              "collectionId": "Revenue_exportPDF",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  let treeData = [];\n  let yearsMap = {};\n  const responseData = await get_months_have_billing.run().catch(e => showAlert(' fail to get months have billing', 'error'));\n  responseData.forEach(record => {\n    if (!yearsMap[record.year]) {\n      yearsMap[record.year] = {\n        label: record.year.toString(),\n        value: record.year.toString(),\n        children: []\n      };\n      treeData.push(yearsMap[record.year]);\n    }\n    yearsMap[record.year].children.push({\n      label: record.month,\n      value: record.month\n    });\n  });\n  return treeData;\n}"
+              ],
               "timeoutInMillisecond": 10000
             }
           ],
           [
             {
-              "id": "Revenue_loop_check_token.loopToCheckTokenExist",
-              "name": "loop_check_token.loopToCheckTokenExist",
-              "collectionId": "Revenue_loop_check_token",
+              "id": "Revenue_auth.loopToCheckTokenExist",
+              "name": "auth.loopToCheckTokenExist",
+              "collectionId": "Revenue_auth",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
-              "jsonPathKeys": [],
+              "jsonPathKeys": [
+                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          auth.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue_get_agency_by_id",
+              "name": "get_agency_by_id",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue_get_table_data",
+              "name": "get_table_data",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id",
+                "year_month_treeselect.selectedOptionLabel"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Revenue_get_billing_by_month",
+              "name": "get_billing_by_month",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.user.agency_id",
+                "year_month_treeselect.selectedOptionLabel"
+              ],
               "timeoutInMillisecond": 10000
             }
           ]

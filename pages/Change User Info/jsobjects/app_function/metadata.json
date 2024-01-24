@@ -6,24 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "variables": [
-      {
-        "name": "serviceAllowed",
-        "value": "'wifi, utilities'"
-      },
-      {
-        "name": "isWifiAllowed",
-        "value": "null"
-      },
-      {
-        "name": "isCardAllowed",
-        "value": "null"
-      },
-      {
-        "name": "isUtilitiesAllowed",
-        "value": "null"
-      }
-    ],
+    "variables": [],
     "userPermissions": []
   },
   "id": "Change User Info_app_function",
