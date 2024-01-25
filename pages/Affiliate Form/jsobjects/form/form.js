@@ -58,7 +58,7 @@ export default {
 				.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
 			// 1. Send to Agency
-			await this.sendEmail(currentEmail+', '+agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
+			// await this.sendEmail(currentEmail+', '+agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 			// 2. Send to GTN
 			await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
 		}
