@@ -74,15 +74,15 @@
         }
     },
     "borderRadius": "0.375rem",
-    "columnUpdatedAt": 1706145938330,
+    "columnUpdatedAt": 1706148206597,
     "originalBottomRow": 89,
     "primaryColumnId": "id",
     "defaultSelectedRowIndices": [0],
     "widgetName": "tbl_application",
     "defaultPageSize": 0,
     "columnOrder": [
-        "created_at",
         "service",
+        "created_at",
         "wifi_status",
         "credit_card_status",
         "utility_status",
