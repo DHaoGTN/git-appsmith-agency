@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "isTokenValid",
-    "fullyQualifiedName": "loop_check_token.isTokenValid",
+    "name": "getParameterByName",
+    "fullyQualifiedName": "form.getParameterByName",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,13 +14,20 @@
       "userPermissions": []
     },
     "pageId": "Affiliate Form Copy",
-    "collectionId": "Affiliate Form Copy_loop_check_token",
+    "collectionId": "Affiliate Form Copy_form",
     "actionConfiguration": {
-      "timeoutInMillisecond": 0,
+      "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
-      "jsArguments": []
+      "jsArguments": [
+        {
+          "name": "name"
+        },
+        {
+          "name": "url"
+        }
+      ]
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -36,7 +43,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Affiliate Form Copy_loop_check_token.isTokenValid",
+  "id": "Affiliate Form Copy_form.getParameterByName",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b064457083d359c781b2d4"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b222bd7083d359c781d028"
 }

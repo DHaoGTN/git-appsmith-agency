@@ -35,9 +35,10 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2024-01-24T02:01:42Z"
   },
   "id": "Affiliate Form Copy_auth.isTokenValid",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b063f87083d359c781b20a"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217297083d359c781cf83"
 }

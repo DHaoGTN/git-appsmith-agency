@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 3850,
+          "bottomRow": 3950,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -29,13 +29,13 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Affiliate Form Copy_auth.loopToCheckTokenExist",
-              "name": "auth.loopToCheckTokenExist",
-              "collectionId": "Affiliate Form Copy_auth",
+              "id": "Affiliate Form Copy_form.setInitAccessMode",
+              "name": "form.setInitAccessMode",
+              "collectionId": "Affiliate Form Copy_form",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          auth.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  let userInfo = await appsmith.store.user;\n  if (userInfo) {\n    const agencyId = JSON.stringify(userInfo.agency_id);\n    customer_link_lbl.setText(form.baseLink + '?agency_id=' + agencyId);\n    container_customer.setVisibility(true);\n    return;\n  }\n  let agencyIdParam = form.getParameterByName('agency_id');\n  showAlert(agencyIdParam);\n}"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -51,8 +51,8 @@
     ],
     "userPermissions": [],
     "policies": [],
-    "isHidden": true
+    "isHidden": false
   },
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b063f67083d359c781b1a6"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217287083d359c781cf38"
 }

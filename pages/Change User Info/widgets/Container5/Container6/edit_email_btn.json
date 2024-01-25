@@ -31,7 +31,7 @@
     "iconName": "annotation",
     "widgetId": "pcaa4ea2pn",
     "minWidth": 120,
-    "isVisible": true,
+    "isVisible": false,
     "recaptchaType": "V3",
     "version": 1,
     "parentId": "z5cdpmtwml",

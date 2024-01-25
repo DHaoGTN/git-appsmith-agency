@@ -7,7 +7,7 @@
     "displayName": "Tabs",
     "iconSVG": "https://appcdn.appsmith.com/static/media/icon.9e3d67c0af9c0bd092dc56240314e18a.svg",
     "topRow": 5,
-    "bottomRow": 58,
+    "bottomRow": 59,
     "parentRowSpace": 10,
     "type": "TABS_WIDGET",
     "hideCard": false,
@@ -29,7 +29,7 @@
             "mobileBottomRow": 150,
             "widgetName": "Canvas2Copy",
             "displayName": "Canvas",
-            "bottomRow": 530,
+            "bottomRow": 540,
             "topRow": 0,
             "parentRowSpace": 1,
             "type": "CANVAS_WIDGET",
@@ -154,6 +154,6 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 37,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 58,
+    "originalBottomRow": 59,
     "minDynamicHeight": 15
 }

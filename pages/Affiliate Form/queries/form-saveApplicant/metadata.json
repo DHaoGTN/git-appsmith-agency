@@ -16,7 +16,7 @@
     "pageId": "Affiliate Form",
     "collectionId": "Affiliate Form_form",
     "actionConfiguration": {
-      "timeoutInMillisecond": 10000,
+      "timeoutInMillisecond": 0,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
@@ -38,5 +38,5 @@
   },
   "id": "Affiliate Form_form.saveApplicant",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b0730c7083d359c781b5b6"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b221737083d359c781d00b"
 }

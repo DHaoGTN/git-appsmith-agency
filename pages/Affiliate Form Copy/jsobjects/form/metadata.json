@@ -42,11 +42,27 @@
       {
         "name": "VALIDATE_DATA_INCORRECT",
         "value": "3"
+      },
+      {
+        "name": "baseLink",
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb'"
+      },
+      {
+        "name": "MODE_AGENCY",
+        "value": "1"
+      },
+      {
+        "name": "MODE_CUSTOMER",
+        "value": "2"
+      },
+      {
+        "name": "accessMode",
+        "value": "form.MODE_AGENCY"
       }
     ],
     "userPermissions": []
   },
   "id": "Affiliate Form Copy_form",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b063f97083d359c781b2be"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217297083d359c781cfe4"
 }

@@ -98,5 +98,9 @@ export default {
 		"english": "English",
 		"korean": "한국어",
 		"taiwan": "繁体字"
+	},
+
+	tried: ()=>{
+		return appsmith.URL.queryParams.age;
 	}
 }

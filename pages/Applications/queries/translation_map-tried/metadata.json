@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "createToken",
-    "fullyQualifiedName": "auth.createToken",
+    "name": "tried",
+    "fullyQualifiedName": "translation_map.tried",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,8 +13,8 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Affiliate Form",
-    "collectionId": "Affiliate Form_auth",
+    "pageId": "Applications",
+    "collectionId": "Applications_translation_map",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -34,10 +34,9 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": [],
-    "createdAt": "2024-01-24T02:01:42Z"
+    "userPermissions": []
   },
-  "id": "Affiliate Form_auth.createToken",
+  "id": "Applications_translation_map.tried",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b06f867083d359c781b49d"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b218757083d359c781cfef"
 }

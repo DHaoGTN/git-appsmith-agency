@@ -14,7 +14,7 @@
       "userPermissions": []
     },
     "pageId": "Affiliate Form",
-    "collectionId": "Affiliate Form_auth",
+    "collectionId": "65893f6a3010c95d5f5a8f3d",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -22,7 +22,7 @@
       "selfReferencingDataPaths": [],
       "jsArguments": []
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -31,13 +31,13 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
-    "createdAt": "2024-01-24T02:01:42Z"
+    "createdAt": "2024-01-23T03:58:46Z"
   },
   "id": "Affiliate Form_auth.loopToCheckTokenExist",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_65b06f867083d359c781b4a0"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65af39767083d359c781b0e9"
 }

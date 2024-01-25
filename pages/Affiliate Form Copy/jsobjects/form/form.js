@@ -8,7 +8,32 @@ export default {
 	VALIDATE_CHOICE_ENOUGH: 1,
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
+	MODE_AGENCY: 1,
+	MODE_CUSTOMER: 2,
+	accessMode: this.MODE_AGENCY,
 
+	async setInitAccessMode() {
+		let userInfo = await appsmith.store.user;
+		if (userInfo) { // MODE_AGENCY
+			const agencyId = JSON.stringify(userInfo.agency_id);
+			customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
+			container_customer.setVisibility(true);
+			return;
+		}
+		// Try to get agency_id on URL
+		let agencyIdParam = this.getParameterByName('agency_id');
+		showAlert(agencyIdParam);
+	},
+	getParameterByName:(name, url = window.location.href) =>{
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	},
+	
 	async setAgencyServicesAllowed() {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) {
@@ -33,7 +58,7 @@ export default {
 			if (await this.saveApplicationAll()) {
 				await this.sendToAutoFill();
 				await this.sendEmailToPoC();	
-				// resetWidget('container_form');
+				resetWidget('container_form');
 			}
 		}
 	},
@@ -58,13 +83,13 @@ export default {
 				.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
 			// 1. Send to Agency
-			await this.sendEmail(currentEmail+', '+agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
+			// await this.sendEmail(currentEmail+', '+agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 			// 2. Send to GTN
 			await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
 		}
-		let customerEmail = email_input.text;
+		// let customerEmail = email_input.text;
 		// 3. Send to Customer
-		await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
+		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
 
 		if (this.resultCode == 0) {
 			showAlert('Email was sent successfully.', 'success');
@@ -347,13 +372,11 @@ export default {
 		let visaExpDate = resident_exp_dpk.selectedDate;
 		let isUploadFrontSuccess = false;
 		let frontName = await this.genRandomFileName(urlFront);
-		showAlert(frontName);
 		await upload_resident_front_image.run({frontName})
 			.then(res => isUploadFrontSuccess = true)
 			.catch();
 		let isUploadBackSuccess = false;
 		let backName = await this.genRandomFileName(urlBack);
-		showAlert(backName);
 		await upload_resident_back_image.run({backName})
 			.then(res => isUploadBackSuccess = true)
 			.catch();
