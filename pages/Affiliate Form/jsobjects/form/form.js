@@ -33,7 +33,7 @@ export default {
 			if (await this.saveApplicationAll()) {
 				await this.sendToAutoFill();
 				await this.sendEmailToPoC();	
-				// resetWidget('container_form');
+				resetWidget('container_form');
 			}
 		}
 	},
@@ -62,9 +62,9 @@ export default {
 			// 2. Send to GTN
 			await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
 		}
-		let customerEmail = email_input.text;
+		// let customerEmail = email_input.text;
 		// 3. Send to Customer
-		await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
+		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
 
 		if (this.resultCode == 0) {
 			showAlert('Email was sent successfully.', 'success');
