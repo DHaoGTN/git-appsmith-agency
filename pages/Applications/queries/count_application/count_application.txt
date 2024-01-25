@@ -1,11 +1,8 @@
 SELECT COUNT(*)
 FROM 
     public."applications"
-INNER JOIN 
-    public."agencies" 
-    ON applications.agency_id = agencies.id 
 LEFT JOIN 
-    public."wifi_applications" 
+    public."wifi_applications"
     ON applications.id = wifi_applications.application_id
 LEFT JOIN 
     public."utility_applications" 
@@ -13,10 +10,7 @@ LEFT JOIN
 LEFT JOIN 
     public."credit_card_applications" 
     ON applications.id = credit_card_applications.application_id
-WHERE CASE 
-       WHEN '{{this.params.agencyId}}' = 'null' THEN TRUE
-       ELSE  agencies.id = {{this.params.agencyId}}
-    END
+WHERE applications.agency_id = {{this.params.agencyId}}
 AND CASE 
        WHEN '{{this.params.service}}' = '{}' THEN TRUE
        ELSE applications.service_type_codes && '{{this.params.service}}'
