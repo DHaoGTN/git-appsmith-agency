@@ -6,8 +6,8 @@
     "isCanvas": true,
     "displayName": "Tabs",
     "iconSVG": "https://appcdn.appsmith.com/static/media/icon.9e3d67c0af9c0bd092dc56240314e18a.svg",
-    "topRow": 5,
-    "bottomRow": 59,
+    "topRow": 8,
+    "bottomRow": 58,
     "parentRowSpace": 10,
     "type": "TABS_WIDGET",
     "hideCard": false,
@@ -19,8 +19,7 @@
     "leftColumn": 37,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
-        {"key": "borderRadius"},
-        {"key": "defaultTab"}
+        {"key": "borderRadius"}
     ],
     "children": [
         {
@@ -29,7 +28,7 @@
             "mobileBottomRow": 150,
             "widgetName": "Canvas2Copy",
             "displayName": "Canvas",
-            "bottomRow": 540,
+            "bottomRow": 500,
             "topRow": 0,
             "parentRowSpace": 1,
             "type": "CANVAS_WIDGET",
@@ -121,7 +120,7 @@
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "tf231uivy6",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-    "defaultTab": "{{functions.defaultTab}}",
+    "defaultTab": "",
     "shouldShowTabs": false,
     "minWidth": 450,
     "tabsObj": {
@@ -150,10 +149,10 @@
     "isLoading": false,
     "mobileTopRow": 92,
     "responsiveBehavior": "fill",
-    "originalTopRow": 5,
+    "originalTopRow": 8,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 37,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 59,
+    "originalBottomRow": 58,
     "minDynamicHeight": 15
 }

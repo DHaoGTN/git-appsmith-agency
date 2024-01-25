@@ -8,56 +8,54 @@ export default {
 	VALIDATE_CHOICE_ENOUGH: 1,
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
-	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
+	// baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
 	accessMode: this.MODE_AGENCY,
+	agencyId: 0,
 
 	async setInitAccessMode() {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) { // MODE_AGENCY
 			const agencyId = JSON.stringify(userInfo.agency_id);
-			customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
+			// customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
+			customer_link_lbl.setText(this.baseLink+'&agency_id='+agencyId); // dev
 			container_customer.setVisibility(true);
+			this.agencyId = agencyId;
+			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
 		}
 		// Try to get agency_id on URL
-		let agencyIdParam = this.getParameterByName('agency_id');
-		showAlert(agencyIdParam);
-	},
-	getParameterByName:(name, url = window.location.href) =>{
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		let agencyIdParam = appsmith.URL.queryParams.agency_id;
+		if (agencyIdParam) { // MODE_CUSTOMER
+			this.accessMode = this.MODE_CUSTOMER;
+			container_customer.setVisibility(false);
+			this.agencyId = agencyIdParam;
+			await this.setAgencyServicesAllowed(this.agencyId);
+			return;
+		}
+		showAlert('Please login or provide agency id on URL...', 'warn');
 	},
 	
-	async setAgencyServicesAllowed() {
-		let userInfo = await appsmith.store.user;
-		if (userInfo) {
-			const agencyId = JSON.stringify(userInfo.agency_id);
-			await find_service_allowed.run({agencyId})
-				.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
-				.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
-			// showAlert(this.serviceAllowed);
-			this.isWifiAllowed = this.serviceAllowed.includes('wifi');
-			this.isCardAllowed = this.serviceAllowed.includes('credit_card');
-			this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
-			service_wifi_cb.setVisibility(this.isWifiAllowed);
-			service_card_cb.setVisibility(this.isCardAllowed);
-			service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
-		} else {
-			showAlert("Can not retrieve user info. ", 'error');
-		}
+	async setAgencyServicesAllowed(agencyId) {
+		await find_service_allowed.run({agencyId})
+			.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
+			.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
+		// showAlert(this.serviceAllowed);
+		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
+		this.isCardAllowed = this.serviceAllowed.includes('credit_card');
+		this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
+		service_wifi_cb.setVisibility(this.isWifiAllowed);
+		service_card_cb.setVisibility(this.isCardAllowed);
+		service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
 	},
 
 	async submitForm() {
 		if (this.validateFormAll()) {
-			if (await this.saveApplicationAll()) {
+			if (await this.saveApplicationAll(this.agencyId)) {
 				await this.sendToAutoFill();
-				await this.sendEmailToPoC();	
+				await this.sendEmailToPoC(this.agencyId);	
 				resetWidget('container_form');
 			}
 		}
@@ -65,7 +63,7 @@ export default {
 	async sendToAutoFill() {
 		// TODO: Later, call RPA api
 	},
-	async sendEmailToPoC() {
+	async sendEmailToPoC(agencyId) {
 		let titleEmailGTN = 'Affiliate test title GTN';
 		let titleEmailAgency = 'Affiliate test title Agency';
 		let titleEmailCustomer = 'Affiliate test title Customer';
@@ -75,18 +73,20 @@ export default {
 
 		let userInfo = await appsmith.store.user;
 		if (userInfo) {
-			const agencyId = JSON.stringify(userInfo.agency_id);
 			const currentEmail = JSON.stringify(userInfo.email); // current agency account
-			let agencyEmail = '';
-			await find_agency_email.run({agencyId})
-				.then(res => agencyEmail = JSON.stringify(res[0].email))
-				.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
-
-			// 1. Send to Agency
-			// await this.sendEmail(currentEmail+', '+agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
-			// 2. Send to GTN
-			await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
+			// 1a. Send to Agency
+			await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
 		}
+		let agencyEmail = '';
+		await find_agency_email.run({agencyId})
+			.then(res => agencyEmail = JSON.stringify(res[0].email))
+			.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
+
+		// 1b. Send to Agency
+		await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// 2. Send to GTN
+		await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
+		
 		// let customerEmail = email_input.text;
 		// 3. Send to Customer
 		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
@@ -344,22 +344,18 @@ export default {
 	},
 
 	async saveApplications(applicantId) {
+		let agencyId = this.agencyId;
 		let applicationId = 0;
-		let userInfo = await appsmith.store.user;
-		if (userInfo) {
-			const agencyId = JSON.stringify(userInfo.agency_id);
-			let serviceTypeCodes = [];
-			service_wifi_cb.isChecked ? serviceTypeCodes.push('wifi') : '';
-			service_card_cb.isChecked ? serviceTypeCodes.push('credit_card') : '';
-			service_utilities_cb.isChecked ? serviceTypeCodes.push('utility') : '';
-			serviceTypeCodes = this.convertArrayToPostgresArray(serviceTypeCodes);
+		let serviceTypeCodes = [];
+		service_wifi_cb.isChecked ? serviceTypeCodes.push('wifi') : '';
+		service_card_cb.isChecked ? serviceTypeCodes.push('credit_card') : '';
+		service_utilities_cb.isChecked ? serviceTypeCodes.push('utility') : '';
+		serviceTypeCodes = this.convertArrayToPostgresArray(serviceTypeCodes);
 
-			await insert_application.run({agencyId, applicantId, serviceTypeCodes})
-				.then(res => applicationId = JSON.stringify(res[0].id))
-				.catch(e => {this.resultCode = 3; showAlert(e.message, 'error');});
-		} else {
-			this.resultCode = 31; // Can not get userInfo in storage
-		}
+		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
+			.then(res => applicationId = JSON.stringify(res[0].id))
+			.catch(e => {this.resultCode = 3; showAlert(e.message, 'error');});
+		
 		return applicationId;
 	},
 

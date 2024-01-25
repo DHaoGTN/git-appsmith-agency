@@ -16,7 +16,7 @@
     "pageId": "Affiliate Form",
     "collectionId": "65893f6a3010c95d5f5a8f3d",
     "actionConfiguration": {
-      "timeoutInMillisecond": 0,
+      "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
@@ -34,7 +34,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2024-01-23T03:58:46Z"
   },
   "id": "Affiliate Form_auth.stopCountingAndLogging",
   "deleted": false,

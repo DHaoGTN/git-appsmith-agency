@@ -35,7 +35,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  let userInfo = await appsmith.store.user;\n  if (userInfo) {\n    const agencyId = JSON.stringify(userInfo.agency_id);\n    customer_link_lbl.setText(form.baseLink + '?agency_id=' + agencyId);\n    container_customer.setVisibility(true);\n    return;\n  }\n  let agencyIdParam = form.getParameterByName('agency_id');\n  showAlert(agencyIdParam);\n}"
+                "async function () {\n  let userInfo = await appsmith.store.user;\n  if (userInfo) {\n    const agencyId = JSON.stringify(userInfo.agency_id);\n    customer_link_lbl.setText(form.baseLink + '&agency_id=' + agencyId);\n    container_customer.setVisibility(true);\n    form.agencyId = agencyId;\n    await form.setAgencyServicesAllowed(form.agencyId);\n    return;\n  }\n  let agencyIdParam = appsmith.URL.queryParams.agency_id;\n  if (agencyIdParam) {\n    form.accessMode = form.MODE_CUSTOMER;\n    container_customer.setVisibility(false);\n    form.agencyId = agencyIdParam;\n    await form.setAgencyServicesAllowed(form.agencyId);\n    return;\n  }\n  showAlert('Please login or provide agency id on URL...', 'warn');\n}"
               ],
               "timeoutInMillisecond": 10000
             }

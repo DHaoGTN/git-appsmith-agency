@@ -14,7 +14,7 @@
     "type": "TEXT_WIDGET",
     "hideCard": false,
     "mobileRightColumn": 23,
-    "animateLoading": true,
+    "animateLoading": false,
     "overflow": "NONE",
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 6.633596420288086,

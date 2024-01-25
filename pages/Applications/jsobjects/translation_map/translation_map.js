@@ -100,7 +100,4 @@ export default {
 		"taiwan": "繁体字"
 	},
 
-	tried: ()=>{
-		return appsmith.URL.queryParams.age;
-	}
 }

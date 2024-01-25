@@ -1,6 +1,6 @@
 {
   "unpublishedCollection": {
-    "name": "auth",
+    "name": "authentication",
     "pageId": "Affiliate Form",
     "pluginId": "js-plugin",
     "pluginType": "JS",
@@ -14,7 +14,7 @@
     ],
     "userPermissions": []
   },
-  "id": "Affiliate Form_auth",
+  "id": "Affiliate Form_authentication",
   "deleted": false,
   "gitSyncId": "65792b023010c95d5f5a84a2_65b06f867083d359c781b4a8"
 }

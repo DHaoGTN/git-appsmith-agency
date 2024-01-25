@@ -45,7 +45,7 @@
       },
       {
         "name": "baseLink",
-        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb'"
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev'"
       },
       {
         "name": "MODE_AGENCY",
@@ -58,6 +58,10 @@
       {
         "name": "accessMode",
         "value": "form.MODE_AGENCY"
+      },
+      {
+        "name": "agencyId",
+        "value": "0"
       }
     ],
     "userPermissions": []
