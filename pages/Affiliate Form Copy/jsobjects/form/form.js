@@ -22,6 +22,7 @@ export default {
 			// customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
 			customer_link_lbl.setText(this.baseLink+'&agency_id='+agencyId); // dev
 			container_customer.setVisibility(true);
+			user_info_btn.setVisibility(true);
 			this.agencyId = agencyId;
 			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
@@ -31,10 +32,13 @@ export default {
 		if (agencyIdParam) { // MODE_CUSTOMER
 			this.accessMode = this.MODE_CUSTOMER;
 			container_customer.setVisibility(false);
+			user_info_btn.setVisibility(false);
 			this.agencyId = agencyIdParam;
 			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
 		}
+		container_customer.setVisibility(false);
+		user_info_btn.setVisibility(false);
 		showAlert('Please login or provide agency id on URL...', 'warn');
 	},
 	
@@ -65,25 +69,25 @@ export default {
 	},
 	async sendEmailToPoC(agencyId) {
 		let titleEmailGTN = 'Affiliate test title GTN';
-		let titleEmailAgency = 'Affiliate test title Agency';
-		let titleEmailCustomer = 'Affiliate test title Customer';
+		// let titleEmailAgency = 'Affiliate test title Agency';
+		// let titleEmailCustomer = 'Affiliate test title Customer';
 		let bodyEmailGTN = 'Affiliate test body GTN';
-		let bodyEmailAgency = 'Affiliate test body Agency';
-		let bodyEmailCustomer = 'Affiliate test body Customer';
+		// let bodyEmailAgency = 'Affiliate test body Agency';
+		// let bodyEmailCustomer = 'Affiliate test body Customer';
 
-		let userInfo = await appsmith.store.user;
-		if (userInfo) {
-			const currentEmail = JSON.stringify(userInfo.email); // current agency account
-			// 1a. Send to Agency
-			await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
-		}
-		let agencyEmail = '';
-		await find_agency_email.run({agencyId})
-			.then(res => agencyEmail = JSON.stringify(res[0].email))
-			.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
+		// let userInfo = await appsmith.store.user;
+		// if (userInfo) {
+			// const currentEmail = JSON.stringify(userInfo.email); // current agency account
+			// // 1a. Send to Agency
+			// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// }
+		// let agencyEmail = '';
+		// await find_agency_email.run({agencyId})
+			// .then(res => agencyEmail = JSON.stringify(res[0].email))
+			// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
-		// 1b. Send to Agency
-		await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// // 1b. Send to Agency
+		// await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// 2. Send to GTN
 		await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
 		
@@ -350,7 +354,7 @@ export default {
 		service_wifi_cb.isChecked ? serviceTypeCodes.push('wifi') : '';
 		service_card_cb.isChecked ? serviceTypeCodes.push('credit_card') : '';
 		service_utilities_cb.isChecked ? serviceTypeCodes.push('utility') : '';
-		serviceTypeCodes = this.convertArrayToPostgresArray(serviceTypeCodes);
+		serviceTypeCodes = helpers.convertArrayToPostgresArray(serviceTypeCodes);
 
 		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
 			.then(res => applicationId = JSON.stringify(res[0].id))
@@ -367,12 +371,12 @@ export default {
 		let visaName = resident_name_input.text;
 		let visaExpDate = resident_exp_dpk.selectedDate;
 		let isUploadFrontSuccess = false;
-		let frontName = await this.genRandomFileName(urlFront);
+		let frontName = await helpers.genRandomFileName(urlFront);
 		await upload_resident_front_image.run({frontName})
 			.then(res => isUploadFrontSuccess = true)
 			.catch();
 		let isUploadBackSuccess = false;
-		let backName = await this.genRandomFileName(urlBack);
+		let backName = await helpers.genRandomFileName(urlBack);
 		await upload_resident_back_image.run({backName})
 			.then(res => isUploadBackSuccess = true)
 			.catch();
@@ -399,7 +403,7 @@ export default {
 	async saveUtilityApplications(applicationId) {
 		let isSuccess = false;
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
-		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
+		let contractTypeCodes = helpers.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
 		let electricStartDate = utilityTypeCode == 'gas' ? null : (electric_start_date_dpk.formattedDate == '' ? null : electric_start_date_dpk.formattedDate);
 		let gasStartDate = utilityTypeCode == 'electric' ? null : (gas_start_date_dpk.formattedDate == '' ? null : gas_start_date_dpk.formattedDate);
 		let gasStartTimeCode = utilityTypeCode == 'electric' ? null : (gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue);
@@ -411,35 +415,8 @@ export default {
 		return isSuccess;
 	},
 
-	async genRandomStr(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-	},
-
-	async genRandomFileName(orgFileName) {
-		let random = await this.genRandomStr(5);
-		return random+'-'+orgFileName;
-	},
-	/**
-	* For convert array like ["a", "b"] to {"a", "b"} (insert postgres enum array)
-	*/
-	convertArrayToPostgresArray: (array) =>{
-		const formattedString = `{${array.join(", ")}}`;
-		return formattedString;
-	},
-	validateEmail: (email) => {
-		return String(email)
-			.toLowerCase()
-			.match(
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
+	copyCustomerLink:() =>{
+		helpers.copyToClipboard(customer_link_lbl.text, 'Link was copied to clipboard!');
 	},
 
 }

@@ -3,6 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 7,
     "widgetName": "Button15",
+    "onClick": "{{form.copyCustomerLink();}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
@@ -18,8 +19,8 @@
     "mobileRightColumn": 64,
     "animateLoading": true,
     "parentColumnSpace": 15.42266845703125,
-    "dynamicTriggerPathList": [],
-    "leftColumn": 54,
+    "dynamicTriggerPathList": [{"key": "onClick"}],
+    "leftColumn": 52,
     "dynamicBindingPathList": [
         {"key": "buttonColor"},
         {"key": "borderRadius"}
@@ -28,7 +29,7 @@
     "isDisabled": false,
     "key": "mk5stsst45",
     "isDeprecated": false,
-    "rightColumn": 60,
+    "rightColumn": 58,
     "isDefaultClickDisabled": true,
     "iconName": "applications",
     "widgetId": "3ejpk6kdph",

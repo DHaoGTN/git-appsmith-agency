@@ -8,7 +8,8 @@ export default {
 	VALIDATE_CHOICE_ENOUGH: 1,
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
-	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
+	// baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
 	accessMode: this.MODE_AGENCY,
@@ -18,8 +19,10 @@ export default {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) { // MODE_AGENCY
 			const agencyId = JSON.stringify(userInfo.agency_id);
-			customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
+			// customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
+			customer_link_lbl.setText(this.baseLink+'&agency_id='+agencyId); // dev
 			container_customer.setVisibility(true);
+			user_info_btn.setVisibility(true);
 			this.agencyId = agencyId;
 			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
@@ -29,10 +32,13 @@ export default {
 		if (agencyIdParam) { // MODE_CUSTOMER
 			this.accessMode = this.MODE_CUSTOMER;
 			container_customer.setVisibility(false);
+			user_info_btn.setVisibility(false);
 			this.agencyId = agencyIdParam;
 			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
 		}
+		container_customer.setVisibility(false);
+		user_info_btn.setVisibility(false);
 		showAlert('Please login or provide agency id on URL...', 'warn');
 	},
 	
@@ -63,25 +69,25 @@ export default {
 	},
 	async sendEmailToPoC(agencyId) {
 		let titleEmailGTN = 'Affiliate test title GTN';
-		let titleEmailAgency = 'Affiliate test title Agency';
-		let titleEmailCustomer = 'Affiliate test title Customer';
+		// let titleEmailAgency = 'Affiliate test title Agency';
+		// let titleEmailCustomer = 'Affiliate test title Customer';
 		let bodyEmailGTN = 'Affiliate test body GTN';
-		let bodyEmailAgency = 'Affiliate test body Agency';
-		let bodyEmailCustomer = 'Affiliate test body Customer';
+		// let bodyEmailAgency = 'Affiliate test body Agency';
+		// let bodyEmailCustomer = 'Affiliate test body Customer';
 
-		let userInfo = await appsmith.store.user;
-		if (userInfo) {
-			const currentEmail = JSON.stringify(userInfo.email); // current agency account
-			// 1a. Send to Agency
-			await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
-		}
-		let agencyEmail = '';
-		await find_agency_email.run({agencyId})
-			.then(res => agencyEmail = JSON.stringify(res[0].email))
-			.catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
+		// let userInfo = await appsmith.store.user;
+		// if (userInfo) {
+			// const currentEmail = JSON.stringify(userInfo.email); // current agency account
+			// // 1a. Send to Agency
+			// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// }
+		// let agencyEmail = '';
+		// await find_agency_email.run({agencyId})
+			// .then(res => agencyEmail = JSON.stringify(res[0].email))
+			// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
-		// 1b. Send to Agency
-		await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// // 1b. Send to Agency
+		// await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// 2. Send to GTN
 		await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
 		

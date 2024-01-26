@@ -49,10 +49,10 @@ export default {
 			//----------------- Static Text ----------------//
 			const pdfTittle = '契約報告書'
 			const customerCompany= agencyInfo[0].name
-			const customerNumber =agencyInfo[0].invoice_number
+			const customerNumber =agencyInfo[0].invoice_number ? `登録番号：${agencyInfo[0].invoice_number}` : ""
 			const customerDepartment= userInfo.department ? userInfo.department +"　部" : ""
-			const customerName= userInfo.last_name ? userInfo.last_name + userInfo.first_name :""
-			const customerInfo= `${customerCompany} \n登録番号：${customerNumber} \n${customerDepartment} \n${customerName}　様 `
+			const customerName= userInfo.first_name ? userInfo.last_name + userInfo.first_name :""
+			const customerInfo= `${customerCompany} \n${customerNumber} \n${customerDepartment} \n${customerName}　様 `
 			const customerPayDate = invoiceDate.paymenDate 
 
 			const bankTypeMap = {
@@ -66,7 +66,6 @@ export default {
 			const customerBankType = agencyInfo[0].classification ? bankTypeMap[agencyInfo[0].classification] : "";
 			const customerBankNumber = agencyInfo[0].account_number || "";
 			const customerBankAccountName = agencyInfo[0].account_name || "";
-
 
 			const gtnInvoiceDate= invoiceDate.invoiceDate 
 			const gtnNumber = 'T412312312321'
