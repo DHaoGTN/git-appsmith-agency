@@ -61,7 +61,7 @@
       },
       {
         "name": "accessMode",
-        "value": "form.MODE_AGENCY"
+        "value": "0"
       },
       {
         "name": "agencyId",

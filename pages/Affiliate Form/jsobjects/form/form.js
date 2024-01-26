@@ -13,12 +13,13 @@ export default {
 	loginLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
-	accessMode: this.MODE_AGENCY,
+	accessMode: 0,
 	agencyId: 0,
 
 	async setInitAccessMode() {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) { // MODE_AGENCY
+			this.accessMode = this.MODE_AGENCY;
 			const agencyId = JSON.stringify(userInfo.agency_id);
 			// customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
 			customer_link_lbl.setText(this.baseLink+'&agency_id='+agencyId); // dev
@@ -26,6 +27,7 @@ export default {
 			user_info_btn.setVisibility(true);
 			this.agencyId = agencyId;
 			await this.setAgencyServicesAllowed(this.agencyId);
+			auth.loopToCheckTokenExist();
 			return;
 		}
 		// Try to get agency_id on URL
@@ -43,7 +45,7 @@ export default {
 		// showAlert('Please login or provide agency id on URL...', 'warn');
 		showModal('alert_modal');
 	},
-	
+
 	async setAgencyServicesAllowed(agencyId) {
 		await find_service_allowed.run({agencyId})
 			.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
@@ -79,20 +81,20 @@ export default {
 
 		// let userInfo = await appsmith.store.user;
 		// if (userInfo) {
-			// const currentEmail = JSON.stringify(userInfo.email); // current agency account
-			// // 1a. Send to Agency
-			// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// const currentEmail = JSON.stringify(userInfo.email); // current agency account
+		// // 1a. Send to Agency
+		// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// }
 		// let agencyEmail = '';
 		// await find_agency_email.run({agencyId})
-			// .then(res => agencyEmail = JSON.stringify(res[0].email))
-			// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
+		// .then(res => agencyEmail = JSON.stringify(res[0].email))
+		// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
 		// // 1b. Send to Agency
 		// await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// 2. Send to GTN
 		await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
-		
+
 		// let customerEmail = email_input.text;
 		// 3. Send to Customer
 		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
@@ -361,7 +363,7 @@ export default {
 		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
 			.then(res => applicationId = JSON.stringify(res[0].id))
 			.catch(e => {this.resultCode = 3; showAlert(e.message, 'error');});
-		
+
 		return applicationId;
 	},
 
