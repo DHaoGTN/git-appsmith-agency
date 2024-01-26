@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 5230,
+          "bottomRow": 820,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -29,20 +29,20 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Change User Info_auth.loopToCheckTokenExist",
-              "name": "auth.loopToCheckTokenExist",
-              "collectionId": "Change User Info_auth",
+              "id": "Change User Info_authentication.loopToCheckTokenExist",
+              "name": "authentication.loopToCheckTokenExist",
+              "collectionId": "Change User Info_authentication",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          auth.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          authentication.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
             {
-              "id": "Change User Info_auth.startUp",
-              "name": "auth.startUp",
-              "collectionId": "Change User Info_auth",
+              "id": "Change User Info_authentication.startUp",
+              "name": "authentication.startUp",
+              "collectionId": "Change User Info_authentication",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [

@@ -19,7 +19,7 @@ export default {
 			}
 
 			await change_email.run({new_email, current_email})
-			await auth.logout()
+			await authentication.logout()
 			return showAlert('Changed email successfully, please login again', 'success')
 		}catch(error){
 			showAlert('Something wrong, please login again! \n'+error.message,'error')
@@ -55,7 +55,7 @@ export default {
 			const new_password = this.createHash(new_password_typing)
 			return await change_password.run({new_password,current_password, email })
 				.then(()=>{ showAlert('password changed', 'success')})
-				.then( await auth.logout())
+				.then( await authentication.logout())
 				.catch((error)=>{ 	showAlert('Something wrong, please login again! \n'+error.message,'error')})
 		}  else {
 			console.log('password not same')

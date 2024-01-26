@@ -9,8 +9,8 @@
     ],
     "displayName": "Container",
     "iconSVG": "/static/media/icon.1977dca3.svg",
-    "topRow": 29,
-    "bottomRow": 383,
+    "topRow": 39,
+    "bottomRow": 393,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -59,9 +59,9 @@
     "parentId": "i0qokivosc",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "originalTopRow": 29,
+    "originalTopRow": 39,
     "borderRadius": "15px",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 383,
+    "originalBottomRow": 393,
     "minDynamicHeight": 10
 }

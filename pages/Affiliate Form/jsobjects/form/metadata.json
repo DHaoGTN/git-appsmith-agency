@@ -42,11 +42,35 @@
       {
         "name": "VALIDATE_DATA_INCORRECT",
         "value": "3"
+      },
+      {
+        "name": "baseLink",
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev'"
+      },
+      {
+        "name": "loginLink",
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev'"
+      },
+      {
+        "name": "MODE_AGENCY",
+        "value": "1"
+      },
+      {
+        "name": "MODE_CUSTOMER",
+        "value": "2"
+      },
+      {
+        "name": "accessMode",
+        "value": "form.MODE_AGENCY"
+      },
+      {
+        "name": "agencyId",
+        "value": "0"
       }
     ],
     "userPermissions": []
   },
   "id": "Affiliate Form_form",
   "deleted": false,
-  "gitSyncId": "65792b023010c95d5f5a84a2_658a74753010c95d5f5a9083"
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217297083d359c781cfe4"
 }

@@ -21,6 +21,10 @@
       "isDefault": false
     },
     {
+      "id": "Affiliate Form Old",
+      "isDefault": false
+    },
+    {
       "id": "tmp1",
       "isDefault": false
     },
@@ -34,10 +38,6 @@
     },
     {
       "id": "Revenue Copy1",
-      "isDefault": false
-    },
-    {
-      "id": "Affiliate Form Copy",
       "isDefault": false
     }
   ],

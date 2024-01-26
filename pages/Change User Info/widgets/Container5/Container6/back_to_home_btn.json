@@ -4,7 +4,7 @@
     "mobileBottomRow": 56,
     "widgetName": "back_to_home_btn",
     "onClick": "{{navigateTo('Affiliate Form', {}, 'SAME_WINDOW');}}",
-    "buttonColor": "#93c5fd",
+    "buttonColor": "#2d969b",
     "displayName": "Button",
     "iconSVG": "/static/media/icon.05d209fafeb13a8569e3b4e97069d9ee.svg",
     "searchTags": [
@@ -22,7 +22,7 @@
     "dynamicTriggerPathList": [{"key": "onClick"}],
     "leftColumn": 44,
     "dynamicBindingPathList": [{"key": "borderRadius"}],
-    "text": "Back to Home Page",
+    "text": "ホームページに戻る",
     "isDisabled": false,
     "key": "a395lz8vuq",
     "isDeprecated": false,

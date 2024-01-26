@@ -34,7 +34,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2024-01-12T08:12:29Z"
   },
   "id": "Change User Info_app_function.changePassword",
   "deleted": false,

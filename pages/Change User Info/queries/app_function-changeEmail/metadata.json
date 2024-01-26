@@ -35,7 +35,8 @@
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
-    "userPermissions": []
+    "userPermissions": [],
+    "createdAt": "2023-12-26T08:00:36Z"
   },
   "id": "Change User Info_app_function.changeEmail",
   "deleted": false,

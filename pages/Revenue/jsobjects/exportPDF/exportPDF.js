@@ -14,7 +14,7 @@ export default {
 	createPDF: async () => {
 		////------------------ Data + Query ------------------////
 		const gtnSign = 'https://scontent.fdad2-1.fna.fbcdn.net/v/t1.15752-9/415563709_381918244355199_5381862728633477902_n.png?_nc_cat=108&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeGWNMWCTaMvzxrLXX0f2pAph7OG-4HjIwuHs4b7geMjCyfKWcY3LwRPnzKrDS8DH6G9tNBoLjQeVDKPbk6kwEBL&_nc_ohc=kPv8oloNLrAAX-4NerV&_nc_ht=scontent.fdad2-1.fna&oh=03_AdQAEBBWcwt0gVAxXt-uEzQLSDyps4bOj1mwYl482g5I4w&oe=65CDA149'
-
+		// 
 		const gtnLogo ='https://scontent.fdad2-1.fna.fbcdn.net/v/t1.15752-9/413236334_908234960971208_5016760532102606811_n.png?_nc_cat=101&ccb=1-7&_nc_sid=8cd0a2&_nc_eui2=AeEL2gdWMZRHwLsC8jjmIoa4Vgym2MwnqwZWDKbYzCerBvZBJwZ_B3N9qxL20khCCUF8WxDgsZ8VMA9Dw-i1jAE-&_nc_ohc=Z03BaOPm49oAX8N7ngh&_nc_ht=scontent.fdad2-1.fna&oh=03_AdQrjC8xmPLgLRBUTwOqWmIAuBe93MD2JKRbAAszykuKeA&oe=65CDA690'
 
 		try {
