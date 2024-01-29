@@ -14,7 +14,10 @@
     "dynamicTriggerPathList": [],
     "resetOnSubmit": true,
     "leftColumn": 10,
-    "dynamicBindingPathList": [{"key": "accentColor"}],
+    "dynamicBindingPathList": [
+        {"key": "accentColor"},
+        {"key": "defaultText"}
+    ],
     "labelPosition": "Top",
     "labelStyle": "",
     "labelTextColor": "#2e3d49",
@@ -41,6 +44,6 @@
     "maxDynamicHeight": 9000,
     "originalBottomRow": 17,
     "iconAlign": "left",
-    "defaultText": "",
+    "defaultText": "{{form.agencyId}}",
     "minDynamicHeight": 4
 }

@@ -1,5 +1,5 @@
 export default {
-	serviceAllowed: '{wifi}',
+	serviceAllowed: '',
 	isWifiAllowed: null,
 	isCardAllowed: null,
 	isUtilitiesAllowed: null,
@@ -9,7 +9,7 @@ export default {
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
 	// baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
-	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev', // dev
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-65b217287083d359c781cf39?branch=dev', // dev
 	loginLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
@@ -32,12 +32,11 @@ export default {
 		}
 		// Try to get agency_id on URL
 		let agencyIdParam = appsmith.URL.queryParams.agency_id;
-		if (agencyIdParam) { // MODE_CUSTOMER
+		if (agencyIdParam && await this.setAgencyServicesAllowed(agencyIdParam)) { // MODE_CUSTOMER
 			this.accessMode = this.MODE_CUSTOMER;
 			container_customer.setVisibility(false);
 			user_info_btn.setVisibility(false);
 			this.agencyId = agencyIdParam;
-			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
 		}
 		container_customer.setVisibility(false);
@@ -51,12 +50,15 @@ export default {
 			.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
 			.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
 		// showAlert(this.serviceAllowed);
+		if (!this.serviceAllowed || this.serviceAllowed == '')
+			return false;
 		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
 		this.isCardAllowed = this.serviceAllowed.includes('credit_card');
 		this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
 		service_wifi_cb.setVisibility(this.isWifiAllowed);
 		service_card_cb.setVisibility(this.isCardAllowed);
 		service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
+		return true;
 	},
 
 	async submitForm() {

@@ -87,8 +87,8 @@ export default {
 	},
 
 	yesNoTranslations: {
-		"true": "希望する",
-		"false": "不要"
+		"true": "有",
+		"false": "無"
 	},
 
 	language: {

@@ -1,5 +1,5 @@
 export default {
-	serviceAllowed: '{wifi}',
+	serviceAllowed: '',
 	isWifiAllowed: null,
 	isCardAllowed: null,
 	isUtilitiesAllowed: null,
@@ -9,15 +9,17 @@ export default {
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
 	// baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
-	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev', // dev
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-65b217287083d359c781cf39?branch=dev', // dev
+	loginLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
-	accessMode: this.MODE_AGENCY,
+	accessMode: 0,
 	agencyId: 0,
 
 	async setInitAccessMode() {
 		let userInfo = await appsmith.store.user;
 		if (userInfo) { // MODE_AGENCY
+			this.accessMode = this.MODE_AGENCY;
 			const agencyId = JSON.stringify(userInfo.agency_id);
 			// customer_link_lbl.setText(this.baseLink+'?agency_id='+agencyId);
 			customer_link_lbl.setText(this.baseLink+'&agency_id='+agencyId); // dev
@@ -25,34 +27,38 @@ export default {
 			user_info_btn.setVisibility(true);
 			this.agencyId = agencyId;
 			await this.setAgencyServicesAllowed(this.agencyId);
+			auth.loopToCheckTokenExist();
 			return;
 		}
 		// Try to get agency_id on URL
 		let agencyIdParam = appsmith.URL.queryParams.agency_id;
-		if (agencyIdParam) { // MODE_CUSTOMER
+		if (agencyIdParam && await this.setAgencyServicesAllowed(agencyIdParam)) { // MODE_CUSTOMER
 			this.accessMode = this.MODE_CUSTOMER;
 			container_customer.setVisibility(false);
 			user_info_btn.setVisibility(false);
 			this.agencyId = agencyIdParam;
-			await this.setAgencyServicesAllowed(this.agencyId);
 			return;
 		}
 		container_customer.setVisibility(false);
 		user_info_btn.setVisibility(false);
-		showAlert('Please login or provide agency id on URL...', 'warn');
+		// showAlert('Please login or provide agency id on URL...', 'warn');
+		showModal('alert_modal');
 	},
-	
+
 	async setAgencyServicesAllowed(agencyId) {
 		await find_service_allowed.run({agencyId})
 			.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
 			.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
 		// showAlert(this.serviceAllowed);
+		if (!this.serviceAllowed || this.serviceAllowed == '')
+			return false;
 		this.isWifiAllowed = this.serviceAllowed.includes('wifi');
 		this.isCardAllowed = this.serviceAllowed.includes('credit_card');
 		this.isUtilitiesAllowed = this.serviceAllowed.includes('utility');
 		service_wifi_cb.setVisibility(this.isWifiAllowed);
 		service_card_cb.setVisibility(this.isCardAllowed);
 		service_utilities_cb.setVisibility(this.isUtilitiesAllowed);
+		return true;
 	},
 
 	async submitForm() {
@@ -77,20 +83,20 @@ export default {
 
 		// let userInfo = await appsmith.store.user;
 		// if (userInfo) {
-			// const currentEmail = JSON.stringify(userInfo.email); // current agency account
-			// // 1a. Send to Agency
-			// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
+		// const currentEmail = JSON.stringify(userInfo.email); // current agency account
+		// // 1a. Send to Agency
+		// await this.sendEmail(currentEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// }
 		// let agencyEmail = '';
 		// await find_agency_email.run({agencyId})
-			// .then(res => agencyEmail = JSON.stringify(res[0].email))
-			// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
+		// .then(res => agencyEmail = JSON.stringify(res[0].email))
+		// .catch(e => {this.resultCode = 71; showAlert(e.message, 'error');});
 
 		// // 1b. Send to Agency
 		// await this.sendEmail(agencyEmail, titleEmailAgency, bodyEmailAgency, 72);
 		// 2. Send to GTN
 		await this.sendEmail('d.hao@gtn-vietnam.com', titleEmailGTN, bodyEmailGTN, 73);
-		
+
 		// let customerEmail = email_input.text;
 		// 3. Send to Customer
 		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
@@ -354,12 +360,12 @@ export default {
 		service_wifi_cb.isChecked ? serviceTypeCodes.push('wifi') : '';
 		service_card_cb.isChecked ? serviceTypeCodes.push('credit_card') : '';
 		service_utilities_cb.isChecked ? serviceTypeCodes.push('utility') : '';
-		serviceTypeCodes = this.convertArrayToPostgresArray(serviceTypeCodes);
+		serviceTypeCodes = helpers.convertArrayToPostgresArray(serviceTypeCodes);
 
 		await insert_application.run({agencyId, applicantId, serviceTypeCodes})
 			.then(res => applicationId = JSON.stringify(res[0].id))
 			.catch(e => {this.resultCode = 3; showAlert(e.message, 'error');});
-		
+
 		return applicationId;
 	},
 
@@ -371,12 +377,12 @@ export default {
 		let visaName = resident_name_input.text;
 		let visaExpDate = resident_exp_dpk.selectedDate;
 		let isUploadFrontSuccess = false;
-		let frontName = await this.genRandomFileName(urlFront);
+		let frontName = await helpers.genRandomFileName(urlFront);
 		await upload_resident_front_image.run({frontName})
 			.then(res => isUploadFrontSuccess = true)
 			.catch();
 		let isUploadBackSuccess = false;
-		let backName = await this.genRandomFileName(urlBack);
+		let backName = await helpers.genRandomFileName(urlBack);
 		await upload_resident_back_image.run({backName})
 			.then(res => isUploadBackSuccess = true)
 			.catch();
@@ -403,7 +409,7 @@ export default {
 	async saveUtilityApplications(applicationId) {
 		let isSuccess = false;
 		let utilityTypeCode = utility_type_radiogrp.selectedOptionValue;
-		let contractTypeCodes = this.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
+		let contractTypeCodes = helpers.convertArrayToPostgresArray(contract_type_cbgrp.selectedValues);
 		let electricStartDate = utilityTypeCode == 'gas' ? null : (electric_start_date_dpk.formattedDate == '' ? null : electric_start_date_dpk.formattedDate);
 		let gasStartDate = utilityTypeCode == 'electric' ? null : (gas_start_date_dpk.formattedDate == '' ? null : gas_start_date_dpk.formattedDate);
 		let gasStartTimeCode = utilityTypeCode == 'electric' ? null : (gas_start_time_radiogrp.selectedOptionValue == '' ? null : gas_start_time_radiogrp.selectedOptionValue);
@@ -415,35 +421,8 @@ export default {
 		return isSuccess;
 	},
 
-	async genRandomStr(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
-	},
-
-	async genRandomFileName(orgFileName) {
-		let random = await this.genRandomStr(5);
-		return random+'-'+orgFileName;
-	},
-	/**
-	* For convert array like ["a", "b"] to {"a", "b"} (insert postgres enum array)
-	*/
-	convertArrayToPostgresArray: (array) =>{
-		const formattedString = `{${array.join(", ")}}`;
-		return formattedString;
-	},
-	validateEmail: (email) => {
-		return String(email)
-			.toLowerCase()
-			.match(
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		);
+	copyCustomerLink:() =>{
+		helpers.copyToClipboard(customer_link_lbl.text, 'Link was copied to clipboard!');
 	},
 
 }

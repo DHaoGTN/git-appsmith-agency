@@ -9,7 +9,7 @@
     "variables": [
       {
         "name": "serviceAllowed",
-        "value": "'{wifi}'"
+        "value": "''"
       },
       {
         "name": "isWifiAllowed",
@@ -45,7 +45,11 @@
       },
       {
         "name": "baseLink",
-        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-copy-65b217287083d359c781cf39?branch=dev'"
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-65b217287083d359c781cf39?branch=dev'"
+      },
+      {
+        "name": "loginLink",
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev'"
       },
       {
         "name": "MODE_AGENCY",
@@ -57,7 +61,7 @@
       },
       {
         "name": "accessMode",
-        "value": "tmp.MODE_AGENCY"
+        "value": "0"
       },
       {
         "name": "agencyId",

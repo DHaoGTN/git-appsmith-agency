@@ -45,7 +45,7 @@
       },
       {
         "name": "yesNoTranslations",
-        "value": "{\n  \"true\": \"希望する\",\n  \"false\": \"不要\"\n}"
+        "value": "{\n  \"true\": \"有\",\n  \"false\": \"無\"\n}"
       },
       {
         "name": "language",

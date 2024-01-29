@@ -28,7 +28,7 @@
     "text": "ようこそ！\nご利用のための詳細情報をご記入ください。",
     "key": "kk7n75w0mq",
     "isDeprecated": false,
-    "rightColumn": 58,
+    "rightColumn": 61,
     "textAlign": "CENTER",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "ixjezrk9re",
@@ -44,7 +44,7 @@
     "originalTopRow": 13,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 18,
+    "originalBottomRow": 20,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }
