@@ -1,10 +1,4 @@
 export default {
-	serviceMapping : {
-		'電気ガスutility': "utility_application_status",
-		"光wifi": "wifi_application_status",
-		"カードcredit_card": "credit_card_application_status"
-	},
-
 	isServiceLoaded: false,
 	isStatusLoaded: false,
 	totalRecord: 0,

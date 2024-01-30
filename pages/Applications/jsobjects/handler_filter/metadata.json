@@ -8,10 +8,6 @@
     "archivedActions": [],
     "variables": [
       {
-        "name": "serviceMapping",
-        "value": "{\n  '電気ガスutility': \"utility_application_status\",\n  \"光wifi\": \"wifi_application_status\",\n  \"カードcredit_card\": \"credit_card_application_status\"\n}"
-      },
-      {
         "name": "isServiceLoaded",
         "value": "false"
       },
