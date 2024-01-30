@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "test",
+    "pageId": "統計",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "統計_test",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65a889407083d359c7819e3d"
+}

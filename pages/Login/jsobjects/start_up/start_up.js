@@ -8,7 +8,7 @@ export default {
 			// if (token!== undefined && tokenCountInDb === 1 && appsmith.mode !== 'EDIT'){
 			if (token!== undefined && tokenCountInDb === 1 ){
 				console.log('token count', tokenCountInDb)
-				navigateTo('Affiliate Form');
+				navigateTo('申し込みフォーム');
 			}
 		}catch(error){
 			console.log('do no thing');

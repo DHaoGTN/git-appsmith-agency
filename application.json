@@ -5,19 +5,19 @@
       "isDefault": false
     },
     {
-      "id": "Affiliate Form",
+      "id": "申し込みフォーム",
       "isDefault": true
     },
     {
-      "id": "Applications",
+      "id": "申し込み",
       "isDefault": false
     },
     {
-      "id": "Revenue",
+      "id": "統計",
       "isDefault": false
     },
     {
-      "id": "Change User Info",
+      "id": "アカウント情報",
       "isDefault": false
     },
     {

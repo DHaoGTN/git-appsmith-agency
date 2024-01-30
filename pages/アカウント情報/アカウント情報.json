@@ -1,0 +1,69 @@
+{
+  "unpublishedPage": {
+    "name": "アカウント情報",
+    "slug": "",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1160,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 820,
+          "containerStyle": "none",
+          "snapRows": 125,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 1170,
+          "parentColumnSpace": 1,
+          "dynamicTriggerPathList": [],
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "アカウント情報_authentication.loopToCheckTokenExist",
+              "name": "authentication.loopToCheckTokenExist",
+              "collectionId": "アカウント情報_authentication",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          authentication.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "アカウント情報_authentication.startUp",
+              "name": "authentication.startUp",
+              "collectionId": "アカウント情報_authentication",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "アカウント情報",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_658a88233010c95d5f5a90a6"
+}

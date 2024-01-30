@@ -8,7 +8,7 @@
         "label"
     ],
     "topRow": 13,
-    "bottomRow": 18,
+    "bottomRow": 17,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -25,7 +25,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "ようこそ！\nご利用のための詳細情報をご記入ください。",
+    "text": "ようこそ！\n",
     "key": "kk7n75w0mq",
     "isDeprecated": false,
     "rightColumn": 61,
@@ -44,7 +44,7 @@
     "originalTopRow": 13,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 20,
+    "originalBottomRow": 18,
     "fontSize": "1rem",
     "minDynamicHeight": 4
 }
