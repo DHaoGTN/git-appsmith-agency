@@ -30,7 +30,7 @@
         {"key": "menuItems.menuItem3dfuthklaq.onClick"},
         {"key": "menuItems.menuItemo22spze7ps.onClick"}
     ],
-    "leftColumn": 50,
+    "leftColumn": 47,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
         {"key": "menuItems.menuItem3dfuthklaq.label"},
@@ -40,7 +40,7 @@
     "sourceData": "[]",
     "key": "0gcavasjcu",
     "isDeprecated": false,
-    "rightColumn": 62,
+    "rightColumn": 59,
     "menuVariant": "PRIMARY",
     "widgetId": "hoe88fyti2",
     "menuItems": {

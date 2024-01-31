@@ -14,7 +14,7 @@
     "animateLoading": true,
     "parentColumnSpace": 18.0625,
     "dynamicTriggerPathList": [],
-    "leftColumn": 2,
+    "leftColumn": 1,
     "dynamicBindingPathList": [],
     "children": [{
         "boxShadow": "none",
@@ -47,7 +47,7 @@
     "key": "6bzu8mpizb",
     "labelTextSize": "0.875rem",
     "backgroundColor": "#2D969B",
-    "rightColumn": 62,
+    "rightColumn": 61,
     "dynamicHeight": "FIXED",
     "widgetId": "p1lbnpwctw",
     "containerStyle": "card",

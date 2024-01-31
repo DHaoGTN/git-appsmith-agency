@@ -29,7 +29,7 @@
         {"key": "menuItems.menuItem3dfuthklaq.onClick"},
         {"key": "menuItems.menuItemo22spze7ps.onClick"}
     ],
-    "leftColumn": 47,
+    "leftColumn": 45,
     "dynamicBindingPathList": [
         {"key": "menuItems.menuItem3dfuthklaq.label"},
         {"key": "label"}
@@ -38,7 +38,7 @@
     "sourceData": "[]",
     "key": "0gcavasjcu",
     "isDeprecated": false,
-    "rightColumn": 62,
+    "rightColumn": 60,
     "menuVariant": "PRIMARY",
     "widgetId": "4prb4w3j2o",
     "menuItems": {
