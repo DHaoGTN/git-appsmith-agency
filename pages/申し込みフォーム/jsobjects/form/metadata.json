@@ -45,11 +45,11 @@
       },
       {
         "name": "baseLink",
-        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/page-65b217287083d359c781cf39?branch=dev'"
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/page-65b217287083d359c781cf39?branch=dev&embed=true'"
       },
       {
         "name": "loginLink",
-        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev'"
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev&embed=true'"
       },
       {
         "name": "MODE_AGENCY",

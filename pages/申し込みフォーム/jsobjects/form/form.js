@@ -9,8 +9,8 @@ export default {
 	VALIDATE_CHOICE_NOT_ENOUGH: 2,
 	VALIDATE_DATA_INCORRECT: 3,
 	// baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/affiliate-form-657a9aa43010c95d5f5a85cb',
-	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/page-65b217287083d359c781cf39?branch=dev', // dev
-	loginLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev', // dev
+	baseLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/page-65b217287083d359c781cf39?branch=dev&embed=true', // dev
+	loginLink: 'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev&embed=true', // dev
 	MODE_AGENCY: 1,
 	MODE_CUSTOMER: 2,
 	accessMode: 0,
