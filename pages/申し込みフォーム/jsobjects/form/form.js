@@ -422,7 +422,7 @@ export default {
 	},
 
 	copyCustomerLink:() =>{
-		helpers.copyToClipboard(customer_link_lbl.text, messages.Other);
+		helpers.copyToClipboard(customer_link_lbl.text, messages.Other.COPY_LINK_SUCCESS);
 	},
 
 }
