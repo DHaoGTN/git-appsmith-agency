@@ -36,7 +36,7 @@
     "parentId": "f6o5ujc94b",
     "renderMode": "CANVAS",
     "isLoading": false,
-    "regex": "[ァ-ン]",
+    "regex": "^([ァ-ン\\s]+)$",
     "originalTopRow": 26,
     "borderRadius": "0px",
     "maxDynamicHeight": 9000,
