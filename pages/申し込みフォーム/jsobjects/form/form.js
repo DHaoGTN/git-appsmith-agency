@@ -48,7 +48,7 @@ export default {
 	async setAgencyServicesAllowed(agencyId) {
 		await find_service_allowed.run({agencyId})
 			.then(res => this.serviceAllowed = JSON.stringify(res[0].service_type_codes))
-			.catch(e => {showAlert("Can not retrieve service type code. "+e.message, 'error');});
+			.catch(e => {showAlert(messages.Form.GET_SERVICE_TYPE_FAILURE+'\n'+e.message, 'error');});
 		// showAlert(this.serviceAllowed);
 		if (!this.serviceAllowed || this.serviceAllowed == '')
 			return false;
@@ -102,9 +102,9 @@ export default {
 		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
 
 		if (this.resultCode == 0) {
-			showAlert('Email was sent successfully.', 'success');
+			showAlert(messages.Form.ADDRESS_SUCCESS, 'success');
 		} else {
-			showAlert('There are an error when sending email. Please try again. Result code: '+this.resultCode, 'error');
+			showAlert(messages.Form.EMAIL_SEND_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');
 		}
 	},
 	async sendEmail(emails, title, body, resultCodeIfFailed) {
@@ -128,7 +128,7 @@ export default {
 			 ) {
 			return true;
 		}
-		showAlert('Please fill all of required fields and check data correctly.', 'warn'); 
+		showAlert(messages.Form.VALIDATE_ERROR_GENERAL, 'warn'); 
 		return false;
 	},
 	validateFormApplicant:() =>{
@@ -313,10 +313,10 @@ export default {
 			}
 		}
 		if (this.resultCode == 0) {
-			showAlert('Application was created successfully. We will inform by sending email to person in charge for this application.', 'success');
+			showAlert(messages.Form.APPLICATION_CREATED_SUCCESS, 'success');
 			return true;
 		} else {
-			showAlert('There are an error when saving information. Please try again. Result code: '+this.resultCode, 'error');
+			showAlert(messages.Form.APPLICATION_CREATED_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');
 			return false;
 		}
 	},
@@ -422,7 +422,7 @@ export default {
 	},
 
 	copyCustomerLink:() =>{
-		helpers.copyToClipboard(customer_link_lbl.text, 'Link was copied to clipboard!');
+		helpers.copyToClipboard(customer_link_lbl.text, messages.Other);
 	},
 
 }

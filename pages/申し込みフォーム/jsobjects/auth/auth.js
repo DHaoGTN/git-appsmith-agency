@@ -41,7 +41,7 @@ export default {
 		} catch(error){
 			return navigateTo("Login")
 		}
-		return  showAlert("you have been logged out,",'success')
+		return  showAlert(messages.Auth.LOGOUT_SUCCESS,'success')
 			.then(() => navigateTo('Login'))
 			.catch(e => showAlert(e.message, 'error'));
 	},
@@ -63,11 +63,11 @@ export default {
 				console.log('token exprire, delete token in db')
 				const token = appsmith.store.token;
 				delete_token_in_db.run({token});
-				showAlert('Your session have been expired, please log in again', 'error')
+				showAlert(messages.Auth.SESSION_EXPIRED, 'error')
 				console.log('deleted token in db ')
 			}
 		}catch(error){
-			showAlert('Something wrong, please login again! \n'+error.message,'error')
+			showAlert(messages.Auth.GENERAL_ERROR+'\n'+error.message,'error')
 		}
 	},
 
@@ -93,7 +93,7 @@ export default {
 					}
 					console.log('token still valid')
 				}catch(error){
-					showAlert('Something wrong, please login again! \n'+error.message,'error')
+					showAlert(messages.Auth.GENERAL_ERROR+'\n'+error.message,'error')
 				}
 
 			};
