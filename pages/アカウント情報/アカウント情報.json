@@ -35,7 +35,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log('token', token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log('token in db', tokenInDb);\n        const tokenCountInDb = tokenInDb[0]['count'];\n        console.log('tokenCountInDb', tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          authentication.logout();\n          console.log('navigate to login');\n        }\n        console.log('token still valid');\n      } catch (error) {\n        showAlert('Something wrong, please login again! \\n' + error.message, 'error');\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log(\"token\", token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log(\"token in db\", tokenInDb);\n        const tokenCountInDb = tokenInDb[0][\"count\"];\n        console.log(\"tokenCountInDb\", tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          authentication.logout();\n          console.log(\"navigate to ログイン\");\n        }\n        console.log(\"token still valid\");\n      } catch (error) {\n        showAlert(\"Something wrong, please ログイン again! \\n\" + error.message, \"error\");\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -46,7 +46,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0][\"count\"];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log(\"do nothing\");\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== \"EDIT\") {\n    navigateTo(\"ログイン\");\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

@@ -10,7 +10,7 @@ export default {
 		}
 
 		else if (token === undefined && tokenCountInDb ===0 && appsmith.mode !== 'EDIT'){
-			navigateTo('Login');
+			navigateTo('ログイン');
 		}
 	},
 
@@ -39,7 +39,7 @@ export default {
 			await delete_token_in_db.run({token});
 			await window.localStorage.clear()
 		} catch(error){
-			return navigateTo("Login")
+			return navigateTo("ログイン")
 		}
 		return  showAlert("you have been logged out,",'success')
 			.then(() => navigateTo('Login'))

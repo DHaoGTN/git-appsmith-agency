@@ -76,7 +76,7 @@ export default {
 			const count = await count_application.run(queryParams);
 			this.totalRecord = count[0].count;
 			if(this.totalRecord === 0){
-				showAlert('No have any record', 'warning');
+				showAlert(messages.Info.NO_APPLICATION_RECORDS, 'info');
 			}
 		}catch(error){
 			console.log(error)

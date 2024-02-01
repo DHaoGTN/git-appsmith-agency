@@ -49,7 +49,7 @@
       },
       {
         "name": "loginLink",
-        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/login-65791ef2121d847b3b6a2baa?branch=dev&embed=true'"
+        "value": "'http://affiliate-stg.gtn.co.jp/app/agency-site/page-65791ef2121d847b3b6a2baa?branch=dev&embed=true'"
       },
       {
         "name": "MODE_AGENCY",

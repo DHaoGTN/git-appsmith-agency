@@ -45,7 +45,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('Login');\n  }\n}"
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0]['count'];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log('do nothing');\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== 'EDIT') {\n    navigateTo('ログイン');\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -56,7 +56,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  try {\n    const serviceFilter = service_select.selectedOptionValue;\n    const statusFilter = status_muti_select.selectedOptionValues;\n    let serviceStatus = {\n      wifi: null,\n      utility: null,\n      credit_card: null\n    };\n    if (serviceFilter && statusFilter && statusFilter.length > 0) {\n      serviceStatus[serviceFilter] = statusFilter;\n    }\n    const agencyId = await appsmith.store.user.agency_id;\n    const queryParams = {\n      agencyId: agencyId,\n      service: postgres_helpers.convertStringToPostgresArray(serviceFilter),\n      wifiStatus: serviceStatus.wifi,\n      utilityStatus: serviceStatus.utility,\n      creditStatus: serviceStatus.credit_card\n    };\n    await list_applications_full.run(queryParams);\n    const count = await count_application.run(queryParams);\n    handler_filter.totalRecord = count[0].count;\n    if (handler_filter.totalRecord === 0) {\n      showAlert('No have any record', 'warning');\n    }\n  } catch (error) {\n    console.log(error);\n  }\n}"
+                "async () => {\n  try {\n    const serviceFilter = service_select.selectedOptionValue;\n    const statusFilter = status_muti_select.selectedOptionValues;\n    let serviceStatus = {\n      wifi: null,\n      utility: null,\n      credit_card: null\n    };\n    if (serviceFilter && statusFilter && statusFilter.length > 0) {\n      serviceStatus[serviceFilter] = statusFilter;\n    }\n    const agencyId = await appsmith.store.user.agency_id;\n    const queryParams = {\n      agencyId: agencyId,\n      service: postgres_helpers.convertStringToPostgresArray(serviceFilter),\n      wifiStatus: serviceStatus.wifi,\n      utilityStatus: serviceStatus.utility,\n      creditStatus: serviceStatus.credit_card\n    };\n    await list_applications_full.run(queryParams);\n    const count = await count_application.run(queryParams);\n    handler_filter.totalRecord = count[0].count;\n    if (handler_filter.totalRecord === 0) {\n      showAlert(messages.Info.NO_APPLICATION_RECORDS, 'info');\n    }\n  } catch (error) {\n    console.log(error);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
