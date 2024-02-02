@@ -1,0 +1,32 @@
+{
+  "unpublishedCollection": {
+    "name": "messages",
+    "pageId": "申し込み",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "Info",
+        "value": "{\n  NO_APPLICATION_RECORDS: \"申込が１件もありません 　No application records found\"\n}"
+      },
+      {
+        "name": "Success",
+        "value": "{\n  LOGIN_SUCCESS: 'You have been logged in successfully.',\n  LOGOUT_SUCCESS: 'You have been logged out successfully.',\n  DOWNLOAD_SUCCESS: 'Successfully downloaded.',\n  EMAIL_CHANGED_SUCCESS: 'Changed email successfully, please login again',\n  PASSWORD_CHANGE_SUCCESS: 'Changed email successfully, please login again'\n}"
+      },
+      {
+        "name": "Warning",
+        "value": "{\n  PAYMENT_INVALID: 'Your payment information is missing. \\n Please contact your company to update it!'\n}"
+      },
+      {
+        "name": "Error",
+        "value": "{\n  LOGIN_INVALID: 'The email address or password you entered is invalid. Please try again.',\n  LOGIN_ERROR: 'Something wrong, please try to login again! ',\n  COMMON_ERROR: 'Something wrong, please try again! ',\n  SESSION_EXPIRED: 'Your session have been expired, please log in again.',\n  EMAIL_SAME: 'Your new email is same with current email',\n  EMAIL_EXISTED: 'Your new email is same with current email',\n  PASSWORD_INCORRECT: 'Password is incorrect, please type again.'\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "申し込み_messages",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65baf3ab7083d359c781d95b"
+}

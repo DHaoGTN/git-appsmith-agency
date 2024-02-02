@@ -1,0 +1,15 @@
+{
+  "unpublishedCollection": {
+    "name": "loop_check_token_deleted",
+    "pageId": "申し込みフォーム",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "申し込みフォーム_loop_check_token_deleted",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217297083d359c781cfe2"
+}

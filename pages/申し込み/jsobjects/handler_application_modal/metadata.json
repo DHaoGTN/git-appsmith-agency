@@ -1,0 +1,48 @@
+{
+  "unpublishedCollection": {
+    "name": "handler_application_modal",
+    "pageId": "申し込み",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "wifiVisibility",
+        "value": "false"
+      },
+      {
+        "name": "creditCardVisibility",
+        "value": "false"
+      },
+      {
+        "name": "utilityVisibility",
+        "value": "false"
+      },
+      {
+        "name": "correspondenceVisibility",
+        "value": "false"
+      },
+      {
+        "name": "serviceTypes",
+        "value": "{\n  wifi: \"光\",\n  card: \"カード\",\n  utility: \"電気ガス\"\n}"
+      },
+      {
+        "name": "statusGetDataWifi",
+        "value": "false"
+      },
+      {
+        "name": "statusGetDataCreditCard",
+        "value": "false"
+      },
+      {
+        "name": "statusGetDataUtility",
+        "value": "false"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "申し込み_handler_application_modal",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65a87fc67083d359c7819df6"
+}

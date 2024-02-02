@@ -1,0 +1,82 @@
+{
+  "unpublishedPage": {
+    "name": "申し込みフォーム",
+    "slug": "",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1160,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 3790,
+          "containerStyle": "none",
+          "snapRows": 125,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 87,
+          "minHeight": 1170,
+          "parentColumnSpace": 1,
+          "dynamicTriggerPathList": [],
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "申し込みフォーム_auth.loopToCheckTokenExist",
+              "name": "auth.loopToCheckTokenExist",
+              "collectionId": "申し込みフォーム_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  if (!auth.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log(\"token\", token);\n        auth.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log(\"token in db\", tokenInDb);\n        const tokenCountInDb = tokenInDb[0][\"count\"];\n        console.log(\"tokenCountInDb\", tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          showAlert(messages.Error.SESSION_EXPIRED, 'error');\n          auth.logout();\n          console.log(\"navigate to ログイン\");\n        }\n        console.log(\"token still valid\");\n      } catch (error) {\n        showAlert(messages.Auth.GENERAL_ERROR + \"\\n\" + error.message, \"error\");\n      }\n    };\n    auth.intervalId = setInterval(process, 5000);\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "申し込みフォーム_auth.startUp",
+              "name": "auth.startUp",
+              "collectionId": "申し込みフォーム_auth",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  const token = await appsmith.store.token;\n  const tokenInDb = await check_token_exist.run({\n    token\n  });\n  const tokenCountInDb = tokenInDb[0][\"count\"];\n  if (token !== undefined && tokenCountInDb === 1) {\n    console.log(\"do nothing\");\n  } else if (token === undefined && tokenCountInDb === 0 && appsmith.mode !== \"EDIT\") {\n    navigateTo(\"ログイン\");\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "申し込みフォーム_form.setInitAccessMode",
+              "name": "form.setInitAccessMode",
+              "collectionId": "申し込みフォーム_form",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async function () {\n  let userInfo = await appsmith.store.user;\n  if (userInfo) {\n    form.accessMode = form.MODE_AGENCY;\n    const agencyId = JSON.stringify(userInfo.agency_id);\n    customer_link_lbl.setText(form.baseLink + '&agency_id=' + agencyId);\n    container_customer.setVisibility(true);\n    user_info_btn.setVisibility(true);\n    form.agencyId = agencyId;\n    await form.setAgencyServicesAllowed(form.agencyId);\n    auth.loopToCheckTokenExist();\n    return;\n  }\n  let agencyIdParam = appsmith.URL.queryParams.agency_id;\n  if (agencyIdParam && await form.setAgencyServicesAllowed(agencyIdParam)) {\n    form.accessMode = form.MODE_CUSTOMER;\n    container_customer.setVisibility(false);\n    user_info_btn.setVisibility(false);\n    form.agencyId = agencyIdParam;\n    return;\n  }\n  container_customer.setVisibility(false);\n  user_info_btn.setVisibility(false);\n  showModal('alert_modal');\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "申し込みフォーム",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": false
+  },
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b217287083d359c781cf38"
+}

@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "authentication",
+    "pageId": "Affiliate Form Old",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "intervalId",
+        "value": "null"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Affiliate Form Old_authentication",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65b06f867083d359c781b4a8"
+}

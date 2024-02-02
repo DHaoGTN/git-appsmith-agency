@@ -1,0 +1,28 @@
+{
+  "unpublishedCollection": {
+    "name": "messages",
+    "pageId": "統計",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "Success",
+        "value": "{\n  LOGIN_SUCCESS: 'You have been logged in successfully.',\n  LOGOUT_SUCCESS: 'You have been logged out successfully.',\n  DOWNLOAD_SUCCESS: 'Successfully downloaded.'\n}"
+      },
+      {
+        "name": "Warning",
+        "value": "{\n  PAYMENT_INVALID: 'Your payment information is missing. \\n Please contact your company to update it!'\n}"
+      },
+      {
+        "name": "Error",
+        "value": "{\n  LOGIN_INVALID: 'The email address or password you entered is invalid. Please try again.',\n  LOGIN_ERROR: 'Something wrong, please try to login again! ',\n  COMMON_ERROR: 'Something wrong, please try again! ',\n  SESSION_EXPIRED: 'Your session have been expired, please log in again.'\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "統計_messages",
+  "deleted": false,
+  "gitSyncId": "65792b023010c95d5f5a84a2_65bb66547083d359c781db29"
+}
