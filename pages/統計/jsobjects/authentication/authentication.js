@@ -34,17 +34,17 @@ export default {
 
 	logout: async () => {
 		const token = appsmith.store.token;
-		// check_token_exist.run({token});
 		// use try catch incase there is token in local storage to compare with token in db
 		try {
 			await delete_token_in_db.run({ token });
 			await window.localStorage.clear();
 		} catch (error) {
+			showAlert(messages.Error.COMMON_ERROR+'\nError:'+ error.message, "error")
 			return navigateTo("ログイン");
 		}
-		return showAlert("you have been logged out,", "success")
+		return showAlert(messages.Success.LOGOUT_SUCCESS, "success")
 			.then(() => navigateTo("ログイン"))
-			.catch((e) => showAlert(e.message, "error"));
+			.catch((error) => showAlert(messages.Error.COMMON_ERROR+'\nError:'+ error.message, "error"));
 	},
 
 	checkToken: () => {
@@ -64,16 +64,13 @@ export default {
 				const token = appsmith.store.token;
 				delete_token_in_db.run({ token });
 				showAlert(
-					"Your session have been expired, please log in again",
+					messages.Error.SESSION_EXPIRED,
 					"error"
 				);
 				console.log("deleted token in db ");
 			}
 		} catch (error) {
-			showAlert(
-				"Something wrong, please ログイン again! \n" + error.message,
-				"error"
-			);
+			showAlert(messages.Error.COMMON_ERROR+'\nError:'+ error.message, "error")
 		}
 	},
 
@@ -94,15 +91,13 @@ export default {
 					console.log("tokenCountInDb", tokenCountInDb);
 					// if ( tokenCountInDb === 0 && appsmith.mode !== 'EDIT' ){
 					if (tokenCountInDb === 0) {
+						showAlert(messages.Error.SESSION_EXPIRED,'error')
 						this.logout();
 						console.log("navigate to ログイン");
 					}
 					console.log("token still valid");
 				} catch (error) {
-					showAlert(
-						"Something wrong, please ログイン again! \n" + error.message,
-						"error"
-					);
+					showAlert(messages.Error.COMMON_ERROR+'\nError:'+ error.message, "error")
 				}
 			};
 			this.intervalId = setInterval(process, 5000);

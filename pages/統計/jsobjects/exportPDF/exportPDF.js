@@ -2,10 +2,7 @@ export default {
 	main: async()=>{
 		//------------------ QUERY run ------------------------------//
 		try{
-			// await get_agency_by_id.run()
-			// await get_billing_by_month.run()
 			await this.createPDF()
-
 		}catch(error){
 			showAlert(error,"error")
 		}
@@ -36,7 +33,6 @@ export default {
 			const tableThickness = 0.1
 			const tableBorderColor = PDFLib.rgb(0.4, 0.4, 0.3)
 			const headerBgColor =PDFLib.rgb(0.7, 0.7, 0.7)
-
 
 			////----------------- Text Info ----------------////
 			//---------------Table text data ------------//
@@ -93,16 +89,7 @@ export default {
 			const pageHeight = pageSize.height; //841
 			const pageMarginX = 20;
 			const pageMarginY = 30
-
 			const textSize = 16
-			// const text = 
-			// page.drawText(pdfTittle, {
-			// x:  pageMarginX,
-			// y: pageHeight - pageMarginY,
-			// size: textSize,
-			// font: customFont,
-			// color: PDFLib.rgb(0, 0, 0),
-			// })
 
 			////-------------TOP LEFT TITLE - CUSTOMER info - payment invoice ---------- ////
 			const headerRectWidth = 220;
@@ -129,12 +116,14 @@ export default {
 				x:   pageMarginX + (headerRectWidth ) / 2 - 90 , y: pageHeight - 142,
 				size: textNormal, font: fontBold, color: textBlack
 			})
+
 			//-----------Draw line ------------//
 			page.drawLine({
 				start: { x: pageMarginX, y: pageHeight-147 },
 				end: { x: pageMarginX + headerRectWidth, y: pageHeight-147 },
 				thickness: 1, color: PDFLib.rgb(0, 0, 0) // Màu đen cho đường kẻ
 			});
+
 			//------------Draw 支払い予定日 ---------//
 			page.drawText(`お支払い予定日: ¥ ${customerPayDate}            `, {
 				x:   pageMarginX + (headerRectWidth ) / 2 - 90 , y: pageHeight - 160,
@@ -229,10 +218,7 @@ export default {
 				});
 			});
 
-
-
 			//------------ DRAW 3 BOTTOM ROW -----------//
-
 			const bottomTableTopY = 81;
 			const bottoTableStartX = 374;
 			const bottomRowHeight = 18;
@@ -305,31 +291,17 @@ export default {
 					size: 8, font: fontBold, color: textRed })
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-
 			// Save and create Blob
 			const pdfBytes = await pdfDoc.save();
 			const blob = new Blob([pdfBytes], { type: 'application/pdf' });
 			const urll = URL.createObjectURL(blob);
 			const fileName = `[${customerCompany}] ${gtnInvoiceDate}分アフィリエイト手数料報告書.pdf`
 			await download(urll, fileName, "application/pdf")
-				.then(showAlert("Successfully downloaded.", 'success'))
-				.catch(e=>{showAlert('cannot download pdf, please try again'+e.message,'error')});
+				.then(showAlert(messages.Success.DOWNLOAD_SUCCESS, 'success'))
+				.catch(e=>{showAlert(messages.Error.COMMON_ERROR+'\nError'+e.message,'error')});
 			if( isHasBankInfo === false){
-				showAlert("Your payment information is missing.\nPlease contact your company to update it!", 'warning')
+				showAlert(messages.Warning.PAYMENT_INVALID, 'warning')
 			}
-
-
 		} catch (error) {
 			console.error('Error creating PDF:', error);
 		}
@@ -398,7 +370,7 @@ export default {
 		let treeData = [];
 		let yearsMap = {};
 		const responseData= await get_months_have_billing.run()
-		.catch((e) => showAlert(' fail to get months have billing','error'))
+		.catch((e) => showAlert(' fail to get months have billing'+e.message,'error'))
 		// const responseData= query.data
 		responseData.forEach(record => {
 			if (!yearsMap[record.year]) {

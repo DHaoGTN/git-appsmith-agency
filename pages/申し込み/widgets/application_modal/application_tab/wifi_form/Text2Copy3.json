@@ -9,7 +9,7 @@
         "label"
     ],
     "topRow": 0,
-    "bottomRow": 4,
+    "bottomRow": 6,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -31,7 +31,7 @@
     "text": "連絡可能曜日 Contact day of week*:\n       \n      {{translation_helpers.translateWord(get_wifi_application_details.data[0].contact_day_of_weeks, translation_map.contactDayOfWeeks)}}",
     "key": "nqhopa7nrb",
     "isDeprecated": false,
-    "rightColumn": 28,
+    "rightColumn": 27,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "zrj0u6sz2m",

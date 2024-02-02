@@ -4,7 +4,7 @@
     "borderColor": "#e0dede",
     "isVisibleDownload": false,
     "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-    "topRow": 21,
+    "topRow": 17,
     "isSortable": true,
     "onPageChange": "{{handler_filter.getFilteredApplications()}}",
     "type": "TABLE_WIDGET_V2",
@@ -33,7 +33,7 @@
         {"key": "primaryColumns.utility_status.isCellEditable"},
         {"key": "primaryColumns.credit_card_status.isCellEditable"}
     ],
-    "leftColumn": 4,
+    "leftColumn": 2,
     "delimiter": ",",
     "variant": "VARIANT3",
     "defaultSelectedRowIndex": "-1",
@@ -70,7 +70,7 @@
     },
     "borderRadius": "0.375rem",
     "columnUpdatedAt": 1706171609491,
-    "originalBottomRow": 89,
+    "originalBottomRow": 85,
     "primaryColumnId": "id",
     "defaultSelectedRowIndices": [0],
     "widgetName": "tbl_application",
@@ -99,7 +99,7 @@
     ],
     "compactMode": "TALL",
     "displayName": "Table",
-    "bottomRow": 89,
+    "bottomRow": 85,
     "columnWidthMap": {
         "Status": 92.9375,
         "Order_id": 107,
@@ -554,7 +554,7 @@
     "key": "361c7eqfhn",
     "canFreezeColumn": false,
     "isDeprecated": false,
-    "rightColumn": 61,
+    "rightColumn": 63,
     "textSize": "0.875rem",
     "widgetId": "06vup23lp5",
     "allowAddNewRow": false,
@@ -567,7 +567,7 @@
     "renderMode": "CANVAS",
     "horizontalAlignment": "CENTER",
     "isVisibleSearch": false,
-    "originalTopRow": 21,
+    "originalTopRow": 17,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
 }

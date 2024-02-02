@@ -9,7 +9,7 @@
         "label"
     ],
     "topRow": 14,
-    "bottomRow": 22,
+    "bottomRow": 20,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -31,7 +31,7 @@
     "text": "国籍 Nationality*:\n       \n      {{get_applicants_detail.data[0].nationality}}",
     "key": "nqhopa7nrb",
     "isDeprecated": false,
-    "rightColumn": 32,
+    "rightColumn": 29,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "albl3hz7c9",
@@ -53,7 +53,7 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 2,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 22,
+    "originalBottomRow": 20,
     "fontSize": "0.875rem",
     "minDynamicHeight": 4
 }

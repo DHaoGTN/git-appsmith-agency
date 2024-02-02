@@ -8,6 +8,14 @@
     "archivedActions": [],
     "variables": [
       {
+        "name": "secret",
+        "value": "'nadnvkflmsdckdmcakdsmckvmscsdkmdsofscdsc'"
+      },
+      {
+        "name": "jwtBE",
+        "value": "''"
+      },
+      {
         "name": "intervalId",
         "value": "null"
       }

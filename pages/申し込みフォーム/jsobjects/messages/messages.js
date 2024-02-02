@@ -16,4 +16,7 @@ export default {
 	Other: {
 		COPY_LINK_SUCCESS: 'Link was copied to clipboard!',
 	},
+	Error: {
+		SESSION_EXPIRED :'Your session have been expired, please log in again.',
+	},
 }

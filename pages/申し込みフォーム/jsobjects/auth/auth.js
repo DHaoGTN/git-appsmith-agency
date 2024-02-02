@@ -1,4 +1,14 @@
 export default {
+	secret: 'nadnvkflmsdckdmcakdsmckvmscsdkmdsofscdsc',
+	jwtBE: '',
+	async createTokenBE() {
+		let payload = {
+			'exp': 3600,
+			'scope': 'agency'
+		};
+		this.jwtBE = await jsonwebtoken.sign(payload, this.secret);
+		// console.log('jwtBE: '+this.jwtBE);
+	},
 	////----------- AUTHENTICATION FUNCTION------------////
 	async startUp() {
 		const token = await appsmith.store.token;
@@ -14,12 +24,6 @@ export default {
 		) {
 			navigateTo("ログイン");
 		}
-	},
-
-	async createToken() {
-		const email = "test@gmail.com";
-		const token = jsonwebtoken.sign({ email }, "gtn-id", { expiresIn: "30s" });
-		return token;
 	},
 
 	isTokenValid: () => {
@@ -88,6 +92,7 @@ export default {
 					console.log("tokenCountInDb", tokenCountInDb);
 					// if ( tokenCountInDb === 0 && appsmith.mode !== 'EDIT' ){
 					if (tokenCountInDb === 0) {
+						showAlert(messages.Error.SESSION_EXPIRED,'error')
 						this.logout();
 						console.log("navigate to ログイン");
 					}

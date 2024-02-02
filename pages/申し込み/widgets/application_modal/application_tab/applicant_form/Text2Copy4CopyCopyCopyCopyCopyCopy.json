@@ -8,8 +8,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 53,
-    "bottomRow": 59,
+    "topRow": 51,
+    "bottomRow": 57,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -31,7 +31,7 @@
     "text": "住所詳細 Address detail*:\n       \n      {{get_applicants_detail.data[0].address_detail}}",
     "key": "nqhopa7nrb",
     "isDeprecated": false,
-    "rightColumn": 29,
+    "rightColumn": 59,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "tda80c62zw",
@@ -49,11 +49,11 @@
     "isLoading": false,
     "mobileTopRow": 36,
     "responsiveBehavior": "fill",
-    "originalTopRow": 53,
+    "originalTopRow": 51,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 2,
     "maxDynamicHeight": 9000,
-    "originalBottomRow": 59,
+    "originalBottomRow": 57,
     "fontSize": "0.875rem",
     "minDynamicHeight": 4
 }

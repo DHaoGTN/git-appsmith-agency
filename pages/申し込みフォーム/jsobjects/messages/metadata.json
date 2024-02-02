@@ -18,6 +18,10 @@
       {
         "name": "Other",
         "value": "{\n  COPY_LINK_SUCCESS: 'Link was copied to clipboard!'\n}"
+      },
+      {
+        "name": "Error",
+        "value": "{\n  SESSION_EXPIRED: 'Your session have been expired, please log in again.'\n}"
       }
     ],
     "userPermissions": []

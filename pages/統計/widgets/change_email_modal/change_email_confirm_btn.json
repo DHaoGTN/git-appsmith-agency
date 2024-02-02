@@ -3,7 +3,7 @@
     "boxShadow": "none",
     "mobileBottomRow": 22,
     "widgetName": "change_email_confirm_btn",
-    "onClick": "{{app_function.changeEmail();}}",
+    "onClick": "{{app_function_deleted.changeEmail();}}",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "dynamicPropertyPathList": [{"key": "isDisabled"}],
     "displayName": "Button",

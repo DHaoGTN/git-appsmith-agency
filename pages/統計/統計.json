@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1050,
+          "bottomRow": 1170,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -46,7 +46,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  let treeData = [];\n  let yearsMap = {};\n  const responseData = await get_months_have_billing.run().catch(e => showAlert(' fail to get months have billing', 'error'));\n  responseData.forEach(record => {\n    if (!yearsMap[record.year]) {\n      yearsMap[record.year] = {\n        label: record.year.toString(),\n        value: record.year.toString(),\n        children: []\n      };\n      treeData.push(yearsMap[record.year]);\n    }\n    yearsMap[record.year].children.push({\n      label: record.month,\n      value: record.month\n    });\n  });\n  return treeData;\n}"
+                "async () => {\n  let treeData = [];\n  let yearsMap = {};\n  const responseData = await get_months_have_billing.run().catch(e => showAlert(' fail to get months have billing' + e.message, 'error'));\n  responseData.forEach(record => {\n    if (!yearsMap[record.year]) {\n      yearsMap[record.year] = {\n        label: record.year.toString(),\n        value: record.year.toString(),\n        children: []\n      };\n      treeData.push(yearsMap[record.year]);\n    }\n    yearsMap[record.year].children.push({\n      label: record.month,\n      value: record.month\n    });\n  });\n  return treeData;\n}"
               ],
               "timeoutInMillisecond": 10000
             }
@@ -59,7 +59,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log(\"token\", token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log(\"token in db\", tokenInDb);\n        const tokenCountInDb = tokenInDb[0][\"count\"];\n        console.log(\"tokenCountInDb\", tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          authentication.logout();\n          console.log(\"navigate to ログイン\");\n        }\n        console.log(\"token still valid\");\n      } catch (error) {\n        showAlert(\"Something wrong, please ログイン again! \\n\" + error.message, \"error\");\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
+                "async function () {\n  if (!authentication.intervalId) {\n    const process = async () => {\n      try {\n        const token = appsmith.store.token;\n        console.log(\"token\", token);\n        authentication.checkValidTokenInDb();\n        const tokenInDb = await check_token_exist.run({\n          token\n        });\n        console.log(\"token in db\", tokenInDb);\n        const tokenCountInDb = tokenInDb[0][\"count\"];\n        console.log(\"tokenCountInDb\", tokenCountInDb);\n        if (tokenCountInDb === 0) {\n          showAlert(messages.Error.SESSION_EXPIRED, 'error');\n          authentication.logout();\n          console.log(\"navigate to ログイン\");\n        }\n        console.log(\"token still valid\");\n      } catch (error) {\n        showAlert(messages.Error.COMMON_ERROR + '\\nError:' + error.message, \"error\");\n      }\n    };\n    authentication.intervalId = setInterval(process, 5000);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

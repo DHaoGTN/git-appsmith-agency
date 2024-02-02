@@ -26,7 +26,7 @@ export default {
 				console.log('successfully added token to db')
 				await storeValue('user', user_info )
 				await storeValue('token', token)
-					.then( () => navigateTo('申し込みフォーム'))
+					.then( () => navigateTo('Affiliate Form'))
 				console.log('added token to local')
 			}  
 			else {

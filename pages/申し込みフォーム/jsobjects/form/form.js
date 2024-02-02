@@ -15,6 +15,9 @@ export default {
 	MODE_CUSTOMER: 2,
 	accessMode: 0,
 	agencyId: 0,
+	applicationId: 0,
+	applicantId: 0,
+	rpaUrl: '',
 
 	async setInitAccessMode() {
 		let userInfo = await appsmith.store.user;
@@ -64,15 +67,40 @@ export default {
 	async submitForm() {
 		if (this.validateFormAll()) {
 			if (await this.saveApplicationAll(this.agencyId)) {
-				await this.sendToAutoFill();
-				await this.sendEmailToPoC(this.agencyId);	
-				resetWidget('container_form');
+				if (await this.sendToAutoFill() && await this.sendEmailToPoC(this.agencyId)) {
+					showAlert(messages.Form.APPLICATION_CREATED_SUCCESS, 'success');
+					this.resetForm();
+					return;
+				}
+				this.rollbackAfterCreatedApplication(this.applicantId, this.applicationId);
+				showAlert(messages.Form.APPLICATION_CREATED_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');
 			}
 		}
 	},
+
+
+
+
+	resetForm:() =>{
+		resetWidget('container_form');
+		this.applicationId = 0;
+		this.applicantId = 0;
+		this.resultCode = 0;
+	},
 	async sendToAutoFill() {
 		// TODO: Later, call RPA api
+		await auth.createTokenBE();
+		// this.resultCode = 8; // test
+		// return false;  // test
+		// let responseBE = await BE_rpa.run();
+		// if (responseBE && responseBE.isSuccess)
+			// return true;
+		// else {
+			// this.resultCode = 8;
+			// return false;
+		// }
 	},
+
 	async sendEmailToPoC(agencyId) {
 		let titleEmailGTN = 'Affiliate test title GTN';
 		// let titleEmailAgency = 'Affiliate test title Agency';
@@ -103,8 +131,10 @@ export default {
 
 		if (this.resultCode == 0) {
 			showAlert(messages.Form.ADDRESS_SUCCESS, 'success');
+			return true;
 		} else {
 			showAlert(messages.Form.EMAIL_SEND_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');
+			return false;
 		}
 	},
 	async sendEmail(emails, title, body, resultCodeIfFailed) {
@@ -115,6 +145,9 @@ export default {
 			.then()
 			.catch(e => {this.resultCode = resultCodeIfFailed; showAlert(e.message, 'error');});
 	},
+
+
+
 
 	validateFormAll:() =>{
 		if (this.validateFormApplicant() == this.VALIDATE_CHOICE_ENOUGH && 
@@ -262,6 +295,7 @@ export default {
 				}
 				applicationId = await this.saveApplications(applicantId);
 				if (applicationId) {
+					this.applicationId = applicantId;
 					if (isChooseWifi) {
 						if (!(await this.saveWifiApplications(applicationId))) {
 							throw new Error("Failed to save wifi");
@@ -313,11 +347,44 @@ export default {
 			}
 		}
 		if (this.resultCode == 0) {
-			showAlert(messages.Form.APPLICATION_CREATED_SUCCESS, 'success');
+			// showAlert(messages.Form.APPLICATION_CREATED_SUCCESS, 'success');
 			return true;
 		} else {
 			showAlert(messages.Form.APPLICATION_CREATED_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');
 			return false;
+		}
+	},
+	async rollbackAfterCreatedApplication(applicantId, applicationId) {
+		switch (this.resultCode) {
+			case 2: // save Address failed
+				rollback_applicant.run({applicantId});
+				break;
+			case 3: // save Application failed
+			case 31: // save Application failed
+				rollback_applicant.run({applicantId});
+				rollback_address.run({applicantId});
+				break;
+			case 4: // save Wifi failed
+			case 41: // save Wifi failed
+				rollback_applicant.run({applicantId});
+				rollback_address.run({applicantId});
+				rollback_application.run({applicationId});
+				break;
+			case 5: // save Card failed
+				rollback_applicant.run({applicantId});
+				rollback_address.run({applicantId});
+				rollback_application.run({applicationId});
+				rollback_wifi_application.run({applicationId});
+				break;
+			case 6: // save Utility failed
+			case 73: // send email failed
+			case 8: // call RPA failed
+				rollback_applicant.run({applicantId});
+				rollback_address.run({applicantId});
+				rollback_application.run({applicationId});
+				rollback_wifi_application.run({applicationId});
+				rollback_card_application.run({applicationId});
+				break;
 		}
 	},
 	async saveApplicant() {
