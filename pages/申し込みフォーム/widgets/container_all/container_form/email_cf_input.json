@@ -14,13 +14,16 @@
     "dynamicTriggerPathList": [],
     "resetOnSubmit": true,
     "leftColumn": 10,
-    "dynamicBindingPathList": [{"key": "accentColor"}],
+    "dynamicBindingPathList": [
+        {"key": "accentColor"},
+        {"key": "validation"}
+    ],
     "labelStyle": "BOLD",
     "inputType": "EMAIL",
     "placeholderText": "Confirm Email",
     "isDisabled": false,
     "key": "0equv9lg65",
-    "validation": "true",
+    "validation": "{{email_input.text === email_cf_input.text}}",
     "labelTextSize": "0.875rem",
     "isRequired": true,
     "rightColumn": 32,
