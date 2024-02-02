@@ -4,7 +4,7 @@
     "borderColor": "#e0dede",
     "isVisibleDownload": false,
     "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-    "topRow": 17,
+    "topRow": 16,
     "isSortable": true,
     "onPageChange": "{{handler_filter.getFilteredApplications()}}",
     "type": "TABLE_WIDGET_V2",
@@ -99,7 +99,7 @@
     ],
     "compactMode": "TALL",
     "displayName": "Table",
-    "bottomRow": 85,
+    "bottomRow": 68,
     "columnWidthMap": {
         "Status": 92.9375,
         "Order_id": 107,
