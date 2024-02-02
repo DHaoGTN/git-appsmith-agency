@@ -90,6 +90,7 @@ export default {
 	async sendToAutoFill() {
 		// TODO: Later, call RPA api
 		await auth.createTokenBE();
+		return true;  // test
 		// this.resultCode = 8; // test
 		// return false;  // test
 		// let responseBE = await BE_rpa.run();
