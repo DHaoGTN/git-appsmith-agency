@@ -9,7 +9,7 @@
         "label"
     ],
     "topRow": 0,
-    "bottomRow": 4,
+    "bottomRow": 5.8390625,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -28,7 +28,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "ガス立会日 Gas start date:\n       \n      {{get_utility_application_detail.data[0].gas_start_date}}",
+    "text": "ガス立会日 Gas start date:\n       \n      {{get_utility_application_detail.data? get_utility_application_detail.data[0].gas_start_date : \"-\"}}",
     "key": "nqhopa7nrb",
     "flexVerticalAlignment": "end",
     "isDeprecated": false,
