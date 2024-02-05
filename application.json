@@ -46,7 +46,7 @@
   "unreadCommentThreads": 0,
   "unpublishedApplicationDetail": {
     "appPositioning": {
-      "type": "FIXED"
+      "type": "AUTO"
     },
     "navigationSetting": {
       "showNavbar": true,

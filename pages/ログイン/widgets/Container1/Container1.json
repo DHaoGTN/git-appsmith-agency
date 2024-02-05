@@ -12,8 +12,8 @@
         "parent",
         "group"
     ],
-    "topRow": 6,
-    "bottomRow": 74,
+    "topRow": 0,
+    "bottomRow": 68,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -38,14 +38,16 @@
         "type": "CANVAS_WIDGET",
         "canExtend": false,
         "hideCard": true,
-        "minHeight": 100,
+        "minHeight": 680,
         "mobileRightColumn": 463.125,
+        "useAutoLayout": true,
         "parentColumnSpace": 1,
         "leftColumn": 0,
         "dynamicBindingPathList": [
             {"key": "borderRadius"},
             {"key": "boxShadow"}
         ],
+        "positioning": "vertical",
         "key": "zjuf4ck7e2",
         "isDeprecated": false,
         "rightColumn": 463.125,
@@ -65,14 +67,23 @@
         "mobileLeftColumn": 0,
         "maxDynamicHeight": 9000,
         "minDynamicHeight": 4,
-        "flexLayers": []
+        "flexLayers": [{"children": [
+            {
+                "id": "avvwe4148f",
+                "align": "start"
+            },
+            {
+                "id": "tf231uivy6",
+                "align": "start"
+            }
+        ]}]
     }],
     "borderWidth": "1",
     "flexVerticalAlignment": "stretch",
     "key": "rmd46qdchl",
     "backgroundColor": "#0891b2",
     "isDeprecated": false,
-    "rightColumn": 63,
+    "rightColumn": 64,
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "aj1009sz3k",
     "containerStyle": "card",
@@ -90,5 +101,6 @@
     "mobileLeftColumn": 9,
     "maxDynamicHeight": 9000,
     "originalBottomRow": 74,
+    "alignment": "start",
     "minDynamicHeight": 10
 }

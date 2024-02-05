@@ -65,6 +65,7 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "columnUpdatedAt": 1705403118722,
     "defaultSelectedRowIndices": [0],
+    "alignment": "start",
     "mobileBottomRow": 28,
     "widgetName": "correspondences_table",
     "defaultPageSize": 0,

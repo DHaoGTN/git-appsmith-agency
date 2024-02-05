@@ -6,8 +6,8 @@
     "dynamicPropertyPathList": [{"key": "borderRadius"}],
     "displayName": "Container",
     "iconSVG": "/static/media/icon.1977dca3.svg",
-    "topRow": 8,
-    "bottomRow": 86,
+    "topRow": 5.2,
+    "bottomRow": 86.8,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -22,15 +22,17 @@
         "widgetName": "Canvas1Copy",
         "displayName": "Canvas",
         "topRow": 0,
-        "bottomRow": 780,
+        "bottomRow": 816,
         "parentRowSpace": 1,
         "type": "CANVAS_WIDGET",
         "canExtend": false,
         "hideCard": true,
-        "minHeight": 400,
+        "minHeight": 730,
+        "useAutoLayout": true,
         "parentColumnSpace": 1,
         "leftColumn": 0,
         "dynamicBindingPathList": [],
+        "positioning": "vertical",
         "key": "ffadum178l",
         "labelTextSize": "0.875rem",
         "rightColumn": 433.5,
@@ -42,22 +44,57 @@
         "parentId": "0mh6andqdi",
         "renderMode": "CANVAS",
         "isLoading": false,
-        "borderRadius": "0px"
+        "responsiveBehavior": "fill",
+        "borderRadius": "0px",
+        "flexLayers": [
+            {"children": [
+                {
+                    "id": "ov47j3o0qo",
+                    "align": "start"
+                },
+                {
+                    "id": "wbk88m6v0p",
+                    "align": "end"
+                },
+                {
+                    "id": "xlr5c51hrk",
+                    "align": "end"
+                }
+            ]},
+            {"children": [
+                {
+                    "id": "kr71ux6zga",
+                    "align": "center"
+                },
+                {
+                    "id": "6nu175pdnb",
+                    "align": "center"
+                }
+            ]},
+            {"children": [{
+                "id": "xogm15hejs",
+                "align": "center"
+            }]}
+        ]
     }],
     "borderWidth": "0",
     "key": "6bzu8mpizb",
+    "flexVerticalAlignment": "stretch",
     "labelTextSize": "0.875rem",
     "backgroundColor": "#d6e8f5",
-    "rightColumn": 63,
-    "dynamicHeight": "FIXED",
+    "rightColumn": 64,
+    "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "0mh6andqdi",
     "containerStyle": "card",
+    "minWidth": 450,
     "isVisible": true,
     "version": 1,
     "parentId": "0",
     "renderMode": "CANVAS",
     "isLoading": false,
+    "responsiveBehavior": "fill",
     "borderRadius": "15px",
     "maxDynamicHeight": 9000,
+    "alignment": "start",
     "minDynamicHeight": 10
 }

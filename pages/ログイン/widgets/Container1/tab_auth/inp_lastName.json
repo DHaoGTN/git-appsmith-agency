@@ -1,12 +1,12 @@
 {
     "boxShadow": "none",
     "iconSVG": "https://appcdn.appsmith.com/static/media/icon.f2c34197dbcf03595098986de898928f.svg",
-    "topRow": 30,
+    "topRow": 24.8,
     "labelWidth": 5,
     "type": "INPUT_WIDGET_V2",
     "animateLoading": true,
     "resetOnSubmit": true,
-    "leftColumn": 7,
+    "leftColumn": 0,
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"}
@@ -15,6 +15,7 @@
     "inputType": "TEXT",
     "placeholderText": "Enter last name",
     "isDisabled": false,
+    "flexVerticalAlignment": "end",
     "isRequired": false,
     "dynamicHeight": "FIXED",
     "accentColor": "{{appsmith.theme.colors.primaryColor}}",
@@ -27,6 +28,7 @@
     ],
     "isLoading": false,
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+    "alignment": "center",
     "mobileBottomRow": 34,
     "widgetName": "inp_lastName",
     "displayName": "Input",
@@ -36,7 +38,7 @@
         "number",
         "textarea"
     ],
-    "bottomRow": 37,
+    "bottomRow": 31.8,
     "parentRowSpace": 10,
     "autoFocus": false,
     "hideCard": false,
@@ -47,7 +49,7 @@
     "key": "oyi4aa4s68",
     "labelTextSize": "0.875rem",
     "isDeprecated": false,
-    "rightColumn": 58,
+    "rightColumn": 64,
     "widgetId": "7kogpikd4w",
     "minWidth": 450,
     "label": "Last Name",

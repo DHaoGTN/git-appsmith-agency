@@ -8,8 +8,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 12,
-    "bottomRow": 16,
+    "topRow": 15.600000000000001,
+    "bottomRow": 19.6,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -19,7 +19,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 6.633596420288086,
     "dynamicTriggerPathList": [],
-    "leftColumn": 6,
+    "leftColumn": 0,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -30,10 +30,11 @@
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
     "text": "<span style=\"font-weight: normal;font-size:small\"> {{appsmith.store.user.department ?appsmith.store.user.department +\" 部\":\"\"}}<\/span>   <span style=\"color: black; font-size: 17px;font-weight:normal\">{{appsmith.store.user.last_name  }} {{appsmith.store.user.first_name}}　様<\/span>\n",
     "key": "l14jgoryw8",
+    "flexVerticalAlignment": "end",
     "isDeprecated": false,
-    "rightColumn": 51,
+    "rightColumn": 64,
     "textAlign": "LEFT",
-    "dynamicHeight": "FIXED",
+    "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "rdkq0kffyz",
     "minWidth": 450,
     "isVisible": true,
@@ -54,6 +55,7 @@
     "mobileLeftColumn": 7,
     "maxDynamicHeight": 9000,
     "originalBottomRow": 16,
-    "fontSize": "1rem",
+    "fontSize": "0.875rem",
+    "alignment": "center",
     "minDynamicHeight": 4
 }

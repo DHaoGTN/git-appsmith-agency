@@ -1,7 +1,9 @@
 {
+    "mobileWidthInPercentage": 0.520458984375,
     "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
     "mobileBottomRow": 16,
     "widgetName": "Image1",
+    "widthInPercentage": 0.520458984375,
     "dynamicPropertyPathList": [],
     "displayName": "Image",
     "iconSVG": "/static/media/icon.69b0f0dd810281fbd6e34fc2c3f39344.svg",
@@ -34,7 +36,9 @@
     "mobileTopRow": 4,
     "maxZoomLevel": 1,
     "enableDownload": false,
+    "responsiveBehavior": "hug",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "mobileLeftColumn": 3,
-    "enableRotation": false
+    "enableRotation": false,
+    "alignment": "start"
 }

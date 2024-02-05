@@ -7,8 +7,8 @@
         "paragraph",
         "label"
     ],
-    "topRow": 2,
-    "bottomRow": 7,
+    "topRow": 0,
+    "bottomRow": 4.4,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
@@ -17,7 +17,7 @@
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
     "parentColumnSpace": 23.578125,
     "dynamicTriggerPathList": [],
-    "leftColumn": 2,
+    "leftColumn": 0,
     "dynamicBindingPathList": [
         {"key": "truncateButtonColor"},
         {"key": "fontFamily"},
@@ -27,8 +27,9 @@
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
     "text": "申込一覧",
     "key": "eo9oc7ple7",
+    "flexVerticalAlignment": "end",
     "isDeprecated": false,
-    "rightColumn": 23,
+    "rightColumn": 54.71342200725513,
     "textAlign": "LEFT",
     "dynamicHeight": "AUTO_HEIGHT",
     "widgetId": "z91dfj1kea",
@@ -46,5 +47,6 @@
     "maxDynamicHeight": 9000,
     "originalBottomRow": 7,
     "fontSize": "1.875rem",
+    "alignment": "start",
     "minDynamicHeight": 4
 }

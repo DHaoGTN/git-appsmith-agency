@@ -1,14 +1,19 @@
 export default {
-	secret: 'nadnvkflmsdckdmcakdsmckvmscsdkmdsofscdsc',
+	secretBE: 'secret',
+	baseUrlBE: 'http://affiliate-stg-api.gtn.co.jp/rpa/',
+	getSecretBE: this.baseUrlBE+'get_secret',
+	rpaBE: this.baseUrlBE+'application_forms',
 	jwtBE: '',
 	async createTokenBE() {
 		let payload = {
 			'exp': 3600,
 			'scope': 'agency'
 		};
-		this.jwtBE = await jsonwebtoken.sign(payload, this.secret);
+		this.jwtBE = await jsonwebtoken.sign(payload, this.secretBE);
 		// console.log('jwtBE: '+this.jwtBE);
 	},
+	
+	
 	////----------- AUTHENTICATION FUNCTION------------////
 	async startUp() {
 		const token = await appsmith.store.token;
