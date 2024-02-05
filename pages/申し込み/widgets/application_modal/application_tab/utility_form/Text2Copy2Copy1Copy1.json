@@ -28,7 +28,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "ガス立会日 Gas start date:\n       \n      {{get_utility_application_detail.data? get_utility_application_detail.data[0].gas_start_date : \"-\"}}",
+    "text": "ガス立会日 Gas start date:\n       \n     {{get_utility_application_detail.data && get_utility_application_detail.data[0].gas_start_date ? get_utility_application_detail.data[0].gas_start_date : \"-\"}}\n",
     "key": "nqhopa7nrb",
     "flexVerticalAlignment": "end",
     "isDeprecated": false,

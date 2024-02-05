@@ -28,7 +28,7 @@
     ],
     "shouldTruncate": false,
     "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-    "text": "ガス立会時間 Gas start time:\n       \n      {{get_utility_application_detail.data? get_utility_application_detail.data[0].gas_start_time_code: \"-\"}}",
+    "text": "ガス立会時間 Gas start time:\n       \n      {{get_utility_application_detail.data && get_utility_application_detail.data[0].gas_start_time_code? get_utility_application_detail.data[0].gas_start_time_code: \"-\"}}",
     "key": "nqhopa7nrb",
     "flexVerticalAlignment": "end",
     "isDeprecated": false,

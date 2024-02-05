@@ -39,6 +39,10 @@
     {
       "id": "Revenue Copy1",
       "isDefault": false
+    },
+    {
+      "id": "申し込みフォーム Copy",
+      "isDefault": false
     }
   ],
   "viewMode": false,
