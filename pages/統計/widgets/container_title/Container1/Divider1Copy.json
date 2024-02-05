@@ -1,5 +1,5 @@
 {
-    "mobileBottomRow": 8,
+    "mobileBottomRow": 8.8,
     "widgetName": "Divider1Copy",
     "thickness": 2,
     "displayName": "Divider",
@@ -11,7 +11,7 @@
     "type": "DIVIDER_WIDGET",
     "capType": "nc",
     "hideCard": false,
-    "mobileRightColumn": 32,
+    "mobileRightColumn": 64,
     "animateLoading": true,
     "parentColumnSpace": 5.471000671386719,
     "leftColumn": 0,
@@ -32,10 +32,10 @@
     "tags": ["Layout"],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 4,
+    "mobileTopRow": 4.8,
     "responsiveBehavior": "fill",
     "originalTopRow": 10,
-    "mobileLeftColumn": 12,
+    "mobileLeftColumn": 0,
     "originalBottomRow": 14,
-    "alignment": "center"
+    "alignment": "start"
 }

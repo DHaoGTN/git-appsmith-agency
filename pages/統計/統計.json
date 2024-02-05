@@ -6,9 +6,10 @@
       {
         "viewMode": false,
         "dsl": {
+          "mobileBottomRow": 1655.9999999999995,
           "widgetName": "MainContainer",
           "topRow": 0,
-          "bottomRow": 1978.390625,
+          "bottomRow": 1170,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,
@@ -27,6 +28,7 @@
           "containerStyle": "none",
           "snapRows": 125,
           "version": 87,
+          "mobileTopRow": 0,
           "responsiveBehavior": "fill",
           "flexLayers": [
             {
@@ -42,38 +44,6 @@
                 {
                   "id": "0mh6andqdi",
                   "align": "start"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "id": "m2mb3r8gq9",
-                  "align": "end"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "id": "i3whp03wf0",
-                  "align": "center"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "id": "qkj1spyam4",
-                  "align": "center"
-                }
-              ]
-            },
-            {
-              "children": [
-                {
-                  "id": "kizk97s0kc",
-                  "align": "center"
                 }
               ]
             }
@@ -127,9 +97,7 @@
                 "appsmith.store.user.agency_id"
               ],
               "timeoutInMillisecond": 10000
-            }
-          ],
-          [
+            },
             {
               "id": "統計_get_table_data",
               "name": "get_table_data",

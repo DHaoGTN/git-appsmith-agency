@@ -1,5 +1,5 @@
 {
-    "mobileBottomRow": 5,
+    "mobileBottomRow": 13.600000000000001,
     "widgetName": "Text60Copy2",
     "displayName": "Text",
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
@@ -13,7 +13,7 @@
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,
-    "mobileRightColumn": 21,
+    "mobileRightColumn": 64,
     "animateLoading": false,
     "overflow": "NONE",
     "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
@@ -48,12 +48,12 @@
     ],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 1,
+    "mobileTopRow": 9.600000000000001,
     "responsiveBehavior": "fill",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "mobileLeftColumn": 5,
+    "mobileLeftColumn": 0,
     "maxDynamicHeight": 9000,
     "fontSize": "1rem",
-    "alignment": "center",
+    "alignment": "start",
     "minDynamicHeight": 4
 }

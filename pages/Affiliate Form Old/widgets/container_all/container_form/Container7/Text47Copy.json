@@ -4,13 +4,13 @@
     "dynamicPropertyPathList": [{"key": "fontSize"}],
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "displayName": "Text",
-    "topRow": 16.717187499999998,
+    "topRow": 15.600000000000001,
     "searchTags": [
         "typography",
         "paragraph",
         "label"
     ],
-    "bottomRow": 21.834374999999998,
+    "bottomRow": 20.7171875,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,

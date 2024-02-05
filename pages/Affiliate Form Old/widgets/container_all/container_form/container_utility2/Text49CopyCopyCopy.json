@@ -7,13 +7,13 @@
     ],
     "iconSVG": "/static/media/icon.a47d6d5dbbb718c4dc4b2eb4f218c1b7.svg",
     "displayName": "Text",
-    "topRow": 34.515625,
+    "topRow": 34.3578125,
     "searchTags": [
         "typography",
         "paragraph",
         "label"
     ],
-    "bottomRow": 38.515625,
+    "bottomRow": 38.3578125,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,

@@ -17,7 +17,6 @@ export default {
 	agencyId: 0,
 	applicationId: 0,
 	applicantId: 0,
-	rpaUrl: '',
 
 	async setInitAccessMode() {
 		let userInfo = await appsmith.store.user;
@@ -95,10 +94,10 @@ export default {
 		// return false;  // test
 		// let responseBE = await BE_rpa.run();
 		// if (responseBE && responseBE.isSuccess)
-			// return true;
+		// return true;
 		// else {
-			// this.resultCode = 8;
-			// return false;
+		// this.resultCode = 8;
+		// return false;
 		// }
 	},
 
@@ -357,27 +356,27 @@ export default {
 	},
 	async rollbackAfterCreatedApplication(applicantId, applicationId) {
 		switch (this.resultCode) {
-			case 2: // save Address failed
-				rollback_applicant.run({applicantId});
-				break;
-			case 3: // save Application failed
-			case 31: // save Application failed
-				rollback_applicant.run({applicantId});
-				rollback_address.run({applicantId});
-				break;
-			case 4: // save Wifi failed
-			case 41: // save Wifi failed
-				rollback_applicant.run({applicantId});
-				rollback_address.run({applicantId});
-				rollback_application.run({applicationId});
-				break;
-			case 5: // save Card failed
-				rollback_applicant.run({applicantId});
-				rollback_address.run({applicantId});
-				rollback_application.run({applicationId});
-				rollback_wifi_application.run({applicationId});
-				break;
-			case 6: // save Utility failed
+				// case 2: // save Address failed
+				// rollback_applicant.run({applicantId});
+				// break;
+				// case 3: // save Application failed
+				// case 31: // save Application failed
+				// rollback_applicant.run({applicantId});
+				// rollback_address.run({applicantId});
+				// break;
+				// case 4: // save Wifi failed
+				// case 41: // save Wifi failed
+				// rollback_applicant.run({applicantId});
+				// rollback_address.run({applicantId});
+				// rollback_application.run({applicationId});
+				// break;
+				// case 5: // save Card failed
+				// rollback_applicant.run({applicantId});
+				// rollback_address.run({applicantId});
+				// rollback_application.run({applicationId});
+				// rollback_wifi_application.run({applicationId});
+				// break;
+				// case 6: // save Utility failed
 			case 73: // send email failed
 			case 8: // call RPA failed
 				rollback_applicant.run({applicantId});

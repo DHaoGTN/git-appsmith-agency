@@ -8,7 +8,7 @@
         "dsl": {
           "widgetName": "MainContainer",
           "topRow": 0,
-          "bottomRow": 3769.484374999999,
+          "bottomRow": 3762.749999999999,
           "parentRowSpace": 1,
           "type": "CANVAS_WIDGET",
           "canExtend": true,

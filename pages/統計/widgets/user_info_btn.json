@@ -1,7 +1,7 @@
 {
     "isCompact": false,
     "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-    "mobileBottomRow": 7,
+    "mobileBottomRow": 4,
     "widgetName": "user_info_btn",
     "configureMenuItems": {
         "label": "Configure menu items",
@@ -21,7 +21,7 @@
     "parentRowSpace": 10,
     "type": "MENU_BUTTON_WIDGET",
     "hideCard": false,
-    "mobileRightColumn": 30,
+    "mobileRightColumn": 64,
     "animateLoading": true,
     "parentColumnSpace": 27.611083984375,
     "dynamicTriggerPathList": [
@@ -29,7 +29,7 @@
         {"key": "menuItems.menuItem3dfuthklaq.onClick"},
         {"key": "menuItems.menuItemo22spze7ps.onClick"}
     ],
-    "leftColumn": 55.10081112398609,
+    "leftColumn": 52.83720930232558,
     "dynamicBindingPathList": [
         {"key": "menuItems.menuItem3dfuthklaq.label"},
         {"key": "label"}
@@ -85,10 +85,10 @@
     "tags": ["Buttons"],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 3,
+    "mobileTopRow": 0,
     "responsiveBehavior": "hug",
     "borderRadius": "1.5rem",
-    "mobileLeftColumn": 14,
+    "mobileLeftColumn": 48,
     "menuItemsSource": "STATIC",
     "menuColor": "#2d969b",
     "iconAlign": "right",

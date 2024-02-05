@@ -30,7 +30,7 @@
         {"key": "menuItems.menuItem3dfuthklaq.onClick"},
         {"key": "menuItems.menuItemo22spze7ps.onClick"}
     ],
-    "leftColumn": 54.71342200725513,
+    "leftColumn": 54.0646830530401,
     "dynamicBindingPathList": [
         {"key": "borderRadius"},
         {"key": "menuItems.menuItem3dfuthklaq.label"},
@@ -41,7 +41,7 @@
     "flexVerticalAlignment": "end",
     "key": "0gcavasjcu",
     "isDeprecated": false,
-    "rightColumn": 63.99999999999999,
+    "rightColumn": 64,
     "menuVariant": "PRIMARY",
     "widgetId": "hoe88fyti2",
     "bottomRowBeforeCollapse": 9,
