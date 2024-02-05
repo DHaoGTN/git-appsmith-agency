@@ -130,7 +130,7 @@ export default {
 		// await this.sendEmail(customerEmail, titleEmailCustomer, bodyEmailCustomer, 74);
 
 		if (this.resultCode == 0) {
-			showAlert(messages.Form.ADDRESS_SUCCESS, 'success');
+			showAlert(messages.Form.EMAIL_SEND_SUCCESS, 'success');
 			return true;
 		} else {
 			showAlert(messages.Form.EMAIL_SEND_FAILURE + messages.Form.RESULT_CODE + this.resultCode, 'error');

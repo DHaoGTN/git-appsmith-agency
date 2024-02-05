@@ -18,7 +18,7 @@
         "widgetName": "Canvas11Copy",
         "displayName": "Canvas",
         "topRow": 0,
-        "bottomRow": 203.42187499999994,
+        "bottomRow": 205.99999999999997,
         "parentRowSpace": 1,
         "type": "CANVAS_WIDGET",
         "canExtend": false,
@@ -86,7 +86,7 @@
         "parent",
         "group"
     ],
-    "bottomRow": 235.54218749999998,
+    "bottomRow": 235.79999999999998,
     "parentRowSpace": 10,
     "hideCard": false,
     "shouldScrollContents": true,

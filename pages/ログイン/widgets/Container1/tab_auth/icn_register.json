@@ -1,5 +1,6 @@
 {
     "boxShadow": "none",
+    "mobileBottomRow": 5,
     "widgetName": "icn_register",
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "displayName": "Icon Button",
@@ -13,6 +14,7 @@
     "parentRowSpace": 10,
     "type": "ICON_BUTTON_WIDGET",
     "hideCard": false,
+    "mobileRightColumn": 56.73130193905817,
     "animateLoading": true,
     "parentColumnSpace": 18.1875,
     "dynamicTriggerPathList": [],
@@ -31,8 +33,10 @@
     "parentId": "dnys3ymj3f",
     "renderMode": "CANVAS",
     "isLoading": false,
+    "mobileTopRow": 0,
     "responsiveBehavior": "hug",
     "borderRadius": "1.5rem",
+    "mobileLeftColumn": 0,
     "buttonVariant": "PRIMARY",
     "alignment": "start"
 }

@@ -20,7 +20,7 @@
     "animateLoading": true,
     "parentColumnSpace": 14.815673828125,
     "dynamicTriggerPathList": [{"key": "onClick"}],
-    "leftColumn": 50.6155950752394,
+    "leftColumn": 52.27283653846154,
     "dynamicBindingPathList": [{"key": "borderRadius"}],
     "text": "ホームページに戻る",
     "isDisabled": false,

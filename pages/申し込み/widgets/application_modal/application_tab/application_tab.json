@@ -20,7 +20,7 @@
         {
             "tabId": "tab1",
             "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-            "mobileBottomRow": 150,
+            "mobileBottomRow": 420,
             "widgetName": "Canvas2",
             "displayName": "Canvas",
             "bottomRow": 304,
@@ -69,7 +69,7 @@
         {
             "tabId": "tab2",
             "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-            "mobileBottomRow": 150,
+            "mobileBottomRow": 260,
             "widgetName": "Canvas3",
             "displayName": "Canvas",
             "bottomRow": 260,
@@ -118,7 +118,7 @@
         {
             "tabId": "taboisgt0490e",
             "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-            "mobileBottomRow": 421,
+            "mobileBottomRow": 321,
             "widgetName": "Canvas4",
             "displayName": "Canvas",
             "topRow": 1,
@@ -166,7 +166,7 @@
         {
             "tabId": "tabe9g5m3lcq0",
             "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-            "mobileBottomRow": 421,
+            "mobileBottomRow": 417.0000000000001,
             "widgetName": "Canvas5",
             "displayName": "Canvas",
             "topRow": 1,
@@ -214,11 +214,11 @@
         {
             "tabId": "tabvzfazjcplm",
             "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-            "mobileBottomRow": 461,
+            "mobileBottomRow": 801,
             "widgetName": "Canvas6",
             "displayName": "Canvas",
             "topRow": 1,
-            "bottomRow": 641.515625,
+            "bottomRow": 662.515625,
             "parentRowSpace": 1,
             "type": "CANVAS_WIDGET",
             "canExtend": false,
@@ -271,7 +271,7 @@
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
     "originalBottomRow": 78,
     "alignment": "center",
-    "mobileBottomRow": 23,
+    "mobileBottomRow": 55.6,
     "widgetName": "application_tab",
     "dynamicPropertyPathList": [
         {"key": "tabsObj.tab1.isVisible"},
@@ -284,7 +284,7 @@
     "parentRowSpace": 10,
     "hideCard": false,
     "shouldScrollContents": true,
-    "mobileRightColumn": 25,
+    "mobileRightColumn": 64,
     "parentColumnSpace": 12.9375,
     "dynamicTriggerPathList": [{"key": "onTabSelected"}],
     "borderWidth": 1,
@@ -342,10 +342,10 @@
     },
     "parentId": "vjv84tn4bl",
     "renderMode": "CANVAS",
-    "mobileTopRow": 8,
+    "mobileTopRow": 9.600000000000001,
     "responsiveBehavior": "fill",
     "originalTopRow": 8,
-    "mobileLeftColumn": 1,
+    "mobileLeftColumn": 0,
     "maxDynamicHeight": 9000,
     "minDynamicHeight": 15
 }

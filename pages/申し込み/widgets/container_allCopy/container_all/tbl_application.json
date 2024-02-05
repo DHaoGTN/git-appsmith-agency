@@ -75,6 +75,7 @@
     "primaryColumnId": "id",
     "defaultSelectedRowIndices": [0],
     "alignment": "center",
+    "mobileBottomRow": 81.6,
     "widgetName": "tbl_application",
     "defaultPageSize": 0,
     "columnOrder": [
@@ -129,6 +130,7 @@
     "parentRowSpace": 10,
     "hideCard": false,
     "onPageSizeChange": "{{handler_filter.getFilteredApplications()}}",
+    "mobileRightColumn": 64,
     "parentColumnSpace": 18.1875,
     "dynamicTriggerPathList": [
         {"key": "onRowSelected"},
@@ -569,10 +571,12 @@
     "parentId": "4zxk6c5rfx",
     "serverSidePaginationEnabled": true,
     "renderMode": "CANVAS",
+    "mobileTopRow": 29.6,
     "horizontalAlignment": "CENTER",
     "isVisibleSearch": false,
     "originalTopRow": 17,
     "responsiveBehavior": "fill",
+    "mobileLeftColumn": 0,
     "isVisiblePagination": true,
     "verticalAlignment": "CENTER"
 }

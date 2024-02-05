@@ -1,6 +1,6 @@
 {
     "boxShadow": "none",
-    "mobileBottomRow": 60,
+    "mobileBottomRow": 10,
     "borderColor": "",
     "widgetName": "credit_card_form",
     "isCanvas": true,
@@ -13,7 +13,7 @@
     "type": "FORM_WIDGET",
     "hideCard": false,
     "shouldScrollContents": true,
-    "mobileRightColumn": 25,
+    "mobileRightColumn": 64,
     "animateLoading": true,
     "parentColumnSpace": 12.220703125,
     "dynamicTriggerPathList": [],
@@ -21,7 +21,7 @@
     "dynamicBindingPathList": [{"key": "borderRadius"}],
     "children": [{
         "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-        "mobileBottomRow": 400,
+        "mobileBottomRow": 100,
         "widgetName": "Canvas10",
         "displayName": "Canvas",
         "topRow": 0,
@@ -79,10 +79,10 @@
     "tags": ["Layout"],
     "renderMode": "CANVAS",
     "isLoading": false,
-    "mobileTopRow": 20,
+    "mobileTopRow": 0,
     "responsiveBehavior": "fill",
     "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-    "mobileLeftColumn": 1,
+    "mobileLeftColumn": 0,
     "maxDynamicHeight": 9000,
     "alignment": "end",
     "minDynamicHeight": 10

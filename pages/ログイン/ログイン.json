@@ -6,6 +6,7 @@
       {
         "viewMode": false,
         "dsl": {
+          "mobileBottomRow": 1292,
           "widgetName": "MainContainer",
           "topRow": 0,
           "bottomRow": 1292,
@@ -27,6 +28,7 @@
           "containerStyle": "none",
           "snapRows": 124,
           "version": 87,
+          "mobileTopRow": 0,
           "responsiveBehavior": "fill",
           "flexLayers": [
             {
