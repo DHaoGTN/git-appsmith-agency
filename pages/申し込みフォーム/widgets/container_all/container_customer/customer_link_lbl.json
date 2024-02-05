@@ -4,7 +4,7 @@
     "displayName": "Text",
     "iconSVG": "/static/media/icon.97c59b52.svg",
     "topRow": 0,
-    "bottomRow": 5.8390625,
+    "bottomRow": 4,
     "parentRowSpace": 10,
     "type": "TEXT_WIDGET",
     "hideCard": false,

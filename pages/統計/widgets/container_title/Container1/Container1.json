@@ -3,7 +3,7 @@
     "borderColor": "#E0DEDE",
     "isCanvas": true,
     "iconSVG": "/static/media/icon.daebf68875b6c8e909e9e8ac8bee0c02.svg",
-    "topRow": 7.800000000000001,
+    "topRow": 13,
     "type": "CONTAINER_WIDGET",
     "topRowBeforeCollapse": 5,
     "animateLoading": true,
@@ -86,7 +86,7 @@
         "parent",
         "group"
     ],
-    "bottomRow": 26.0390625,
+    "bottomRow": 31.2390625,
     "parentRowSpace": 10,
     "hideCard": false,
     "shouldScrollContents": false,

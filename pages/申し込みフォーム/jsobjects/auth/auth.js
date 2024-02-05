@@ -6,10 +6,10 @@ export default {
 	jwtBE: '',
 	async createTokenBE() {
 		let payload = {
-			'exp': 3600,
+			// 'exp': 3600,
 			'scope': 'agency'
 		};
-		this.jwtBE = await jsonwebtoken.sign(payload, this.secretBE);
+		this.jwtBE = await jsonwebtoken.sign(payload, this.secretBE, {expiresIn: 3600});
 		// console.log('jwtBE: '+this.jwtBE);
 	},
 	

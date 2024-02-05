@@ -7,8 +7,8 @@
     "dynamicPropertyPathList": [{"key": "borderRadius"}],
     "displayName": "Container",
     "iconSVG": "/static/media/icon.1977dca3.svg",
-    "topRow": 5.2,
-    "bottomRow": 86.959375,
+    "topRow": 0,
+    "bottomRow": 86.79999999999998,
     "parentRowSpace": 10,
     "type": "CONTAINER_WIDGET",
     "hideCard": false,
@@ -25,7 +25,7 @@
         "widgetName": "Canvas1Copy",
         "displayName": "Canvas",
         "topRow": 0,
-        "bottomRow": 817.5937499999999,
+        "bottomRow": 867.9999999999998,
         "parentRowSpace": 1,
         "type": "CANVAS_WIDGET",
         "canExtend": false,
@@ -51,6 +51,10 @@
         "responsiveBehavior": "fill",
         "borderRadius": "0px",
         "flexLayers": [
+            {"children": [{
+                "id": "bc91p79uad",
+                "align": "end"
+            }]},
             {"children": [
                 {
                     "id": "ov47j3o0qo",
